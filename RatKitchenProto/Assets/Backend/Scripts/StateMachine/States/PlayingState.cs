@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEngine.UI;
 
 public class PlayingState : State
 {
@@ -23,7 +22,7 @@ public class PlayingState : State
     {
         base.ExitState();
     }
-    
+
     public override void UpdateState()
     {
         base.UpdateState();
@@ -33,6 +32,6 @@ public class PlayingState : State
         TimerAndScore.UpdateTimer();
         KitchenGenerator.UpdateKitchenGenerator();
 
-        
+
     }
 }

@@ -1,6 +1,3 @@
-using NUnit.Framework;
-using System;
-using System.Collections.Generic;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -24,10 +21,10 @@ public class GenerateKitchen : MonoBehaviour
         for (int i = 1; i <= amountOfElements; i++)
         {
             Vector3 spawnPosition = new Vector3(i * -0.801f, 0, 0);
-            
+
             int randomType = Random.Range(0, 3);
             GameObject prefabToSpawn = null;
-            
+
             switch (randomType)
             {
                 case 0:
@@ -35,7 +32,7 @@ public class GenerateKitchen : MonoBehaviour
                     {
                         prefabToSpawn = sinkPrefab;
                         maxSinks--;
-                        
+
                     }
                     else
                     {
@@ -57,7 +54,7 @@ public class GenerateKitchen : MonoBehaviour
                     prefabToSpawn = counterPrefabs[Random.Range(0, counterPrefabs.Length)];
                     break;
             }
-            
+
             if (prefabToSpawn != null)
             {
                 GameObject clone = Instantiate(prefabToSpawn, spawnPosition, Quaternion.identity);

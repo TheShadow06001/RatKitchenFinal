@@ -1,6 +1,3 @@
-using NUnit.Framework;
-using System;
-using System.Collections.Generic;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -20,10 +17,10 @@ public class GenerateWalls : MonoBehaviour
         for (int i = 0; i <= amountOfElements; i++)
         {
             Vector3 spawnPosition = new Vector3(i * -4f, 0, -0.93f);
-            
+
             int randomType = Random.Range(0, 2);
             GameObject prefabToSpawn = null;
-            
+
             switch (randomType)
             {
                 case 0:
@@ -31,7 +28,7 @@ public class GenerateWalls : MonoBehaviour
                     {
                         prefabToSpawn = windowedWallPrefab;
                         maxWindows--;
-                        
+
                     }
                     else
                     {
@@ -41,9 +38,9 @@ public class GenerateWalls : MonoBehaviour
                 case 1:
                     prefabToSpawn = wallPrefab;
                     break;
-                
+
             }
-            
+
             if (prefabToSpawn != null)
             {
                 GameObject clone = Instantiate(prefabToSpawn, spawnPosition, Quaternion.Euler(0, 90, 0));

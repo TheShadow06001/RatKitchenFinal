@@ -22,7 +22,7 @@ public class StateMachine : MonoBehaviour
         Debug.LogWarning("State not found");
     }
 
-    public virtual void UpdateStateMachine() 
+    public virtual void UpdateStateMachine()
     {
         currentState?.UpdateState();
     }
@@ -37,6 +37,6 @@ public class StateMachine : MonoBehaviour
     {
         if (currentState.GetType() == typeof(aState)) return true;
         else return false;
-       
+
     }
 }

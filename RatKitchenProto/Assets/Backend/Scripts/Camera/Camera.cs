@@ -6,7 +6,7 @@ public class CameraScript : MonoBehaviour
     public Vector3 direction = Vector3.forward;
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame

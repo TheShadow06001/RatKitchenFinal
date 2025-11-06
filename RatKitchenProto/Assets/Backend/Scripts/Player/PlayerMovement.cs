@@ -49,9 +49,9 @@ public class PlayerMovement : MonoBehaviour
             animator.SetInteger("HurtCount", count + 1);
         }
     }
-    
 
-    
+
+
     void HandleForwardSpeed()
     {
         if (transform.position.z < anchorPoint.transform.position.z - 0.1f)

@@ -30,7 +30,7 @@ public class WallGenerator : MonoBehaviour
         Vector3 wallPosition = spawnBasePosition;
         GameObject newWall = KitchenPool.Instance.GetPooledWall(chosenWall, wallPosition, Quaternion.identity);
         newWall.SetActive(true);
-        
+
         wallSpawnCounts[chosenWall]++;
         secondLastWallType = lastWallType;
         lastWallType = chosenWall;

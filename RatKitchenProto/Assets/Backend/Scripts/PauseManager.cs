@@ -1,4 +1,3 @@
-using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
 public class PauseManager : MonoBehaviour
@@ -10,14 +9,14 @@ public class PauseManager : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            
+
             if (!isPaused)
             {
                 SoundManager.Instance.PlaySoundEffect(SoundEffects.OpenPause);
-                GameManager.Instance.SwitchState<PauseState>(); 
+                GameManager.Instance.SwitchState<PauseState>();
                 isPaused = true;
             }
-            else if (isPaused) 
+            else if (isPaused)
             {
                 SoundManager.Instance.PlaySoundEffect(SoundEffects.ClosePause);
                 GameManager.Instance.SwitchState<PlayingState>();

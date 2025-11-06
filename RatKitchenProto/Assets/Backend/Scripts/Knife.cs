@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Diagnostics.CodeAnalysis;
 using UnityEngine;
 
 public class Knife : MonoBehaviour
@@ -10,7 +9,7 @@ public class Knife : MonoBehaviour
     [SerializeField] private MeshRenderer mesh;
     [SerializeField] private MeshRenderer line;
 
-    
+
     private Vector3 startPosition;
     private Vector3 endPosition;
 
@@ -20,10 +19,10 @@ public class Knife : MonoBehaviour
 
     void Start()
     {
-        
+
 
         startPosition = transform.position;
-        endPosition = new Vector3(transform.position.x, transform.position.y - 1, transform.position.z );
+        endPosition = new Vector3(transform.position.x, transform.position.y - 0.2f, transform.position.z);
 
         isComplete = false;
         StartCoroutine(Chop());
@@ -43,7 +42,7 @@ public class Knife : MonoBehaviour
 
     IEnumerator Chop()
     {
-        
+
 
         int value1 = 0;
 
@@ -70,9 +69,9 @@ public class Knife : MonoBehaviour
             }
         }
 
-        
 
-        
+
+
         isComplete = true;
     }
 

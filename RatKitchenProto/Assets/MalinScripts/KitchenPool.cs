@@ -1,7 +1,5 @@
 using System.Collections.Generic;
-using Unity.VisualScripting.Antlr3.Runtime.Misc;
 using UnityEngine;
-using UnityEngine.UIElements;
 
 public class KitchenPool : MonoBehaviour
 {
@@ -117,7 +115,7 @@ public class KitchenPool : MonoBehaviour
             return null;
 
         Queue<GameObject> objectPool = platformDictionary[type];
-        GameObject obj; 
+        GameObject obj;
 
         if (objectPool.Count > 0)
         {
