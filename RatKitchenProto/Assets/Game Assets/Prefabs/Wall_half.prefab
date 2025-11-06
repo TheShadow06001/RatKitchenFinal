@@ -1,0 +1,96 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &998838155382615508
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: b7865052bf4ae994cb27cbdd5894172e, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.73749995
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: b7865052bf4ae994cb27cbdd5894172e, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: b7865052bf4ae994cb27cbdd5894172e, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 12.747691
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: b7865052bf4ae994cb27cbdd5894172e, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: b7865052bf4ae994cb27cbdd5894172e, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: b7865052bf4ae994cb27cbdd5894172e, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: b7865052bf4ae994cb27cbdd5894172e, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: b7865052bf4ae994cb27cbdd5894172e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: b7865052bf4ae994cb27cbdd5894172e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: b7865052bf4ae994cb27cbdd5894172e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: b7865052bf4ae994cb27cbdd5894172e, type: 3}
+      propertyPath: m_Name
+      value: Wall_half
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: b7865052bf4ae994cb27cbdd5894172e, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5271970151787019110}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: b7865052bf4ae994cb27cbdd5894172e, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5696549978237127999}
+  m_SourcePrefab: {fileID: 100100000, guid: b7865052bf4ae994cb27cbdd5894172e, type: 3}
+--- !u!1 &80501652139987077 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: b7865052bf4ae994cb27cbdd5894172e, type: 3}
+  m_PrefabInstance: {fileID: 998838155382615508}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &5271970151787019110
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 80501652139987077}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c8461ac3fc6275042a0e6373b3878b6c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlatformDestroyer
+  platformDestructionPoint: {fileID: 0}
+--- !u!114 &5696549978237127999
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 80501652139987077}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aba18fe32b585a34581a185848ea4617, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PooledWall
+  wallType: {fileID: 11400000, guid: 4a41fc1d6c9fd8f47989d04c86f5b76a, type: 2}

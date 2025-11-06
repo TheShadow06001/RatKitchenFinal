@@ -1,0 +1,60 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &7511535234245550007
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8075471180537311872}
+  - component: {fileID: 6871247185884650067}
+  m_Layer: 0
+  m_Name: PlatformGenerator
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8075471180537311872
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7511535234245550007}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 9.07, y: -0.67, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6871247185884650067
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7511535234245550007}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a57db7e83dfb94042a8bb8614d5030b6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::KitchenGenerator
+  platformTypes:
+  - {fileID: 11400000, guid: 996a2fb11c89cc846b84497dfb569021, type: 2}
+  - {fileID: 11400000, guid: 1e51524b5817a6f47a4dda8a9ce34ee2, type: 2}
+  - {fileID: 11400000, guid: 92c2f40e5f249d042b0bdea454417ebd, type: 2}
+  wallTypes:
+  - {fileID: 11400000, guid: 4a41fc1d6c9fd8f47989d04c86f5b76a, type: 2}
+  - {fileID: 11400000, guid: f98d843a42b848947ad07dd111c3d2ca, type: 2}
+  generationPoint: {fileID: 0}
+  distanceBetween: 9
+  maxPlatformsPerRun: 10
+  currentLevel: 1
+  endPlatformPrefab: {fileID: 5039325004813896189, guid: e945c6713953c7247b338cf7aa20ccb1, type: 3}
+  endWallPrefab: {fileID: 4603161467987493025, guid: 77f07a47c38614d498960710d47ade1e, type: 3}
+  spawnedPlatforms: 0

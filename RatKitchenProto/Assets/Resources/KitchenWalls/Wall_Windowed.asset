@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8efffb736615634c9709983f357d045, type: 3}
+  m_Name: Wall_Windowed
+  m_EditorClassIdentifier: Assembly-CSharp::WallType
+  typeOfWall: Window
+  tag: Window
+  prefab: {fileID: 7855474493127897031, guid: a07c1e2e3e3b8d44fb7fb09faaa46e4c, type: 3}
+  MaxCountPerRun: 2
+  baseMaxCount: 2
+  spawnWeight: 1
+  cannotHaveNeighbour: []
+  isBaseCase: 0
+  variantPrefabs: []
+  minLevelToAppear: 1
+  maxLevelToAppear: 999
+  spawnChanceCurve:
+    serializedVersion: 2
+    m_Curve: []
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  maxCountMultiplierPerLevel: 1
