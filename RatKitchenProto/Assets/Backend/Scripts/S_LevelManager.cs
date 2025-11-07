@@ -8,11 +8,14 @@ public class S_LevelManager : MonoBehaviour
 {
     public static S_LevelManager Instance;
 
-    [Header("Canvas Refs")]
-    [SerializeField] private GameObject MainMenuCanvas;
+    [Header("Canvas Refs")] [SerializeField]
+    private GameObject MainMenuCanvas;
+
     [SerializeField] private GameObject LoadingScreenCanvas;
-    [Header("Loading Screen Refs")]
-    [SerializeField] private Slider LoadingScreenBarR;
+
+    [Header("Loading Screen Refs")] [SerializeField]
+    private Slider LoadingScreenBarR;
+
     [SerializeField] private Slider LoadingScreenBarL;
     [SerializeField] private TMP_Text LoadingText;
 
@@ -38,23 +41,20 @@ public class S_LevelManager : MonoBehaviour
         if (LoadingScreenCanvas != null)
         {
             LoadingScreenCanvas.SetActive(true);
-
-            if (MainMenuCanvas != null)
-            {
-                MainMenuCanvas.SetActive(false);
-            }
+            if (MainMenuCanvas != null) MainMenuCanvas.SetActive(false);
         }
+
         StartCoroutine(LoadLevelAsync(LevelName));
     }
 
     private IEnumerator LoadLevelAsync(string LevelName)
     {
-        AsyncOperation LoadOperation = SceneManager.LoadSceneAsync(LevelName);
+        var LoadOperation = SceneManager.LoadSceneAsync(LevelName);
         LoadOperation.allowSceneActivation = false;
 
         while (!LoadOperation.isDone)
         {
-            float Progress = Mathf.Clamp01(LoadOperation.progress / 0.9f);
+            var Progress = Mathf.Clamp01(LoadOperation.progress / 0.9f);
             LoadingScreenBarR.value = Progress;
             LoadingScreenBarL.value = Progress;
             LoadingText.text = "Loading... " + (int)(Progress * 100f) + "%";
@@ -69,6 +69,7 @@ public class S_LevelManager : MonoBehaviour
                 yield return new WaitForSeconds(0.5f);
                 LoadingScreenCanvas.SetActive(false);
             }
+
             yield return null;
         }
     }

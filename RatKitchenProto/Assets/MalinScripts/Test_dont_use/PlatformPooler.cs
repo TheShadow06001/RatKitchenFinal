@@ -5,15 +5,15 @@ public class PlatformPooler : MonoBehaviour
 {
     public GameObject pooledObject;
     public int pooledAmount; // amount of objects to put in pool
-    List<GameObject> pooledObjects;
+    private List<GameObject> pooledObjects;
 
     private void Start()
     {
-        pooledObjects = new();
+        pooledObjects = new List<GameObject>();
 
-        for (int i = 0; i < pooledAmount; i++)
+        for (var i = 0; i < pooledAmount; i++)
         {
-            GameObject obj = Instantiate(pooledObject);
+            var obj = Instantiate(pooledObject);
             obj.SetActive(false);
             pooledObjects.Add(obj);
         }
@@ -21,16 +21,12 @@ public class PlatformPooler : MonoBehaviour
 
     public GameObject GetPooledObject()
     {
-        for (int i = 0; i < pooledObjects.Count; i++)
-        {
+        for (var i = 0; i < pooledObjects.Count; i++)
             if (!pooledObjects[i].activeInHierarchy)
-            {
                 return pooledObjects[i]; // return from list of pooled objects
-            }
-        }
 
         //create new if nothing left in pool
-        GameObject obj = Instantiate(pooledObject);
+        var obj = Instantiate(pooledObject);
         obj.SetActive(false);
         pooledObjects.Add(obj);
         return obj;

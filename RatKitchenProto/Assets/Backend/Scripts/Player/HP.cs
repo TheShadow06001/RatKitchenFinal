@@ -3,12 +3,11 @@ using UnityEngine.SceneManagement;
 
 public class HP : MonoBehaviour
 {
-
-    private int health = 2;
     [SerializeField] private float regenTime = 3f;
     [SerializeField] private GameObject gameOverMenu;
-    private float timer;
 
+    private int health = 2;
+    private float timer;
 
 
     private void Update()
@@ -16,16 +15,8 @@ public class HP : MonoBehaviour
         if (GameManager.Instance.CheckState<PlayingState>())
         {
             if (timer >= 0)
-            {
                 timer -= Time.deltaTime;
-
-            }
-            else if (timer <= 0)
-            {
-                RegenHealth();
-            }
-
-
+            else if (timer <= 0) RegenHealth();
         }
     }
 
@@ -36,7 +27,6 @@ public class HP : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
-
         health -= damage;
         timer = regenTime;
 
@@ -45,10 +35,7 @@ public class HP : MonoBehaviour
             SceneManager.LoadScene("Main Menu");
 
             Debug.Log("Game Over");
-            if (gameOverMenu != null)
-            {
-                gameOverMenu.SetActive(true);
-            }
+            if (gameOverMenu != null) gameOverMenu.SetActive(true);
         }
     }
 }

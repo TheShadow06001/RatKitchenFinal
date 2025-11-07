@@ -16,6 +16,7 @@ public class GameManager : StateMachine
             Destroy(gameObject);
         }
     }
+
     #endregion
 
     private void Start()

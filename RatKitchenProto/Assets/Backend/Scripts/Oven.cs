@@ -5,8 +5,8 @@ public class Oven : KitchenElements
 {
     public GameObject fryingPan;
     public GameObject bigPan;
-    float ovenHeigth = 1.1f;
-    Vector3 parentVectorPosition;
+    private readonly float ovenHeigth = 1.1f;
+    private Vector3 parentVectorPosition;
 
 
     private void OnEnable()
@@ -18,25 +18,26 @@ public class Oven : KitchenElements
     {
         parentVectorPosition = transform.position;
 
-        float CELL_WIDTH = x / 2;
-        float CELL_HEIGHT = z / 2;
+        var CELL_WIDTH = x / 2;
+        var CELL_HEIGHT = z / 2;
 
-        float CENTER_OF_CELL_X = CELL_WIDTH / 2;
-        float CENTER_OF_CELL_Z = CELL_WIDTH / 2;
+        var CENTER_OF_CELL_X = CELL_WIDTH / 2;
+        var CENTER_OF_CELL_Z = CELL_WIDTH / 2;
 
         float randX = Random.Range(0, 2);
         float randY = Random.Range(0, 2);
 
-        float finalX = randX * CELL_WIDTH + CENTER_OF_CELL_X;
-        float finalZ = randY * CELL_HEIGHT + CENTER_OF_CELL_Z;
-        Vector3 spawnPosition = new Vector3(finalX, ovenHeigth, finalZ) + parentVectorPosition;
+        var finalX = randX * CELL_WIDTH + CENTER_OF_CELL_X;
+        var finalZ = randY * CELL_HEIGHT + CENTER_OF_CELL_Z;
+        var spawnPosition = new Vector3(finalX, ovenHeigth, finalZ) + parentVectorPosition;
 
         return spawnPosition;
     }
+
     private void Generate()
     {
         GameObject prefabToSpawn = null;
-        int randomType = Random.Range(0, 2);
+        var randomType = Random.Range(0, 2);
 
         switch (randomType)
         {
@@ -51,7 +52,7 @@ public class Oven : KitchenElements
 
         if (prefabToSpawn != null)
         {
-            GameObject obstacle = Instantiate(prefabToSpawn, CountPosition(-0.78f, -0.57f), Quaternion.Euler(-90, 0, 0));
+            var obstacle = Instantiate(prefabToSpawn, CountPosition(-0.78f, -0.57f), Quaternion.Euler(-90, 0, 0));
             obstacle.transform.SetParent(transform);
         }
     }

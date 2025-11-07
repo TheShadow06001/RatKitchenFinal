@@ -2,14 +2,13 @@ using UnityEngine;
 
 public class PauseManager : MonoBehaviour
 {
-    private bool isPaused = false;
+    private bool isPaused;
 
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-
             if (!isPaused)
             {
                 SoundManager.Instance.PlaySoundEffect(SoundEffects.OpenPause);

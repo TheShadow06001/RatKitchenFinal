@@ -12,7 +12,6 @@ public class PauseState : State
 
     public override void UpdateState()
     {
-
     }
 
     public override void ExitState()

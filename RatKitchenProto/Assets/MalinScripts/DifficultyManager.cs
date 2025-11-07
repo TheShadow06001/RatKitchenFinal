@@ -3,19 +3,23 @@ using UnityEngine;
 
 public class DifficultyManager : MonoBehaviour
 {
-    public static DifficultyManager Instance { get; private set; }
+    [Header("Current Level")] [SerializeField]
+    private int currentLevel = 1;
 
-    [Header("Current Level")]
-    [SerializeField] private int currentLevel = 1;
     //[SerializeField] private LevelSettings currentSettings; // manual override of level settings
     [SerializeField] private int basePlatformCount = 20;
     [SerializeField] private int platformsPerLevelIncrease = 5;
-    [SerializeField] KitchenGenerator kitchenGenerator;
+    [SerializeField] private KitchenGenerator kitchenGenerator;
 
 
     [Header("Scaling - currently not being used")]
     public bool useDynamicScaling = true;
+
     public float maxLevel = 10f; // time-based instead? or just set it very high?
+    public static DifficultyManager Instance { get; private set; }
+
+    public int CurrentLevel => currentLevel;
+    public int CurrentMaxPlatforms { get; private set; }
 
     private void Awake()
     {
@@ -28,9 +32,6 @@ public class DifficultyManager : MonoBehaviour
     }
 
     public event Action OnLevelReset;
-
-    public int CurrentLevel => currentLevel;
-    public int CurrentMaxPlatforms { get; private set; }
 
     //public LevelSettings CurrentSettings => currentSettings;
 
@@ -46,18 +47,15 @@ public class DifficultyManager : MonoBehaviour
         if (kitchenGenerator != null)
         {
             foreach (var platformType in kitchenGenerator.GetPlatformTypes())
-            {
                 if (platformType.typeOfPlatform == "Stove" || platformType.typeOfPlatform == "Sink")
                 {
                     platformType.baseMaxCount += 1;
                     platformType.MaxCountPerRun += 1;
                 }
-            }
 
             kitchenGenerator.ResetKitchenGenerator(CurrentMaxPlatforms, currentLevel);
         }
     }
-
 
 
     //public void SetLevel(int newLevel)

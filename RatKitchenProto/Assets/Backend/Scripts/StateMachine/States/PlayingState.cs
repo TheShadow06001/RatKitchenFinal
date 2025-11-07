@@ -4,8 +4,8 @@ public class PlayingState : State
 {
     [SerializeField] private S_TimerAndScore TimerAndScore;
     [SerializeField] private KitchenGenerator KitchenGenerator;
-    private PlayerMovement playerMovement;
     private CameraScript cameraScript;
+    private PlayerMovement playerMovement;
 
     private void Awake()
     {
@@ -31,7 +31,5 @@ public class PlayingState : State
         playerMovement.PlayerUpdate();
         TimerAndScore.UpdateTimer();
         KitchenGenerator.UpdateKitchenGenerator();
-
-
     }
 }
