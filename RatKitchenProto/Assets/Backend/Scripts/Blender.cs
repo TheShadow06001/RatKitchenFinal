@@ -3,21 +3,21 @@ using UnityEngine;
 
 public class Blender : MonoBehaviour
 {
-    [Header("Variables")]
-    [SerializeField] private int damage = 1;
+    [Header("Variables")] [SerializeField] private int damage = 1;
+
     [SerializeField] private float range;
     [SerializeField] private float dieRange;
     [SerializeField] private float fallPercentage;
     [SerializeField] private float fallSpeed;
     [SerializeField] private float checkCooldown;
     [SerializeField] private Transform deathPoint;
+    private bool canFall = true;
+    private bool canTakeDamage = true;
+    private readonly float endRotation = -90;
+    private bool hasFallen;
+    private GameObject player;
 
     private int test;
-    private bool canTakeDamage = true;
-    private bool canFall = true;
-    private bool hasFallen = false;
-    private float endRotation = -90;
-    private GameObject player;
 
     private void Start()
     {
@@ -27,7 +27,7 @@ public class Blender : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
         if (GameManager.Instance.CheckState<PlayingState>())
         {
@@ -40,74 +40,6 @@ public class Blender : MonoBehaviour
                 StartCoroutine(TimerDie());
             }
         }
-
-
-    }
-
-
-    private void FallOver()
-    {
-        if (!hasFallen)
-        {
-            float value = Random.Range(0, 100);
-            if (value >= (100 - fallPercentage) && canFall)
-            {
-
-                StartCoroutine(Fall());
-
-                hasFallen = true;
-                test++;
-                Debug.Log("Falling took " + test + " tries");
-
-            }
-            else if (canFall)
-            {
-                test++;
-                Debug.Log("FallOver() has run " + test + " times");
-                canFall = false;
-                StartCoroutine(TimerFall());
-            }
-
-        }
-    }
-
-    private float CheckRange(bool toDie)
-    {
-        if (!toDie)
-        {
-            float distance = Vector3.Distance(player.transform.position, transform.position);
-            return distance;
-        }
-        else
-        {
-            float distance = Vector3.Distance(player.transform.position, deathPoint.position);
-            return distance;
-        }
-    }
-
-    IEnumerator TimerFall()
-    {
-        yield return new WaitForSeconds(checkCooldown);
-        canFall = true;
-
-    }
-
-    IEnumerator TimerDie()
-    {
-        yield return new WaitForSeconds(checkCooldown);
-        canTakeDamage = true;
-    }
-
-    IEnumerator Fall()
-    {
-        for (float i = 0; i > endRotation; i -= Time.deltaTime * fallSpeed)
-        {
-
-            transform.rotation = Quaternion.Euler(new Vector3(0, 90, i));
-
-            yield return null;
-        }
-
     }
 
     private void OnDrawGizmos()
@@ -117,4 +49,63 @@ public class Blender : MonoBehaviour
         Debug.DrawRay(transform.position, transform.right * range, Color.green);
     }
 
+
+    private void FallOver()
+    {
+        if (!hasFallen)
+        {
+            float value = Random.Range(0, 100);
+            if (value >= 100 - fallPercentage && canFall)
+            {
+                StartCoroutine(Fall());
+
+                hasFallen = true;
+                test++;
+                Debug.Log("Falling took " + test + " tries");
+            }
+            else if (canFall)
+            {
+                test++;
+                Debug.Log("FallOver() has run " + test + " times");
+                canFall = false;
+                StartCoroutine(TimerFall());
+            }
+        }
+    }
+
+    private float CheckRange(bool toDie)
+    {
+        if (!toDie)
+        {
+            var distance = Vector3.Distance(player.transform.position, transform.position);
+            return distance;
+        }
+        else
+        {
+            var distance = Vector3.Distance(player.transform.position, deathPoint.position);
+            return distance;
+        }
+    }
+
+    private IEnumerator TimerFall()
+    {
+        yield return new WaitForSeconds(checkCooldown);
+        canFall = true;
+    }
+
+    private IEnumerator TimerDie()
+    {
+        yield return new WaitForSeconds(checkCooldown);
+        canTakeDamage = true;
+    }
+
+    private IEnumerator Fall()
+    {
+        for (float i = 0; i > endRotation; i -= Time.deltaTime * fallSpeed)
+        {
+            transform.rotation = Quaternion.Euler(new Vector3(0, 90, i));
+
+            yield return null;
+        }
+    }
 }

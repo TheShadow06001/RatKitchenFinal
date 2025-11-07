@@ -3,16 +3,14 @@ using UnityEngine;
 
 public class DestinationTrigger : MonoBehaviour
 {
-    private Vector3 spawnPoint;
     [SerializeField] private float fadeDuration = 1f;
     private SceneFader fader;
+    private Vector3 spawnPoint;
 
     private void Awake()
     {
         spawnPoint = GameObject.FindGameObjectWithTag("Destination").transform.position;
         fader = FindFirstObjectByType<SceneFader>();
-
-
     }
 
     private void OnTriggerEnter(Collider other)
@@ -47,4 +45,3 @@ public class DestinationTrigger : MonoBehaviour
         yield return StartCoroutine(fader.FadeInRoutine(fadeDuration));
     }
 }
-

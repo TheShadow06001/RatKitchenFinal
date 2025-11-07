@@ -5,15 +5,15 @@ public class ObstaclePooler : MonoBehaviour
 {
     public GameObject pooledObstacle;
     public int pooledAmount;
-    List<GameObject> pooledObstacles;
+    private List<GameObject> pooledObstacles;
 
     private void Start()
     {
-        pooledObstacles = new();
+        pooledObstacles = new List<GameObject>();
 
-        for (int i = 0; i < pooledAmount; i++)
+        for (var i = 0; i < pooledAmount; i++)
         {
-            GameObject obj = Instantiate(pooledObstacle);
+            var obj = Instantiate(pooledObstacle);
             obj.SetActive(false);
             pooledObstacles.Add(obj);
         }
@@ -21,15 +21,11 @@ public class ObstaclePooler : MonoBehaviour
 
     public GameObject GetPooledObstacle()
     {
-        for (int i = 0; i < pooledObstacles.Count; i++)
-        {
+        for (var i = 0; i < pooledObstacles.Count; i++)
             if (!pooledObstacles[i].activeInHierarchy)
-            {
                 return pooledObstacles[i];
-            }
-        }
 
-        GameObject obj = Instantiate(pooledObstacle);
+        var obj = Instantiate(pooledObstacle);
         obj.SetActive(false);
         pooledObstacles.Add(obj);
         return obj;

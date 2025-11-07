@@ -14,15 +14,16 @@ public class GenerateKitchen : MonoBehaviour
     {
         GenerateRandomKitchen();
     }
+
     private void GenerateRandomKitchen()
     {
-        GameObject firstElement = Instantiate(counterPrefabs[Random.Range(0, counterPrefabs.Length)]);
+        var firstElement = Instantiate(counterPrefabs[Random.Range(0, counterPrefabs.Length)]);
         firstElement.transform.SetParent(transform);
-        for (int i = 1; i <= amountOfElements; i++)
+        for (var i = 1; i <= amountOfElements; i++)
         {
-            Vector3 spawnPosition = new Vector3(i * -0.801f, 0, 0);
+            var spawnPosition = new Vector3(i * -0.801f, 0, 0);
 
-            int randomType = Random.Range(0, 3);
+            var randomType = Random.Range(0, 3);
             GameObject prefabToSpawn = null;
 
             switch (randomType)
@@ -32,12 +33,12 @@ public class GenerateKitchen : MonoBehaviour
                     {
                         prefabToSpawn = sinkPrefab;
                         maxSinks--;
-
                     }
                     else
                     {
                         prefabToSpawn = counterPrefabs[Random.Range(0, counterPrefabs.Length)];
                     }
+
                     break;
                 case 1:
                     if (maxOvens > 0)
@@ -49,6 +50,7 @@ public class GenerateKitchen : MonoBehaviour
                     {
                         prefabToSpawn = counterPrefabs[Random.Range(0, counterPrefabs.Length)];
                     }
+
                     break;
                 case 2:
                     prefabToSpawn = counterPrefabs[Random.Range(0, counterPrefabs.Length)];
@@ -57,10 +59,9 @@ public class GenerateKitchen : MonoBehaviour
 
             if (prefabToSpawn != null)
             {
-                GameObject clone = Instantiate(prefabToSpawn, spawnPosition, Quaternion.identity);
+                var clone = Instantiate(prefabToSpawn, spawnPosition, Quaternion.identity);
                 clone.transform.SetParent(transform);
             }
         }
     }
-
 }

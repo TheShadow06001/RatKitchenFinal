@@ -24,13 +24,13 @@ public class ObstaclesPlacement : MonoBehaviour
 
         List<Transform> availablePoints = new(spawnPoints);
 
-        int obstaclesToSpawn = Mathf.Clamp(Random.Range(minObstacles, maxObstacles + 1), 0, availablePoints.Count);
+        var obstaclesToSpawn = Mathf.Clamp(Random.Range(minObstacles, maxObstacles + 1), 0, availablePoints.Count);
 
         if (needsObstacleAtStart && availablePoints.Count > 0)
         {
-            int frontIndex = Random.Range(0, Mathf.Min(2, availablePoints.Count));
+            var frontIndex = Random.Range(0, Mathf.Min(2, availablePoints.Count));
 
-            Transform frontPoint = availablePoints[frontIndex];
+            var frontPoint = availablePoints[frontIndex];
 
             SpawnAtPoint(frontPoint);
 
@@ -41,11 +41,11 @@ public class ObstaclesPlacement : MonoBehaviour
 
         if (needsObstacleAtEnd && availablePoints.Count > 0)
         {
-            int backStart = Mathf.Max(0, availablePoints.Count - 2);
+            var backStart = Mathf.Max(0, availablePoints.Count - 2);
 
-            int backIndex = Random.Range(backStart, availablePoints.Count);
+            var backIndex = Random.Range(backStart, availablePoints.Count);
 
-            Transform backPoint = availablePoints[backIndex];
+            var backPoint = availablePoints[backIndex];
 
             SpawnAtPoint(backPoint);
 
@@ -54,11 +54,11 @@ public class ObstaclesPlacement : MonoBehaviour
             obstaclesToSpawn--;
         }
 
-        for (int i = 0; i < obstaclesToSpawn && availablePoints.Count > 0; i++)
+        for (var i = 0; i < obstaclesToSpawn && availablePoints.Count > 0; i++)
         {
-            int index = Random.Range(0, availablePoints.Count);
+            var index = Random.Range(0, availablePoints.Count);
 
-            Transform point = availablePoints[index];
+            var point = availablePoints[index];
 
             availablePoints.RemoveAt(index);
 
@@ -68,22 +68,19 @@ public class ObstaclesPlacement : MonoBehaviour
 
     private void SpawnAtPoint(Transform point)
     {
-        GameObject prefabToSpawn = possibleObstacles[Random.Range(0, possibleObstacles.Count)];
+        var prefabToSpawn = possibleObstacles[Random.Range(0, possibleObstacles.Count)];
 
         if (prefabToSpawn == null)
             return;
 
 
-
-        GameObject obstacle = Instantiate(prefabToSpawn, point.position, prefabToSpawn.transform.rotation, transform);
+        var obstacle = Instantiate(prefabToSpawn, point.position, prefabToSpawn.transform.rotation, transform);
 
         if (prefabToSpawn.CompareTag("Pots&Pans"))
         {
-            float parentScale = transform.lossyScale.x;
+            var parentScale = transform.lossyScale.x;
 
             obstacle.transform.localScale = Vector3.one / parentScale;
         }
-
-
     }
 }

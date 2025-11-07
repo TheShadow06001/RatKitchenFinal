@@ -8,14 +8,14 @@ public class KitchenPool : MonoBehaviour
     public static KitchenPool Instance;
 
     [SerializeField] private int poolSize;
-    private Dictionary<PlatformType, Queue<GameObject>> platformDictionary = new();
-    private List<PlatformType> loadedKitchenPlatforms = new();
     public PlatformType[] kitchenPlatforms;
+    public WallType[] wallTypes;
+    private readonly List<PlatformType> loadedKitchenPlatforms = new();
+    private readonly List<WallType> loadedWallTypes = new();
+    private readonly Dictionary<PlatformType, Queue<GameObject>> platformDictionary = new();
 
     //test
-    private Dictionary<WallType, Queue<GameObject>> wallDictionary = new();
-    private List<WallType> loadedWallTypes = new();
-    public WallType[] wallTypes;
+    private readonly Dictionary<WallType, Queue<GameObject>> wallDictionary = new();
 
 
     private void Awake()
@@ -39,7 +39,6 @@ public class KitchenPool : MonoBehaviour
 
         foreach (var type in kitchenPlatformList)
         {
-
             if (type == null || type.prefab == null)
             {
                 Debug.LogWarning("Poolmanager: missing PlatformType or prefab for pool");
@@ -56,9 +55,9 @@ public class KitchenPool : MonoBehaviour
 
             Queue<GameObject> objectPool = new();
 
-            for (int i = 0; i < poolSize; i++)
+            for (var i = 0; i < poolSize; i++)
             {
-                GameObject obj = Instantiate(type.GetRandomPrefab());
+                var obj = Instantiate(type.GetRandomPrefab());
                 obj.transform.SetParent(transform);
                 obj.SetActive(false);
                 objectPool.Enqueue(obj);
@@ -69,7 +68,6 @@ public class KitchenPool : MonoBehaviour
 
         foreach (var type in wallTypeList)
         {
-
             if (type == null || type.prefab == null)
             {
                 Debug.LogWarning("Poolmanager: missing WallType or prefab for pool");
@@ -86,9 +84,9 @@ public class KitchenPool : MonoBehaviour
 
             Queue<GameObject> wallPool = new();
 
-            for (int i = 0; i < poolSize; i++)
+            for (var i = 0; i < poolSize; i++)
             {
-                GameObject obj = Instantiate(type.GetRandomPrefab());
+                var obj = Instantiate(type.GetRandomPrefab());
                 obj.transform.SetParent(transform);
                 obj.SetActive(false);
                 wallPool.Enqueue(obj);
@@ -114,7 +112,7 @@ public class KitchenPool : MonoBehaviour
         if (type == null || !platformDictionary.ContainsKey(type))
             return null;
 
-        Queue<GameObject> objectPool = platformDictionary[type];
+        var objectPool = platformDictionary[type];
         GameObject obj;
 
         if (objectPool.Count > 0)
@@ -152,7 +150,7 @@ public class KitchenPool : MonoBehaviour
         if (type == null || !wallDictionary.ContainsKey(type))
             return null;
 
-        Queue<GameObject> wallPool = wallDictionary[type];
+        var wallPool = wallDictionary[type];
         GameObject obj;
 
         if (wallPool.Count > 0)

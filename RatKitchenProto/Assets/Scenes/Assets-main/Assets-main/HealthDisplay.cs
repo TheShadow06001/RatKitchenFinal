@@ -3,11 +3,10 @@ using UnityEngine.UI;
 
 public class HealthDisplay : MonoBehaviour
 {
+    public static HealthDisplay instance;
     [SerializeField] private Transform respawnPoint;
     [SerializeField] private GameObject player;
     [SerializeField] private GameObject gameOverMenu;
-
-    public static HealthDisplay instance;
     public int health;
     public int maxHealth;
 
@@ -15,7 +14,7 @@ public class HealthDisplay : MonoBehaviour
     public Sprite fullHeart;
     public Image[] hearts;
 
-    void Awake()
+    private void Awake()
     {
         if (instance == null)
         {
@@ -28,34 +27,23 @@ public class HealthDisplay : MonoBehaviour
             return;
         }
 
-        if (gameOverMenu != null)
-        {
-            gameOverMenu.SetActive(false);
-        }
+        if (gameOverMenu != null) gameOverMenu.SetActive(false);
     }
 
 
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        for (int i = 0; i < hearts.Length; i++)
+        for (var i = 0; i < hearts.Length; i++)
         {
             if (i < health)
-            {
                 hearts[i].sprite = fullHeart;
-            }
             else
-            {
                 hearts[i].sprite = emptyHeart;
-            }
             if (i < maxHealth)
-            {
                 hearts[i].enabled = true;
-            }
             else
-            {
                 hearts[i].enabled = false;
-            }
         }
     }
 
@@ -73,10 +61,7 @@ public class HealthDisplay : MonoBehaviour
         {
             health = 0;
             Debug.Log("Game Over");
-            if (gameOverMenu != null)
-            {
-                gameOverMenu.SetActive(true);
-            }
+            if (gameOverMenu != null) gameOverMenu.SetActive(true);
         }
     }
 }

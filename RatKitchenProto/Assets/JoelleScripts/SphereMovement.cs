@@ -3,47 +3,41 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody))]
 public class SphereMovement : MonoBehaviour
 {
-    [Header("Movement Settings")]
-    public float moveSpeed = 10f;
+    [Header("Movement Settings")] public float moveSpeed = 10f;
+
     public float jumpForce = 5f;
 
-    [Header("Ground Check")]
-    public Transform groundCheck;
+    [Header("Ground Check")] public Transform groundCheck;
+
     public float groundDistance = 0.4f;
     public LayerMask groundMask;
-
-    private Rigidbody rb;
     private bool isGrounded;
     private Vector3 moveDirection;
 
-    void Start()
+    private Rigidbody rb;
+
+    private void Start()
     {
         rb = GetComponent<Rigidbody>();
     }
 
-    void Update()
+    private void Update()
     {
-
-
         isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
 
 
-        float moveX = Input.GetAxis("Horizontal");
-        float moveZ = Input.GetAxis("Vertical");
+        var moveX = Input.GetAxis("Horizontal");
+        var moveZ = Input.GetAxis("Vertical");
 
         moveDirection = new Vector3(moveX, 0f, moveZ);
 
 
-        if (Input.GetButtonDown("Jump") && isGrounded)
-        {
-            rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
-        }
+        if (Input.GetButtonDown("Jump") && isGrounded) rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
     }
 
-    void FixedUpdate()
+    private void FixedUpdate()
     {
-
-        Vector3 force = moveDirection * moveSpeed;
+        var force = moveDirection * moveSpeed;
         rb.AddForce(force);
     }
 }
