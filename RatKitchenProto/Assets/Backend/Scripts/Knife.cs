@@ -6,12 +6,11 @@ public class Knife : MonoBehaviour
     [SerializeField] private int damage = 1;
     [SerializeField] private float speed = 1;
 
-    [SerializeField] private MeshRenderer mesh;
-    [SerializeField] private MeshRenderer line;
+   
+    private Vector3 startPos;
+    private Vector3 endPos;
+    [SerializeField] private Transform endPosTransform;
 
-
-    private Vector3 startPosition;
-    private Vector3 endPosition;
 
     private bool isComplete;
 
@@ -21,8 +20,8 @@ public class Knife : MonoBehaviour
     {
 
 
-        startPosition = transform.position;
-        endPosition = new Vector3(transform.position.x, transform.position.y - 0.2f, transform.position.z);
+        startPos = transform.position;
+        endPos = endPosTransform.position;
 
         isComplete = false;
         StartCoroutine(Chop());
@@ -42,35 +41,26 @@ public class Knife : MonoBehaviour
 
     IEnumerator Chop()
     {
-
-
-        int value1 = 0;
-
         if (GameManager.Instance.CheckState<PlayingState>())
         {
-            for (float i = 0; i < startPosition.y; i += Time.deltaTime * speed)
+            SoundManager.Instance.PlaySoundEffect(SoundEffects.KnifeTrapWhoosh);
+
+            for (float i = 0; i < 1; i += Time.deltaTime * speed)
             {
+                transform.position = Vector3.Lerp(startPos, endPos, i);
 
-                transform.position = Vector3.Lerp(startPosition, endPosition, i);
                 yield return null;
-
-                if (transform.position == endPosition && value1 == 0)
-                {
-                    SoundManager.Instance.PlaySoundEffect(SoundEffects.KnifeTrapChop);
-                    value1++;
-                }
             }
 
-            for (float i = 0; i < startPosition.y; i += Time.deltaTime * speed)
-            {
+            SoundManager.Instance.PlaySoundEffect(SoundEffects.KnifeTrapWhoosh);
 
-                transform.position = Vector3.Lerp(endPosition, startPosition, i);
+            for (float t = 0; t < 1; t += Time.deltaTime * speed)
+            {
+                transform.position = Vector3.Lerp(endPos, startPos, t);
+
                 yield return null;
             }
         }
-
-
-
 
         isComplete = true;
     }

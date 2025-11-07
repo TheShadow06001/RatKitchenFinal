@@ -3336,6 +3336,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1073623188}
     m_Modifications:
+    - target: {fileID: 4494402693542279567, guid: a07c1e2e3e3b8d44fb7fb09faaa46e4c, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4817899095187162842, guid: a07c1e2e3e3b8d44fb7fb09faaa46e4c, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7372270281881548157, guid: a07c1e2e3e3b8d44fb7fb09faaa46e4c, type: 3}
       propertyPath: m_LocalPosition.x
       value: 26.76063
@@ -17085,6 +17093,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1073623188}
     m_Modifications:
+    - target: {fileID: 4494402693542279567, guid: a07c1e2e3e3b8d44fb7fb09faaa46e4c, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4817899095187162842, guid: a07c1e2e3e3b8d44fb7fb09faaa46e4c, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7372270281881548157, guid: a07c1e2e3e3b8d44fb7fb09faaa46e4c, type: 3}
       propertyPath: m_LocalPosition.x
       value: 25.617584
@@ -30624,6 +30640,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1073623188}
     m_Modifications:
+    - target: {fileID: -953215510651058202, guid: e2225a63528c3e1408b18d7afb17f664, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3689485202107915483, guid: e2225a63528c3e1408b18d7afb17f664, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5796795623448307517, guid: e2225a63528c3e1408b18d7afb17f664, type: 3}
       propertyPath: m_Name
       value: SM_StoveOven_Environment
