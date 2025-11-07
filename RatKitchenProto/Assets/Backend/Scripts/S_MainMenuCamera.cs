@@ -31,6 +31,7 @@ public class S_MainMenuCamera : MonoBehaviour
             float t = Mathf.Clamp01(elapsed / PanDuration);
             t = Mathf.SmoothStep(0f, 1f, t);
             transform.position = Vector3.Lerp(StartPosition, EndPosition, t);
+            Camera.main.fieldOfView = Mathf.SmoothStep(55f, 45f, t);
             yield return null;
         }
         transform.position = EndPosition;

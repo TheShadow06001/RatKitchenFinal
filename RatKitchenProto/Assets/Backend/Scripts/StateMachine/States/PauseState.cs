@@ -3,6 +3,7 @@ using UnityEngine;
 public class PauseState : State
 {
     [SerializeField] private GameObject pauseMenuUI;
+    [SerializeField] private GameObject optionMenuUI;
 
     public override void EnterState()
     {
@@ -16,6 +17,7 @@ public class PauseState : State
 
     public override void ExitState()
     {
+        optionMenuUI.SetActive(false);
         pauseMenuUI.SetActive(false);
     }
 }
