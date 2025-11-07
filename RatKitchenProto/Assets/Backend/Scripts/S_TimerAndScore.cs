@@ -11,7 +11,7 @@ public class S_TimerAndScore : MonoBehaviour
     public int CurrentScore = 0;
     void Start()
     {
-        if (TimerText && ScoreText == null) 
+        if (TimerText && ScoreText == null)
         {
             Debug.LogError("S_TimerAndScore: TimerText or ScoreText is not assigned in the inspector.", this);
         }
@@ -24,9 +24,9 @@ public class S_TimerAndScore : MonoBehaviour
         int seconds = Mathf.FloorToInt(CurrentTime - minutes * 60);
         TimerText.text = string.Format("{0:00}:{1:00}", minutes, seconds);
     }
-    
+
     void UpdateScore()
     {
-        
+
     }
 }

@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -7,7 +5,7 @@ public class HealthDisplay : MonoBehaviour
 {
     [SerializeField] private Transform respawnPoint;
     [SerializeField] private GameObject player;
-    [SerializeField] private  GameObject gameOverMenu;
+    [SerializeField] private GameObject gameOverMenu;
 
     public static HealthDisplay instance;
     public int health;
@@ -21,7 +19,7 @@ public class HealthDisplay : MonoBehaviour
     {
         if (instance == null)
         {
-            instance = this;    
+            instance = this;
             DontDestroyOnLoad(gameObject);
         }
         else
@@ -36,7 +34,7 @@ public class HealthDisplay : MonoBehaviour
         }
     }
 
-    
+
     // Update is called once per frame
     void Update()
     {

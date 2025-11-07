@@ -28,7 +28,7 @@ public class PlayerChangeLane : MonoBehaviour
         {
             isChangingLanes = true;
         }
-        else { isChangingLanes = false; } 
+        else { isChangingLanes = false; }
 
         float newX = Mathf.Lerp(currentPos.x, targetHorizontalX, Time.deltaTime * laneChangeSpeed);
         transform.position = new Vector3(newX, currentPos.y, currentPos.z);

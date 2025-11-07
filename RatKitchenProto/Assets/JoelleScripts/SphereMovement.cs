@@ -27,13 +27,13 @@ public class SphereMovement : MonoBehaviour
 
         isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
 
-       
+
         float moveX = Input.GetAxis("Horizontal");
         float moveZ = Input.GetAxis("Vertical");
 
         moveDirection = new Vector3(moveX, 0f, moveZ);
 
-        
+
         if (Input.GetButtonDown("Jump") && isGrounded)
         {
             rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
@@ -42,7 +42,7 @@ public class SphereMovement : MonoBehaviour
 
     void FixedUpdate()
     {
-        
+
         Vector3 force = moveDirection * moveSpeed;
         rb.AddForce(force);
     }

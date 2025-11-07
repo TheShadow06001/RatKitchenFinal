@@ -73,7 +73,7 @@ public class ObstaclesPlacement : MonoBehaviour
         if (prefabToSpawn == null)
             return;
 
-        
+
 
         GameObject obstacle = Instantiate(prefabToSpawn, point.position, prefabToSpawn.transform.rotation, transform);
 
@@ -83,7 +83,7 @@ public class ObstaclesPlacement : MonoBehaviour
 
             obstacle.transform.localScale = Vector3.one / parentScale;
         }
-        
+
 
     }
 }

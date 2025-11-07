@@ -1,5 +1,5 @@
-using System.Threading;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class HP : MonoBehaviour
 {
@@ -8,7 +8,7 @@ public class HP : MonoBehaviour
     [SerializeField] private float regenTime = 3f;
     [SerializeField] private GameObject gameOverMenu;
     private float timer;
-    
+
 
 
     private void Update()
@@ -18,14 +18,14 @@ public class HP : MonoBehaviour
             if (timer >= 0)
             {
                 timer -= Time.deltaTime;
-                
+
             }
             else if (timer <= 0)
             {
                 RegenHealth();
             }
 
-            
+
         }
     }
 
@@ -42,6 +42,8 @@ public class HP : MonoBehaviour
 
         if (health <= 0)
         {
+            SceneManager.LoadScene("Main Menu");
+
             Debug.Log("Game Over");
             if (gameOverMenu != null)
             {

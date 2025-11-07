@@ -1,4 +1,3 @@
-using Unity.Mathematics;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -8,7 +7,7 @@ public class Oven : KitchenElements
     public GameObject bigPan;
     float ovenHeigth = 1.1f;
     Vector3 parentVectorPosition;
-    
+
 
     private void OnEnable()
     {
@@ -49,7 +48,7 @@ public class Oven : KitchenElements
                 break;
         }
 
-        
+
         if (prefabToSpawn != null)
         {
             GameObject obstacle = Instantiate(prefabToSpawn, CountPosition(-0.78f, -0.57f), Quaternion.Euler(-90, 0, 0));

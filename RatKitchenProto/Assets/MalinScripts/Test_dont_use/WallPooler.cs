@@ -1,6 +1,5 @@
-using NUnit.Framework;
-using UnityEngine;
 using System.Collections.Generic;
+using UnityEngine;
 
 public class WallPooler : MonoBehaviour
 {
@@ -22,7 +21,7 @@ public class WallPooler : MonoBehaviour
 
     public GameObject GetPooledWallObject()
     {
-        for (int i = 0; i< pooledWallObjects.Count; i++)
+        for (int i = 0; i < pooledWallObjects.Count; i++)
         {
             if (!pooledWallObjects[i].activeInHierarchy)
             {

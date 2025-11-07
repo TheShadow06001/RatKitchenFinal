@@ -1,10 +1,10 @@
 using System.Collections;
-using System.Runtime.CompilerServices;
 using UnityEngine;
 
 public class Blender : MonoBehaviour
 {
     [Header("Variables")]
+    [SerializeField] private int damage = 1;
     [SerializeField] private float range;
     [SerializeField] private float dieRange;
     [SerializeField] private float fallPercentage;
@@ -35,12 +35,12 @@ public class Blender : MonoBehaviour
 
             if (CheckRange(true) <= dieRange && canTakeDamage)
             {
-                HealthDisplay.instance.TakeDamage();
+                player.GetComponent<HP>().TakeDamage(damage);
                 canTakeDamage = false;
                 StartCoroutine(TimerDie());
             }
         }
-        
+
 
     }
 
@@ -58,7 +58,7 @@ public class Blender : MonoBehaviour
                 hasFallen = true;
                 test++;
                 Debug.Log("Falling took " + test + " tries");
-                
+
             }
             else if (canFall)
             {
@@ -103,7 +103,7 @@ public class Blender : MonoBehaviour
         for (float i = 0; i > endRotation; i -= Time.deltaTime * fallSpeed)
         {
 
-            transform.rotation = Quaternion.Euler(new Vector3(0, 0, i));
+            transform.rotation = Quaternion.Euler(new Vector3(0, 90, i));
 
             yield return null;
         }

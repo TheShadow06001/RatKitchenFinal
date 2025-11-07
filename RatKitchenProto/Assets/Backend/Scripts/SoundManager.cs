@@ -38,7 +38,7 @@ public enum SoundEffects
     // UI Sounds
     ButtonPress,
     ButtonHover,
-    OpenPause, 
+    OpenPause,
     ClosePause,
     SliderBeSliding
 }

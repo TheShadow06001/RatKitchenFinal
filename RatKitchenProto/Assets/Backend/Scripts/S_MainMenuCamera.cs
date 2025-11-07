@@ -1,13 +1,13 @@
-using UnityEngine;
 using System.Collections;
+using UnityEngine;
 using UnityEngine.UI;
 
 public class S_MainMenuCamera : MonoBehaviour
 {
-    [SerializeField] Vector3 EndPosition = new Vector3(0.064000003f,1.91999996f,-9.61600018f);
+    [SerializeField] Vector3 EndPosition = new Vector3(0.064000003f, 1.91999996f, -9.61600018f);
     [SerializeField] float PanDuration = 4f;
     [SerializeField] float FadeDuration = 3.5f;
-    
+
     public Image FadeImage;
     public Canvas FadeCanvas;
 
@@ -24,7 +24,7 @@ public class S_MainMenuCamera : MonoBehaviour
     IEnumerator CameraStartAnim()
     {
         float elapsed = 0f;
-        
+
         while (elapsed < PanDuration)
         {
             elapsed += Time.deltaTime;
@@ -39,7 +39,7 @@ public class S_MainMenuCamera : MonoBehaviour
     IEnumerator CameraFadeOnEnter()
     {
         float elapsed = 0f;
-        
+
         while (elapsed < FadeDuration)
         {
             elapsed += Time.deltaTime;
@@ -49,7 +49,7 @@ public class S_MainMenuCamera : MonoBehaviour
             Color Alpha = FadeImage.color;
             Alpha.a = 1f - eased;
             FadeImage.color = Alpha;
-            
+
             if (Alpha.a <= 0f)
             {
                 FadeCanvas.gameObject.SetActive(false);

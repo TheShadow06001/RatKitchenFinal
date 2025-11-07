@@ -1,4 +1,3 @@
-using System;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -29,7 +28,7 @@ public class S_OptionsMenu : MonoBehaviour
     {
         // Display Mode
         int savedDisplay = PlayerPrefs.GetInt("DisplayMode", -1);
-        
+
         if (savedDisplay >= 0)
         {
             DisplayModeDropdown.SetValueWithoutNotify(savedDisplay);

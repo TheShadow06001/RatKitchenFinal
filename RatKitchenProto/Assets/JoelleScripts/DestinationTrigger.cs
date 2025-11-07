@@ -1,5 +1,5 @@
-using UnityEngine;
 using System.Collections;
+using UnityEngine;
 
 public class DestinationTrigger : MonoBehaviour
 {
@@ -11,8 +11,8 @@ public class DestinationTrigger : MonoBehaviour
     {
         spawnPoint = GameObject.FindGameObjectWithTag("Destination").transform.position;
         fader = FindFirstObjectByType<SceneFader>();
-        
-            
+
+
     }
 
     private void OnTriggerEnter(Collider other)
@@ -33,7 +33,7 @@ public class DestinationTrigger : MonoBehaviour
         yield return StartCoroutine(fader.FadeOutRoutine(fadeDuration));
 
         // Move player back to SpawnPoint
-        
+
 
         // this one is optional which resets the velocity if/when using Rigidbody
         //var rb = player.GetComponent<Rigidbody>();

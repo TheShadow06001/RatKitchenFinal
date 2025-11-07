@@ -1,26 +1,24 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class KillPlayer : MonoBehaviour
 {
-    
-    
-    
+
+
+
 
     private bool canKill = true;
 
     // Start is called before the first frame update
     private void Start()
     {
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     private void OnTriggerEnter(Collider other)
@@ -37,7 +35,7 @@ public class KillPlayer : MonoBehaviour
     IEnumerator RespawnDelay()
     {
         canKill = false; // disable killing temporarily
-        
+
         yield return new WaitForSeconds(1f); // 1 second of invulnerability
         canKill = true; // re-enable after delay
     }

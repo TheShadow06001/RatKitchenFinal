@@ -6,7 +6,7 @@ public class Sink : KitchenElements
     private float sinkHeigth = 17.5f;
     private Vector3 sinkPosition;
 
-    
+
     private void OnEnable()
     {
         GameObject plateOnScene = Instantiate(plate, CountPosition(-0.7f, sinkHeigth * 0.05f, -0.2f), Quaternion.Euler(-90, 0, 0));

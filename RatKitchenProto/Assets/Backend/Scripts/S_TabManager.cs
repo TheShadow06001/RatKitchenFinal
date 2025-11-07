@@ -3,13 +3,13 @@ using UnityEngine.UI;
 
 public class S_TabManager : MonoBehaviour
 {
-    [Header("Tabs")] 
+    [Header("Tabs")]
     public GameObject[] Tabs;
     public Image[] TabButtons;
-    [Header("Tab Sprites and Sizes")] 
+    [Header("Tab Sprites and Sizes")]
     public Sprite InactiveTabBG, ActiveTabBG;
     public Vector2 InactiveTabSize, ActiveTabSize;
-    [Header("Return Button")] 
+    [Header("Return Button")]
     public GameObject OptionsMenu;
 
     public void SwitchToTab(int TabID)
