@@ -2,25 +2,26 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    [SerializeField] GameObject mainCamera;
-    [SerializeField] GameObject anchorPoint;
+    [SerializeField] private GameObject mainCamera;
+    [SerializeField] private GameObject anchorPoint;
 
-    [SerializeField] float forwardAcceleration = 1f;
-    [SerializeField] float maxSpeedMultiplier = 2f;
-    [SerializeField] float jumpForce = 5f;
-    [SerializeField] PlayerChangeLane laneChanger;
+    [SerializeField] private float forwardAcceleration = 1f;
+    [SerializeField] private float maxSpeedMultiplier = 2f;
+    [SerializeField] private float jumpForce = 5f;
+    [SerializeField] private PlayerChangeLane laneChanger;
 
-    [SerializeField] float rayLength = 1f;
-    [SerializeField] LayerMask groundLayer;
+    [SerializeField] private float rayLength = 1f;
+    [SerializeField] private LayerMask groundLayer;
+    private Animator animator;
+    private float cameraSpeed;
 
-    float moveSpeed;
-    float cameraSpeed;
+    private RaycastHit hit;
+    private bool isGrounded;
 
-    RaycastHit hit;
-    bool isGrounded;
-    Rigidbody rigidBody;
-    Animator animator;
-    void Start()
+    private float moveSpeed;
+    private Rigidbody rigidBody;
+
+    private void Start()
     {
         cameraSpeed = mainCamera.GetComponent<CameraScript>().moveSpeed;
         moveSpeed = cameraSpeed;
@@ -30,18 +31,23 @@ public class PlayerMovement : MonoBehaviour
         animator = GetComponentInChildren<Animator>();
     }
 
+    private void OnDrawGizmos()
+    {
+        Debug.DrawRay(transform.position, Vector3.down * rayLength, Color.red);
+    }
+
     public void PlayerUpdate()
     {
         HandleForwardSpeed();
         Jump();
-        Vector3 currentPos = transform.position;
+        var currentPos = transform.position;
 
-        float totalSpeed = moveSpeed;
+        var totalSpeed = moveSpeed;
 
         currentPos.z += totalSpeed * Time.deltaTime;
         transform.position = new Vector3(currentPos.x, currentPos.y, currentPos.z);
 
-        int count = animator.GetInteger("HurtCount");
+        var count = animator.GetInteger("HurtCount");
         animator.SetInteger("HurtCount", count);
         if (Input.GetKeyDown(KeyCode.R))
         {
@@ -51,12 +57,11 @@ public class PlayerMovement : MonoBehaviour
     }
 
 
-
-    void HandleForwardSpeed()
+    private void HandleForwardSpeed()
     {
         if (transform.position.z < anchorPoint.transform.position.z - 0.1f)
         {
-            float targetSpeed1 = cameraSpeed * maxSpeedMultiplier;
+            var targetSpeed1 = cameraSpeed * maxSpeedMultiplier;
             moveSpeed = Mathf.MoveTowards(moveSpeed, targetSpeed1, Time.deltaTime * forwardAcceleration);
             animator.SetFloat("RunSpeed", moveSpeed / cameraSpeed);
         }
@@ -66,9 +71,9 @@ public class PlayerMovement : MonoBehaviour
             animator.SetFloat("RunSpeed", moveSpeed / cameraSpeed);
         }
     }
-    void Jump()
-    {
 
+    private void Jump()
+    {
         if (rigidBody != null && Input.GetKeyDown(KeyCode.Space) && !laneChanger.isChangingLanes)
         {
             isGrounded = Physics.Raycast(transform.position, Vector3.down, out hit, rayLength, groundLayer);
@@ -78,10 +83,5 @@ public class PlayerMovement : MonoBehaviour
                 animator.SetTrigger("Jump");
             }
         }
-
-    }
-    private void OnDrawGizmos()
-    {
-        Debug.DrawRay(transform.position, Vector3.down * rayLength, Color.red);
     }
 }

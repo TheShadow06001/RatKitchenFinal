@@ -12,13 +12,14 @@ public class GenerateWalls : MonoBehaviour
     {
         GenerateRandomWalls();
     }
+
     private void GenerateRandomWalls()
     {
-        for (int i = 0; i <= amountOfElements; i++)
+        for (var i = 0; i <= amountOfElements; i++)
         {
-            Vector3 spawnPosition = new Vector3(i * -4f, 0, -0.93f);
+            var spawnPosition = new Vector3(i * -4f, 0, -0.93f);
 
-            int randomType = Random.Range(0, 2);
+            var randomType = Random.Range(0, 2);
             GameObject prefabToSpawn = null;
 
             switch (randomType)
@@ -28,25 +29,23 @@ public class GenerateWalls : MonoBehaviour
                     {
                         prefabToSpawn = windowedWallPrefab;
                         maxWindows--;
-
                     }
                     else
                     {
                         prefabToSpawn = wallPrefab;
                     }
+
                     break;
                 case 1:
                     prefabToSpawn = wallPrefab;
                     break;
-
             }
 
             if (prefabToSpawn != null)
             {
-                GameObject clone = Instantiate(prefabToSpawn, spawnPosition, Quaternion.Euler(0, 90, 0));
+                var clone = Instantiate(prefabToSpawn, spawnPosition, Quaternion.Euler(0, 90, 0));
                 clone.transform.SetParent(transform);
             }
         }
     }
-
 }

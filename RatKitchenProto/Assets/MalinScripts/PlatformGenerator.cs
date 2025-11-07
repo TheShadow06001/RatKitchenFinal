@@ -9,30 +9,27 @@ public class PlatformGenerator : MonoBehaviour
     [SerializeField] private int currentLevel = 1;
 
     private PlatformType lastPlatformType;
-    private PlatformType secondLastPlatformType;
 
-    private Dictionary<PlatformType, int> platformSpawnCounts = new();
+    private readonly Dictionary<PlatformType, int> platformSpawnCounts = new();
+    private PlatformType secondLastPlatformType;
 
     private void Start()
     {
-        foreach (var type in platformTypes)
-        {
-            platformSpawnCounts[type] = 0;
-        }
+        foreach (var type in platformTypes) platformSpawnCounts[type] = 0;
     }
 
     public void SpawnPlatformsAlongWall(Vector3 wallPosition, WallType wall)
     {
-        Vector3 spawnPos = wallPosition;
+        var spawnPos = wallPosition;
 
-        for (int i = 0; i < platformsPerWall; i++)
+        for (var i = 0; i < platformsPerWall; i++)
         {
-            PlatformType chosenPlatform = PlatformTypeToSpawn();
+            var chosenPlatform = PlatformTypeToSpawn();
             if (chosenPlatform == null)
-                continue; // ändrat från return
+                continue; // ï¿½ndrat frï¿½n return
 
-            GameObject prefabToSpawn = chosenPlatform.GetRandomPrefab();
-            GameObject newPlatform = KitchenPool.Instance.GetPooledObject(chosenPlatform, spawnPos, Quaternion.identity);
+            var prefabToSpawn = chosenPlatform.GetRandomPrefab();
+            var newPlatform = KitchenPool.Instance.GetPooledObject(chosenPlatform, spawnPos, Quaternion.identity);
             newPlatform.SetActive(true);
 
             platformSpawnCounts[chosenPlatform]++;
@@ -60,17 +57,15 @@ public class PlatformGenerator : MonoBehaviour
 
             validType.Add(type);
         }
+
         if (validType.Count == 0)
             return platformTypes.Find(p => p.isBaseCase) ?? platformTypes[0];
 
         //weighted random algorithm
-        float totalSpawnWeight = 0f;
-        foreach (var type in validType)
-        {
-            totalSpawnWeight += type.spawnWeight;
-        }
+        var totalSpawnWeight = 0f;
+        foreach (var type in validType) totalSpawnWeight += type.spawnWeight;
 
-        float randomPick = Random.value * totalSpawnWeight;
+        var randomPick = Random.value * totalSpawnWeight;
         float cumulative = 0;
 
         foreach (var type in validType)
@@ -88,7 +83,8 @@ public class PlatformGenerator : MonoBehaviour
         if (lastPlatformType != null && next.cannotHaveNeighbour.Contains(lastPlatformType.tag))
             return true;
 
-        if (next.mustHaveCounterBetween && (lastPlatformType?.tag == next.tag || secondLastPlatformType?.tag == next.tag))
+        if (next.mustHaveCounterBetween &&
+            (lastPlatformType?.tag == next.tag || secondLastPlatformType?.tag == next.tag))
             return true;
 
         return false;
@@ -96,8 +92,8 @@ public class PlatformGenerator : MonoBehaviour
 
     private int GetScaledMaxCount(PlatformType type)
     {
-        int baseCount = type.baseMaxCount;
-        float scale = Mathf.Pow(type.maxCountMultiplierPerLevel, currentLevel);
+        var baseCount = type.baseMaxCount;
+        var scale = Mathf.Pow(type.maxCountMultiplierPerLevel, currentLevel);
         return Mathf.RoundToInt(baseCount * scale);
     }
 }

@@ -4,24 +4,23 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "WallType", menuName = "Scriptable Objects/Wall Type")]
 public class WallType : ScriptableObject
 {
-    [Header("General")]
-    public string typeOfWall;
+    [Header("General")] public string typeOfWall;
+
     public string tag;
     public GameObject prefab;
 
-    [Header("Spawn Settings")]
-    public int MaxCountPerRun = 2;
+    [Header("Spawn Settings")] public int MaxCountPerRun = 2;
+
     public int baseMaxCount = 2;
     public float spawnWeight = 1f;
     public List<string> cannotHaveNeighbour = new();
     public bool isBaseCase;
     public int platformsPerWall = 5;
 
-    [Header("Variants, if applicable")]
-    public GameObject[] variantPrefabs;
+    [Header("Variants, if applicable")] public GameObject[] variantPrefabs;
 
-    [Header("Difficulty Scaling")]
-    public int minLevelToAppear = 1;
+    [Header("Difficulty Scaling")] public int minLevelToAppear = 1;
+
     public int maxLevelToAppear = 999;
     public AnimationCurve spawnChanceCurve;
     public float maxCountMultiplierPerLevel = 1.0f;

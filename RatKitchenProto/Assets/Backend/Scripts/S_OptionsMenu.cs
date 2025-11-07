@@ -27,7 +27,7 @@ public class S_OptionsMenu : MonoBehaviour
     public void SyncOptions()
     {
         // Display Mode
-        int savedDisplay = PlayerPrefs.GetInt("DisplayMode", -1);
+        var savedDisplay = PlayerPrefs.GetInt("DisplayMode", -1);
 
         if (savedDisplay >= 0)
         {
@@ -35,30 +35,30 @@ public class S_OptionsMenu : MonoBehaviour
         }
         else
         {
-            FullScreenMode fsm = Screen.fullScreenMode;
-            int drop = fsm == FullScreenMode.ExclusiveFullScreen ? 0 :
+            var fsm = Screen.fullScreenMode;
+            var drop = fsm == FullScreenMode.ExclusiveFullScreen ? 0 :
                 fsm == FullScreenMode.FullScreenWindow ? 1 : 2;
             DisplayModeDropdown.SetValueWithoutNotify(drop);
         }
 
         // Resolution
-        int savedRes = PlayerPrefs.GetInt("Resolution", -1);
+        var savedRes = PlayerPrefs.GetInt("Resolution", -1);
         if (savedRes >= 0)
         {
             ResolutionDropdown.SetValueWithoutNotify(savedRes);
         }
         else
         {
-            int resIndex = (Screen.width == 1920 && Screen.height == 1080) ? 1 :
-                (Screen.width == 1280 && Screen.height == 720) ? 2 : 0;
+            var resIndex = Screen.width == 1920 && Screen.height == 1080 ? 1 :
+                Screen.width == 1280 && Screen.height == 720 ? 2 : 0;
             ResolutionDropdown.SetValueWithoutNotify(resIndex);
         }
 
         // Quality
-        int savedQuality = PlayerPrefs.GetInt("Quality", QualitySettings.GetQualityLevel());
+        var savedQuality = PlayerPrefs.GetInt("Quality", QualitySettings.GetQualityLevel());
         QualityDropdown.SetValueWithoutNotify(savedQuality);
         //  VSync  
-        int savedVSync = PlayerPrefs.GetInt("VSync", QualitySettings.vSyncCount > 0 ? 1 : 0);
+        var savedVSync = PlayerPrefs.GetInt("VSync", QualitySettings.vSyncCount > 0 ? 1 : 0);
         VSyncToggle.SetIsOnWithoutNotify(savedVSync == 1);
     }
 
@@ -74,10 +74,10 @@ public class S_OptionsMenu : MonoBehaviour
 
     public void SetResolution(int i)
     {
-        int width = i == 0 ? 2560 :
+        var width = i == 0 ? 2560 :
             i == 1 ? 1920 :
             i == 2 ? 1280 : 1920;
-        int height = i == 0 ? 1440 :
+        var height = i == 0 ? 1440 :
             i == 1 ? 1080 :
             i == 2 ? 720 : 1080;
         Screen.SetResolution(width, height, Screen.fullScreenMode);

@@ -71,11 +71,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8655616415850060955}
-  - component: {fileID: 7937514307085231852}
-  - component: {fileID: 3323325847919820444}
-  - component: {fileID: 7885794644938174773}
-  - component: {fileID: -6828076148213293725}
-  - component: {fileID: 8181964198269010161}
   m_Layer: 3
   m_Name: Kitchen_Table_A_NewMatrial
   m_TagString: Untagged
@@ -102,89 +97,6 @@ Transform:
   - {fileID: 5535067392098121178}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
---- !u!65 &7937514307085231852
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3495244411028611420}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 0.8127291, y: 1.0899332, z: 0.72752374}
-  m_Center: {x: -0.39499524, y: 0.53210676, z: -0.2803977}
---- !u!114 &3323325847919820444
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3495244411028611420}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ce7b7555c2d391444a03222a0ccc4b2a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Counter
---- !u!114 &7885794644938174773
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3495244411028611420}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b740201958239794795de6b3a18f6819, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::ObstaclesPlacement
-  spawnPoints:
-  - {fileID: 8002152149795526437}
-  - {fileID: 8390200384186454684}
-  - {fileID: 4432014603554884498}
-  - {fileID: 1311691246092906226}
-  possibleObstacles:
-  - {fileID: 5190441673226054599, guid: ab20d002c2616324fa6fc5d4c9f7c2f9, type: 3}
-  - {fileID: 392448708252072709, guid: 7610db33ec3c6e44ba6b09ed8c459508, type: 3}
-  minObstacles: 1
-  maxObstacles: 1
-  needsObstacleAtStart: 0
-  needsObstacleAtEnd: 0
---- !u!114 &-6828076148213293725
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3495244411028611420}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c8461ac3fc6275042a0e6373b3878b6c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PlatformDestroyer
-  platformDestructionPoint: {fileID: 0}
---- !u!114 &8181964198269010161
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3495244411028611420}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8693e86cbf4dfab4cb0669f1d9643df6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PooledPlatform
-  platformType: {fileID: 11400000, guid: 996a2fb11c89cc846b84497dfb569021, type: 2}
 --- !u!1 &3583692493183136774
 GameObject:
   m_ObjectHideFlags: 0

@@ -5,30 +5,27 @@ public class WallGenerator : MonoBehaviour
 {
     [SerializeField] private List<WallType> wallTypes = new();
     [SerializeField] private Transform generationPoint;
-    [SerializeField] private float distanceBetweenWalls = 0f;
+    [SerializeField] private float distanceBetweenWalls;
     [SerializeField] private int currentLevel = 1;
 
     private WallType lastWallType;
     private WallType secondLastWallType;
 
-    private Dictionary<WallType, int> wallSpawnCounts = new();
+    private readonly Dictionary<WallType, int> wallSpawnCounts = new();
 
     private void Start()
     {
-        foreach (var type in wallTypes)
-        {
-            wallSpawnCounts[type] = 0;
-        }
+        foreach (var type in wallTypes) wallSpawnCounts[type] = 0;
     }
 
     public WallType SpawnNextWall(Vector3 spawnBasePosition)
     {
-        WallType chosenWall = WallTypeToSpawn();
+        var chosenWall = WallTypeToSpawn();
         if (chosenWall == null)
             return null;
 
-        Vector3 wallPosition = spawnBasePosition;
-        GameObject newWall = KitchenPool.Instance.GetPooledWall(chosenWall, wallPosition, Quaternion.identity);
+        var wallPosition = spawnBasePosition;
+        var newWall = KitchenPool.Instance.GetPooledWall(chosenWall, wallPosition, Quaternion.identity);
         newWall.SetActive(true);
 
         wallSpawnCounts[chosenWall]++;
@@ -60,13 +57,10 @@ public class WallGenerator : MonoBehaviour
             return wallTypes.Find(w => w.isBaseCase) ?? wallTypes[0]; // standard-pick
 
         //weighted random algorithm
-        float totalSpawnWeight = 0f;
-        foreach (var type in validType)
-        {
-            totalSpawnWeight += type.spawnWeight;
-        }
+        var totalSpawnWeight = 0f;
+        foreach (var type in validType) totalSpawnWeight += type.spawnWeight;
 
-        float pickRandomWall = Random.value * totalSpawnWeight;
+        var pickRandomWall = Random.value * totalSpawnWeight;
         float cumulative = 0;
 
         foreach (var type in validType)
@@ -89,16 +83,14 @@ public class WallGenerator : MonoBehaviour
 
     private int GetScaledMaxCount(WallType type)
     {
-        int baseCount = type.baseMaxCount;
-        float scale = Mathf.Pow(type.maxCountMultiplierPerLevel, currentLevel);
+        var baseCount = type.baseMaxCount;
+        var scale = Mathf.Pow(type.maxCountMultiplierPerLevel, currentLevel);
         return Mathf.RoundToInt(baseCount * scale);
     }
 
     public Vector3 GetNextSpawnPosition(Vector3 currentPosition)
     {
-        float offsetX = lastWallType != null ? lastWallType.prefab.transform.localScale.x + distanceBetweenWalls : 0f;
+        var offsetX = lastWallType != null ? lastWallType.prefab.transform.localScale.x + distanceBetweenWalls : 0f;
         return currentPosition + new Vector3(offsetX, 0, 0);
     }
-
-
 }

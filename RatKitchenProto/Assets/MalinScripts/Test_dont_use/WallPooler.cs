@@ -5,15 +5,15 @@ public class WallPooler : MonoBehaviour
 {
     public GameObject pooledWallObject;
     public int pooledAmount;
-    List<GameObject> pooledWallObjects;
+    private List<GameObject> pooledWallObjects;
 
     private void Start()
     {
-        pooledWallObjects = new();
+        pooledWallObjects = new List<GameObject>();
 
-        for (int i = 0; i < pooledAmount; i++)
+        for (var i = 0; i < pooledAmount; i++)
         {
-            GameObject obj = Instantiate(pooledWallObject);
+            var obj = Instantiate(pooledWallObject);
             obj.SetActive(false);
             pooledWallObjects.Add(obj);
         }
@@ -21,15 +21,11 @@ public class WallPooler : MonoBehaviour
 
     public GameObject GetPooledWallObject()
     {
-        for (int i = 0; i < pooledWallObjects.Count; i++)
-        {
+        for (var i = 0; i < pooledWallObjects.Count; i++)
             if (!pooledWallObjects[i].activeInHierarchy)
-            {
                 return pooledWallObjects[i];
-            }
-        }
 
-        GameObject obj = Instantiate(pooledWallObject);
+        var obj = Instantiate(pooledWallObject);
         obj.SetActive(false);
         pooledWallObjects.Add(obj);
         return obj;
