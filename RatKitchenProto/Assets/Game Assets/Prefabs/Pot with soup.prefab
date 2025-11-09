@@ -80,6 +80,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Pot with soup
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: aa386a008b04c864599125f68b850de2, type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
     - target: {fileID: 1647273252052315166, guid: aa386a008b04c864599125f68b850de2, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 

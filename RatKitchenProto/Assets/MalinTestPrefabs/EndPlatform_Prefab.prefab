@@ -585,6 +585,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Kitchen_Table_F_NewMatrial
       objectReference: {fileID: 0}
+    - target: {fileID: 6228639819669740243, guid: 7e0d8e4261691de40ae0149dcdd85dc0, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 8820716884691051631}
   m_Layer: 3
   m_Name: Mixer
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -48,6 +48,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a448c89874e71448ba079b49cc98180, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Blender
+  damage: 1
   range: 1
   dieRange: 0.16
   fallPercentage: 20

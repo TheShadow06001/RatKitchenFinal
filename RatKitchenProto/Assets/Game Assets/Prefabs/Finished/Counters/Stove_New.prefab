@@ -939,6 +939,7 @@ MonoBehaviour:
   maxObstacles: 1
   needsObstacleAtStart: 0
   needsObstacleAtEnd: 0
+  needsOnlyOneObstacle: 1
 --- !u!114 &-1010528634139705548
 MonoBehaviour:
   m_ObjectHideFlags: 0

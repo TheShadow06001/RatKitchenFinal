@@ -3,17 +3,28 @@ using UnityEngine;
 
 public class ObstaclesPlacement : MonoBehaviour
 {
+    [Header("Spawn points and Prefabs")]
     [SerializeField] private Transform[] spawnPoints;
     [SerializeField] private List<GameObject> possibleObstacles = new();
+
+    [Header("Spawn settings and placement rules")]
     [SerializeField] private int minObstacles = 1;
     [SerializeField] private int maxObstacles = 1;
     [SerializeField] private bool needsObstacleAtStart = true;
     [SerializeField] private bool needsObstacleAtEnd = true;
+    [SerializeField] private bool needsOnlyOneObstacle = false;
 
+    [SerializeField] List<GameObject> spawnedObstacles = new();
 
     private void OnEnable()
     {
+        ClearObstacles();
         Generate();
+    }
+
+    private void OnDisable()
+    {
+        ClearObstacles();
     }
 
     private void Generate()
@@ -24,13 +35,22 @@ public class ObstaclesPlacement : MonoBehaviour
 
         List<Transform> availablePoints = new(spawnPoints);
 
-        var obstaclesToSpawn = Mathf.Clamp(Random.Range(minObstacles, maxObstacles + 1), 0, availablePoints.Count);
+       
 
+        if (needsOnlyOneObstacle)
+        {
+            Transform placementPoint = availablePoints[Random.Range(0, availablePoints.Count)];
+            SpawnAtPoint(placementPoint);
+            return;
+        }
+
+        int obstaclesToSpawn = Mathf.Clamp(Random.Range(minObstacles, maxObstacles + 1), 0, availablePoints.Count);
+        
         if (needsObstacleAtStart && availablePoints.Count > 0)
         {
-            var frontIndex = Random.Range(0, Mathf.Min(2, availablePoints.Count));
+            int frontIndex = Random.Range(0, Mathf.Min(2, availablePoints.Count));
 
-            var frontPoint = availablePoints[frontIndex];
+            Transform frontPoint = availablePoints[frontIndex];
 
             SpawnAtPoint(frontPoint);
 
@@ -41,11 +61,10 @@ public class ObstaclesPlacement : MonoBehaviour
 
         if (needsObstacleAtEnd && availablePoints.Count > 0)
         {
-            var backStart = Mathf.Max(0, availablePoints.Count - 2);
+            int backStart = Mathf.Max(0, availablePoints.Count - 2);
+            int backIndex = Random.Range(backStart, availablePoints.Count);
 
-            var backIndex = Random.Range(backStart, availablePoints.Count);
-
-            var backPoint = availablePoints[backIndex];
+            Transform backPoint = availablePoints[backIndex];
 
             SpawnAtPoint(backPoint);
 
@@ -56,31 +75,57 @@ public class ObstaclesPlacement : MonoBehaviour
 
         for (var i = 0; i < obstaclesToSpawn && availablePoints.Count > 0; i++)
         {
-            var index = Random.Range(0, availablePoints.Count);
+            int index = Random.Range(0, availablePoints.Count);
 
-            var point = availablePoints[index];
+            Transform PlacementPoint = availablePoints[index];
 
             availablePoints.RemoveAt(index);
 
-            SpawnAtPoint(point);
+            SpawnAtPoint(PlacementPoint);
         }
     }
 
     private void SpawnAtPoint(Transform point)
     {
-        var prefabToSpawn = possibleObstacles[Random.Range(0, possibleObstacles.Count)];
+        GameObject prefabToSpawn = possibleObstacles[Random.Range(0, possibleObstacles.Count)];
 
         if (prefabToSpawn == null)
             return;
 
 
-        var obstacle = Instantiate(prefabToSpawn, point.position, prefabToSpawn.transform.rotation, transform);
+        GameObject obstacle = Instantiate(prefabToSpawn, point.position, prefabToSpawn.transform.rotation, transform);
 
         if (prefabToSpawn.CompareTag("Pots&Pans"))
         {
-            var parentScale = transform.lossyScale.x;
+            float parentScale = transform.lossyScale.x;
 
             obstacle.transform.localScale = Vector3.one / parentScale;
+        }
+
+        spawnedObstacles.Add(obstacle);
+    }
+
+    private void ClearObstacles()
+    {
+        if (spawnedObstacles.Count > 0)
+        {
+            foreach (GameObject obj in spawnedObstacles)
+            {
+                if (obj != null)
+                    Destroy(obj);
+            }
+
+            spawnedObstacles.Clear();
+            return;
+        }
+
+        for (int i = transform.childCount - 1; i >= 0; i--)
+        {
+            Transform obj = transform.GetChild(i);
+            if (obj.CompareTag("Obstacle"))
+            {
+                Destroy(obj.gameObject);
+            }
         }
     }
 }

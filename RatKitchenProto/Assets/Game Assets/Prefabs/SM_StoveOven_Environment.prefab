@@ -345,6 +345,8 @@ MonoBehaviour:
   maxObstacles: 1
   needsObstacleAtStart: 0
   needsObstacleAtEnd: 0
+  needsOnlyOneObstacle: 0
+  spawnedObstacles: []
 --- !u!4 &6573437158900415879 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 61cbaedd86fbe4643991fe9545273d76, type: 3}

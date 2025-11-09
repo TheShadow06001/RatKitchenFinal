@@ -10,6 +10,9 @@ public class DifficultyManager : MonoBehaviour
     [SerializeField] private int basePlatformCount = 20;
     [SerializeField] private int platformsPerLevelIncrease = 5;
     [SerializeField] private KitchenGenerator kitchenGenerator;
+    [SerializeField] private CameraScript camera;
+    [SerializeField] private float cameraSpeedMultiplier = 1.04f;
+    [SerializeField] private float currentCameraSpeed;
 
 
     [Header("Scaling - currently not being used")]
@@ -38,7 +41,10 @@ public class DifficultyManager : MonoBehaviour
     public void LevelComplete()
     {
         currentLevel++;
+        camera.moveSpeed *= cameraSpeedMultiplier;
+        currentCameraSpeed = camera.moveSpeed; 
         CurrentMaxPlatforms += platformsPerLevelIncrease;
+
 
         Debug.Log("Level" + currentLevel + "started, max platforms are now" + CurrentMaxPlatforms);
 
