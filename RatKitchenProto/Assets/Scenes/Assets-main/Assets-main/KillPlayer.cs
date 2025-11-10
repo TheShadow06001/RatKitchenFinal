@@ -3,30 +3,31 @@ using UnityEngine;
 
 public class KillPlayer : MonoBehaviour
 {
-    private bool canKill = true;
+    [SerializeField] private int damage = 1;       
+    [SerializeField] private float damageCooldown = 1f; 
 
-    // Start is called before the first frame update
-    private void Start()
-    {
-    }
-
-    // Update is called once per frame
-    private void Update()
-    {
-    }
+    private bool canDamage = true;
 
     private void OnTriggerEnter(Collider other)
     {
-        if (!canKill) return;
+        if (!canDamage) return;
 
-        if (other.gameObject.CompareTag("Player")) HealthDisplay.instance.TakeDamage();
+        if (other.CompareTag("Player"))
+        {
+            
+            UserHealth health = other.GetComponent<UserHealth>();
+            if (health != null)
+            {
+                health.TakeDamage(damage);
+                StartCoroutine(DamageCooldown());
+            }
+        }
     }
 
-    private IEnumerator RespawnDelay()
+    private IEnumerator DamageCooldown()
     {
-        canKill = false; // disable killing temporarily
-
-        yield return new WaitForSeconds(1f); // 1 second of invulnerability
-        canKill = true; // re-enable after delay
+        canDamage = false;
+        yield return new WaitForSeconds(damageCooldown);
+        canDamage = true;
     }
 }
