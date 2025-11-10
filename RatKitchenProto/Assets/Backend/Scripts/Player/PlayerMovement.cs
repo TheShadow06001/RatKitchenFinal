@@ -7,7 +7,8 @@ public class PlayerMovement : MonoBehaviour
 
     [SerializeField] private float forwardAcceleration = 1f;
     [SerializeField] private float maxSpeedMultiplier = 2f;
-    [SerializeField] private float jumpForce = 5f;
+    [SerializeField] private float verticalJumpForce = 5f;
+    [SerializeField] private float latteralJumpForce = 5f;
     [SerializeField] private PlayerChangeLane laneChanger;
 
     [SerializeField] private float rayLength = 1f;
@@ -89,7 +90,8 @@ public class PlayerMovement : MonoBehaviour
             }
             if (isGrounded == true)
             {
-                rigidBody.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+                rigidBody.AddForce(Vector3.up * verticalJumpForce, ForceMode.Impulse);
+                rigidBody.AddForce(Vector3.forward * latteralJumpForce, ForceMode.Impulse);
                 animator.SetTrigger("Jump");
             }
         }

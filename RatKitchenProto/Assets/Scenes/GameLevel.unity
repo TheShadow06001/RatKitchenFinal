@@ -14211,12 +14211,28 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 5842865277071856685}
     - target: {fileID: 1255399101103630193, guid: 9146d4a260fc4c94fba539eee67eef19, type: 3}
+      propertyPath: latteralJumpForce
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1255399101103630193, guid: 9146d4a260fc4c94fba539eee67eef19, type: 3}
+      propertyPath: verticalJumpForce
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1255399101103630193, guid: 9146d4a260fc4c94fba539eee67eef19, type: 3}
       propertyPath: forwardAcceleration
       value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 4162388791570179371, guid: 9146d4a260fc4c94fba539eee67eef19, type: 3}
       propertyPath: m_UseGravity
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4162388791570179371, guid: 9146d4a260fc4c94fba539eee67eef19, type: 3}
+      propertyPath: m_Interpolate
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4162388791570179371, guid: 9146d4a260fc4c94fba539eee67eef19, type: 3}
+      propertyPath: m_LinearDamping
+      value: 0.02
       objectReference: {fileID: 0}
     - target: {fileID: 5186239983539354338, guid: 9146d4a260fc4c94fba539eee67eef19, type: 3}
       propertyPath: m_Name
