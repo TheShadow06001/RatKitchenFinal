@@ -1,5 +1,7 @@
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class KitchenGenerator : MonoBehaviour
 {
@@ -22,21 +24,21 @@ public class KitchenGenerator : MonoBehaviour
 
     public GameObject cameraMover;
 
-    //tillf�llig start position
-    [SerializeField] private Vector3 startPosition;
+    private Vector3 startPosition;
     private Vector3 cameraStartPosition;
     private readonly bool canGenerate = true;
     private bool isLevelComplete;
 
     private PlatformType lastPlatformType;
-
     private WallType lastWallType;
+    
     private readonly Dictionary<PlatformType, float> platformLengths = new();
 
     private readonly Dictionary<PlatformType, int> platformSpawnCounts = new();
     private PlatformType secondLastPlatformType;
     private WallType secondLastWallType;
     private GameObject spawnedEndWall;
+    private GameObject spawnedEndPlatform;
 
     private Vector3 wallOffset;
     private readonly Dictionary<WallType, int> wallSpawnCounts = new();
@@ -69,7 +71,6 @@ public class KitchenGenerator : MonoBehaviour
         }
     }
 
-    // When game manager is used, rename to UpdateKitchenGenerator and call on ResetKitchenGenerator?
     public void UpdateKitchenGenerator()
     {
         if (isLevelComplete)
@@ -279,6 +280,7 @@ public class KitchenGenerator : MonoBehaviour
         var baseCount = type.baseMaxCount;
         var scale = Mathf.Pow(type.maxCountMultiplierPerLevel, currentLevel);
         return Mathf.RoundToInt(baseCount * scale);
+
     }
 
     private int GetScaledMaxCount(WallType type)
@@ -298,12 +300,20 @@ public class KitchenGenerator : MonoBehaviour
 
     private void SpawnEndPlatform()
     {
-        if (endWallPrefab)
+        //if (endWallPrefab)
+        //{
+        //    var ratWallRotation = Quaternion.Euler(0f, 270f, 0f);
+        //    var wallSpawnPos = transform.position + new Vector3(-0.8f, -0.09f, 0.2f); // magic numbers
+        //    spawnedEndWall = Instantiate(endWallPrefab, wallSpawnPos, ratWallRotation);
+        //}        
+        
+        if (endPlatformPrefab)
         {
-            var ratWallRotation = Quaternion.Euler(0f, 270f, 0f);
-            var wallSpawnPos = transform.position + new Vector3(-0.8f, -0.09f, 0.2f); // magic numbers
-            spawnedEndWall = Instantiate(endWallPrefab, wallSpawnPos, ratWallRotation);
+            Quaternion platformRotation = Quaternion.Euler(0f, 90f, 0f);
+            Vector3 platformSpawnPos = transform.position + new Vector3(-0.577f, 0.917f, -0.24f); // magic numbers
+            spawnedEndPlatform = Instantiate(endPlatformPrefab, platformSpawnPos, platformRotation);
         }
+
     }
 
     public void SetDifficulty(LevelSettings settings)
