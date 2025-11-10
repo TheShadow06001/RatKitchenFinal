@@ -16653,7 +16653,7 @@ MonoBehaviour:
   moveSpeed: 1
   direction: {x: 0, y: 0, z: 1}
   player: {fileID: 1050021807}
-  anchorPoint: {fileID: 3203846047685289871}
+  anchorPoint: {fileID: 5842865277071856685}
 --- !u!4 &7947331472269787056
 Transform:
   m_ObjectHideFlags: 0
