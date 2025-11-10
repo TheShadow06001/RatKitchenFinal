@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5072131625613339768}
   - component: {fileID: 1536977124030467479}
   - component: {fileID: 1598689162748552003}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: topC
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -124,7 +124,7 @@ GameObject:
   - component: {fileID: 6509861637235708282}
   - component: {fileID: 3652389907452285810}
   - component: {fileID: 365673115339060032}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: baseC
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -236,7 +236,7 @@ GameObject:
   - component: {fileID: 4215926091705680039}
   - component: {fileID: 3853635135232807332}
   - component: {fileID: 9176651448399822619}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: C_drawer2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -346,7 +346,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6549915788087507134}
   - component: {fileID: 85688526648175349}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: SM_KitchenTableC_Environment
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -398,7 +398,7 @@ GameObject:
   - component: {fileID: 2772104970436611658}
   - component: {fileID: 8616188456710876662}
   - component: {fileID: 7545352866819260292}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: C_drawer1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -510,7 +510,7 @@ GameObject:
   - component: {fileID: 2893241898463390884}
   - component: {fileID: 8094312771933916610}
   - component: {fileID: 2601547497258191927}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: C_drawer3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
