@@ -16982,13 +16982,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::CameraScript
   moveSpeed: 1
   direction: {x: 0, y: 0, z: 1}
-<<<<<<< HEAD
-  player: {fileID: 1050021807}
-  anchorPoint: {fileID: 3203846047685289871}
-=======
   player: {fileID: 0}
   anchorPoint: {fileID: 0}
->>>>>>> 34a9e552c320b9862173ea8635387658163e75d2
 --- !u!4 &7947331472269787056
 Transform:
   m_ObjectHideFlags: 0
