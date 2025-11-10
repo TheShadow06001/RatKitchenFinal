@@ -13,6 +13,10 @@ public class DifficultyManager : MonoBehaviour
     [SerializeField] private CameraScript camera;
     [SerializeField] private float cameraSpeedMultiplier = 1.04f;
     [SerializeField] private float currentCameraSpeed;
+    private int sinkBaseMaxCount; // not needed?
+    private int ovenBaseMaxCount;// not needed?
+    [SerializeField] private PlatformType sinkPlatform; // not needed?
+    [SerializeField] private PlatformType ovenPlatform;// not needed?
 
 
     [Header("Scaling - currently not being used")]
@@ -32,6 +36,9 @@ public class DifficultyManager : MonoBehaviour
             Instance = this;
 
         CurrentMaxPlatforms = basePlatformCount;
+
+        sinkBaseMaxCount = sinkPlatform.baseMaxCount;   // not needed?
+        ovenBaseMaxCount = ovenPlatform.baseMaxCount;   // not needed?
     }
 
     public event Action OnLevelReset;
@@ -52,11 +59,11 @@ public class DifficultyManager : MonoBehaviour
 
         if (kitchenGenerator != null)
         {
-            foreach (var platformType in kitchenGenerator.GetPlatformTypes())
+            foreach (PlatformType platformType in kitchenGenerator.GetPlatformTypes())
                 if (platformType.typeOfPlatform == "Stove" || platformType.typeOfPlatform == "Sink")
                 {
-                    platformType.baseMaxCount += 1;
-                    platformType.MaxCountPerRun += 1;
+                    sinkBaseMaxCount++;
+                    ovenBaseMaxCount++;
                 }
 
             kitchenGenerator.ResetKitchenGenerator(CurrentMaxPlatforms, currentLevel);

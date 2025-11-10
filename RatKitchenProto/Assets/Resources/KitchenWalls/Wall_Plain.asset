@@ -20,6 +20,7 @@ MonoBehaviour:
   spawnWeight: 1
   cannotHaveNeighbour: []
   isBaseCase: 1
+  platformsPerWall: 5
   variantPrefabs: []
   minLevelToAppear: 1
   maxLevelToAppear: 999
@@ -29,4 +30,4 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  maxCountMultiplierPerLevel: 1
+  maxCountMultiplierPerLevel: 0
