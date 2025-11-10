@@ -1,33 +1,63 @@
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class KillPlayer : MonoBehaviour
 {
-    [SerializeField] private int damage = 1;       
-    [SerializeField] private float damageCooldown = 1f; 
+    public GameObject player;
+    public Transform respawnPoint;
+    public GameObject gameOverMenu;
 
-    private bool canDamage = true;
+    private bool canKill = true;
 
-    private void OnTriggerEnter(Collider other)
+    // Start is called before the first frame update
+    private void Start()
     {
-        if (!canDamage) return;
-
-        if (other.CompareTag("Player"))
+        if (gameOverMenu != null)
         {
-            
-            UserHealth health = other.GetComponent<UserHealth>();
-            if (health != null)
+            gameOverMenu.SetActive(false);
+        }
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+
+    }
+
+    private void OnCollisionEnter2D(Collision2D other)
+    {
+        if (!canKill) return;
+
+        if (other.gameObject.CompareTag("Player"))
+        {
+
+            HealthDisplay.instance.health--;
+
+            if (HealthDisplay.instance.health > 0)
             {
-                health.TakeDamage(damage);
-                StartCoroutine(DamageCooldown());
+                /*Scene currentScene = SceneManager.GetActiveScene();
+                SceneManager.LoadScene(currentScene.name); */
+                player.transform.position = respawnPoint.position;
+            }
+            else
+            {
+                HealthDisplay.instance.health = 0;
+                Debug.Log("Game Over");
+                if (gameOverMenu != null)
+                {
+                    gameOverMenu.SetActive(true);
+                }
             }
         }
     }
 
-    private IEnumerator DamageCooldown()
+    IEnumerator RespawnDelay()
     {
-        canDamage = false;
-        yield return new WaitForSeconds(damageCooldown);
-        canDamage = true;
+        canKill = false; // disable killing temporarily
+        player.transform.position = respawnPoint.position;
+        yield return new WaitForSeconds(1f); // 1 second of invulnerability
+        canKill = true; // re-enable after delay
     }
 }

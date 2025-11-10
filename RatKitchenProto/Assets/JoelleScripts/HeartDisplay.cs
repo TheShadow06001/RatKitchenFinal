@@ -5,21 +5,32 @@ using UnityEngine.UI;
 
 public class HeartDisplay : MonoBehaviour
 {
+    public static HeartDisplay instance;
     public int health;
     public int maxHealth;
 
     public Sprite emptyHeart;
     public Sprite fullHeart;
-
     public Image[] hearts;
 
-    public UserHealth userHealth;
+    void Awake()
+    {
+        if (instance == null)
+        {
+            instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
+            return;
+        }
+    }
+
 
     // Update is called once per frame
     void Update()
     {
-        health = userHealth.health;
-        maxHealth = userHealth.maxHealth;
         for (int i = 0; i < hearts.Length; i++)
         {
             if (i < health)

@@ -8528,8 +8528,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: '::'
   health: 3
   maxHealth: 3
-  playerSr: {fileID: 0}
-  playerMovement: {fileID: 1058825237}
 --- !u!114 &1058825232
 MonoBehaviour:
   m_ObjectHideFlags: 0
