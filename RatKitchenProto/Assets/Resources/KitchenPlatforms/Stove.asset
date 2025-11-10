@@ -17,7 +17,7 @@ MonoBehaviour:
   prefab: {fileID: 3968255356659497608, guid: 48de067a8514b3747b6a2a262b95c1d7, type: 3}
   MaxCountPerRun: 2
   baseMaxCount: 2
-  spawnWeight: 0.5
+  spawnWeight: 0.2
   cannotHaveNeighbour:
   - Sink
   - Stove

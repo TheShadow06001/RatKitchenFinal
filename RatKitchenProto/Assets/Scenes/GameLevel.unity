@@ -15800,11 +15800,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 56d9e5c6888c83241957a217ce8e716e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DifficultyManager
+  kitchenGenerator: {fileID: 1479536524}
+  camera: {fileID: 7770526658937517947}
+  sinkPlatform: {fileID: 11400000, guid: 1e51524b5817a6f47a4dda8a9ce34ee2, type: 2}
+  ovenPlatform: {fileID: 11400000, guid: 92c2f40e5f249d042b0bdea454417ebd, type: 2}
   currentLevel: 1
   basePlatformCount: 20
   platformsPerLevelIncrease: 5
-  kitchenGenerator: {fileID: 1479536524}
-  camera: {fileID: 0}
   cameraSpeedMultiplier: 1.04
   currentCameraSpeed: 0
   useDynamicScaling: 1
@@ -16980,10 +16982,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e0c89e2993f08c74f82cc85947f214b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CameraScript
+  player: {fileID: 1050021807}
+  playerScript: {fileID: 1058825237}
   moveSpeed: 1
   direction: {x: 0, y: 0, z: 1}
-  player: {fileID: 0}
-  anchorPoint: {fileID: 0}
+  ChaseSpeed: 0
+  ChaseCooldownTime: 2
 --- !u!4 &7947331472269787056
 Transform:
   m_ObjectHideFlags: 0
