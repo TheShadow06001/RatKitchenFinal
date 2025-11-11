@@ -12,6 +12,18 @@ public class SceneFader : MonoBehaviour
         StartCoroutine(FadeInRoutine(1f));
     }
 
+    public void RatHoleFade(float fadeDuration)
+    {
+        StartCoroutine(FadeTeleport(fadeDuration));
+    }
+
+    public IEnumerator FadeTeleport(float fadeDuration)
+    {
+        yield return StartCoroutine(FadeOutRoutine(fadeDuration));
+        yield return new WaitForSeconds(0.1f);
+        yield return StartCoroutine(FadeInRoutine(fadeDuration));
+    }
+
     // Fade from transparent and then black
     public IEnumerator FadeOutRoutine(float duration)
     {

@@ -15,11 +15,12 @@ MonoBehaviour:
   typeOfWall: Window
   tag: Window
   prefab: {fileID: 7855474493127897031, guid: a07c1e2e3e3b8d44fb7fb09faaa46e4c, type: 3}
-  MaxCountPerRun: 2
+  MaxCountPerRun: 50
   baseMaxCount: 2
-  spawnWeight: 1
+  spawnWeight: 0.5
   cannotHaveNeighbour: []
   isBaseCase: 0
+  platformsPerWall: 5
   variantPrefabs: []
   minLevelToAppear: 1
   maxLevelToAppear: 999
@@ -29,4 +30,4 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  maxCountMultiplierPerLevel: 1
+  maxCountMultiplierPerLevel: 1.1

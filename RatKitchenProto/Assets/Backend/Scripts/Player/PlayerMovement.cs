@@ -7,7 +7,9 @@ public class PlayerMovement : MonoBehaviour
 
     [SerializeField] private float forwardAcceleration = 1f;
     [SerializeField] private float maxSpeedMultiplier = 2f;
-    [SerializeField] private float jumpForce = 5f;
+    [SerializeField] private float verticalJumpForce = 5f;
+    //TODO: Remove or Implement ↓
+    //[SerializeField] private float latteralJumpForce = 5f;
     [SerializeField] private PlayerChangeLane laneChanger;
 
     [SerializeField] private float rayLength = 1f;
@@ -16,33 +18,34 @@ public class PlayerMovement : MonoBehaviour
     private float cameraSpeed;
 
     private RaycastHit hit;
-    private bool isGrounded;
+    public bool isGrounded;
 
     private float moveSpeed;
     private Rigidbody rigidBody;
+
+    Vector3 rayCastPosition;
 
     private void Start()
     {
         cameraSpeed = mainCamera.GetComponent<CameraScript>().moveSpeed;
         moveSpeed = cameraSpeed;
-
+        rayCastPosition = transform.position + new Vector3(0, 0.1f, 0);
+        
         laneChanger = laneChanger.GetComponent<PlayerChangeLane>();
         rigidBody = GetComponent<Rigidbody>();
         animator = GetComponentInChildren<Animator>();
+
     }
 
-    private void OnDrawGizmos()
-    {
-        Debug.DrawRay(transform.position, Vector3.down * rayLength, Color.red);
-    }
 
     public void PlayerUpdate()
     {
         HandleForwardSpeed();
         Jump();
-        var currentPos = transform.position;
-
-        var totalSpeed = moveSpeed;
+        Vector3 currentPos = transform.position;
+        Debug.DrawRay(rayCastPosition, Vector3.down * rayLength, Color.red);
+        
+        float totalSpeed = moveSpeed;
 
         currentPos.z += totalSpeed * Time.deltaTime;
         transform.position = new Vector3(currentPos.x, currentPos.y, currentPos.z);
@@ -74,14 +77,30 @@ public class PlayerMovement : MonoBehaviour
 
     private void Jump()
     {
-        if (rigidBody != null && Input.GetKeyDown(KeyCode.Space) && !laneChanger.isChangingLanes)
+        if (rigidBody != null && Input.GetKeyDown(KeyCode.Space))  //&& !laneChanger.isChangingLanes)
         {
-            isGrounded = Physics.Raycast(transform.position, Vector3.down, out hit, rayLength, groundLayer);
-            if (isGrounded)
+            rayCastPosition = transform.position + new Vector3(0, 0.1f, 0);
+            isGrounded = Physics.Raycast(rayCastPosition, Vector3.down, out RaycastHit hit1, rayLength, groundLayer);
+            if (Physics.Raycast(rayCastPosition, Vector3.down, out RaycastHit hit, rayLength, groundLayer))
             {
-                rigidBody.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+                Debug.Log($"HIT - IsGrounded: true | Collider: {hit.collider.name} | Tag: {hit.collider.tag} | Point: {hit.point:F3}");
+                Debug.DrawLine(rayCastPosition, hit.point, Color.green, 0.5f);
+            }
+            else
+            {
+                Debug.Log("MISS - IsGrounded: false");
+                Debug.DrawRay(rayCastPosition, Vector3.down * rayLength, Color.red, 0.5f);
+            }
+            if (isGrounded == true)
+            {
+                rigidBody.AddForce(Vector3.up * verticalJumpForce, ForceMode.Impulse);
+                //rigidBody.AddForce(Vector3.forward * latteralJumpForce, ForceMode.Impulse);
                 animator.SetTrigger("Jump");
             }
         }
+    }
+    private void OnDrawGizmos()
+    {
+        Debug.DrawRay(rayCastPosition, Vector3.down * rayLength, Color.red);
     }
 }

@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 363652010487713835}
   - component: {fileID: 6308845498705707497}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: SM_KitchenTableB_Environment
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -56,7 +56,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2482853378516669250}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: kitchenTableB_base
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -91,7 +91,7 @@ GameObject:
   - component: {fileID: 7554224646245476875}
   - component: {fileID: 6661083324145824159}
   - component: {fileID: 7513534264638568414}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: topB
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -180,7 +180,7 @@ GameObject:
   - component: {fileID: 6959875661223163477}
   - component: {fileID: 771320541379594115}
   - component: {fileID: 9059877686306225602}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: KitchenTableB_door
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -269,7 +269,7 @@ GameObject:
   - component: {fileID: 820464287093474150}
   - component: {fileID: 7526543931206135393}
   - component: {fileID: 729396494705962604}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: bottomB
   m_TagString: Untagged
   m_Icon: {fileID: 0}

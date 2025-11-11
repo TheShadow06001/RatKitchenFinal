@@ -1,18 +1,26 @@
 using System;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class DifficultyManager : MonoBehaviour
 {
-    [Header("Current Level")] [SerializeField]
-    private int currentLevel = 1;
+    [Header("References")]
+    [SerializeField] private KitchenGenerator kitchenGenerator;
+    [FormerlySerializedAs("camera")] [SerializeField] private CameraScript newCamera;
 
+    [SerializeField] private PlatformType sinkPlatform; // not needed?
+    [SerializeField] private PlatformType ovenPlatform;// not needed?
+
+    [Header("Current Level")] 
+    [SerializeField] private int currentLevel = 1;
     //[SerializeField] private LevelSettings currentSettings; // manual override of level settings
     [SerializeField] private int basePlatformCount = 20;
     [SerializeField] private int platformsPerLevelIncrease = 5;
-    [SerializeField] private KitchenGenerator kitchenGenerator;
-    [SerializeField] private CameraScript camera;
-    [SerializeField] private float cameraSpeedMultiplier = 1.04f;
+    [SerializeField] private float cameraSpeedMultiplier = 1.1f;
     [SerializeField] private float currentCameraSpeed;
+    
+    private int sinkBaseMaxCount; // not needed?
+    private int ovenBaseMaxCount;// not needed?
 
 
     [Header("Scaling - currently not being used")]
@@ -32,6 +40,9 @@ public class DifficultyManager : MonoBehaviour
             Instance = this;
 
         CurrentMaxPlatforms = basePlatformCount;
+
+        sinkBaseMaxCount = sinkPlatform.baseMaxCount;   // not needed?
+        ovenBaseMaxCount = ovenPlatform.baseMaxCount;   // not needed?
     }
 
     public event Action OnLevelReset;
@@ -41,8 +52,8 @@ public class DifficultyManager : MonoBehaviour
     public void LevelComplete()
     {
         currentLevel++;
-        camera.moveSpeed *= cameraSpeedMultiplier;
-        currentCameraSpeed = camera.moveSpeed; 
+        newCamera.moveSpeed *= cameraSpeedMultiplier;
+        currentCameraSpeed = newCamera.moveSpeed; 
         CurrentMaxPlatforms += platformsPerLevelIncrease;
 
 
@@ -52,11 +63,11 @@ public class DifficultyManager : MonoBehaviour
 
         if (kitchenGenerator != null)
         {
-            foreach (var platformType in kitchenGenerator.GetPlatformTypes())
+            foreach (PlatformType platformType in kitchenGenerator.GetPlatformTypes())
                 if (platformType.typeOfPlatform == "Stove" || platformType.typeOfPlatform == "Sink")
                 {
-                    platformType.baseMaxCount += 1;
-                    platformType.MaxCountPerRun += 1;
+                    sinkBaseMaxCount++;
+                    ovenBaseMaxCount++;
                 }
 
             kitchenGenerator.ResetKitchenGenerator(CurrentMaxPlatforms, currentLevel);

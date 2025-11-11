@@ -48,6 +48,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -6945737542248358079, guid: e3b3216194631704199a7b5ff30fc9af, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: -5409810302695848604, guid: e3b3216194631704199a7b5ff30fc9af, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: -5244121027814942892, guid: e3b3216194631704199a7b5ff30fc9af, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: -4717827973321788629, guid: e3b3216194631704199a7b5ff30fc9af, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
@@ -65,6 +77,10 @@ PrefabInstance:
       value: FryingPan_Insides
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: e3b3216194631704199a7b5ff30fc9af, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: e3b3216194631704199a7b5ff30fc9af, type: 3}
       propertyPath: m_TagString
       value: Untagged
       objectReference: {fileID: 0}
@@ -72,6 +88,14 @@ PrefabInstance:
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: a5c8b50b30d625c4ca6d2fe368ed21d7, type: 2}
+    - target: {fileID: 2403630058124011703, guid: e3b3216194631704199a7b5ff30fc9af, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6459531170411076272, guid: e3b3216194631704199a7b5ff30fc9af, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 7138744238276970864, guid: e3b3216194631704199a7b5ff30fc9af, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
@@ -83,6 +107,12 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: e3b3216194631704199a7b5ff30fc9af, type: 3}
       insertIndex: -1
       addedObject: {fileID: 5802028542322556176}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: e3b3216194631704199a7b5ff30fc9af, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6099813710163747626}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: e3b3216194631704199a7b5ff30fc9af, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8302415278116246938}
   m_SourcePrefab: {fileID: 100100000, guid: e3b3216194631704199a7b5ff30fc9af, type: 3}
 --- !u!1 &6193306776060465271 stripped
 GameObject:
@@ -110,3 +140,32 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.42383012, y: 0.07812807, z: 0.41358757}
   m_Center: {x: -0.008962676, y: 0.03072907, z: -0.0038409233}
+--- !u!114 &6099813710163747626
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6193306776060465271}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ee3ab8bf2c97cb44a9fe49d3b00fd50, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::KillPlayer
+  player: {fileID: 0}
+  respawnPoint: {fileID: 0}
+  gameOverMenu: {fileID: 0}
+--- !u!114 &8302415278116246938
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6193306776060465271}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cee51a62101564a46a6c8d88b5a7f903, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyDamage
+  userHealth: {fileID: 0}
+  damage: 1

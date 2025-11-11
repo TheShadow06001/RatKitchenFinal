@@ -17,9 +17,10 @@ MonoBehaviour:
   prefab: {fileID: 1941298153209524382, guid: 2db6b5bfcabdee445ae0233ad8bd73f0, type: 3}
   MaxCountPerRun: 50
   baseMaxCount: 2
-  spawnWeight: 1
+  spawnWeight: 0.5
   cannotHaveNeighbour: []
   isBaseCase: 1
+  platformsPerWall: 5
   variantPrefabs: []
   minLevelToAppear: 1
   maxLevelToAppear: 999
