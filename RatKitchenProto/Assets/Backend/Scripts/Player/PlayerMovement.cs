@@ -28,7 +28,8 @@ public class PlayerMovement : MonoBehaviour
     {
         cameraSpeed = mainCamera.GetComponent<CameraScript>().moveSpeed;
         moveSpeed = cameraSpeed;
-
+        rayCastPosition = transform.position + new Vector3(0, 0.1f, 0);
+        
         laneChanger = laneChanger.GetComponent<PlayerChangeLane>();
         rigidBody = GetComponent<Rigidbody>();
         animator = GetComponentInChildren<Animator>();
@@ -40,9 +41,10 @@ public class PlayerMovement : MonoBehaviour
     {
         HandleForwardSpeed();
         Jump();
-        var currentPos = transform.position;
-
-        var totalSpeed = moveSpeed;
+        Vector3 currentPos = transform.position;
+        Debug.DrawRay(rayCastPosition, Vector3.down * rayLength, Color.red);
+        
+        float totalSpeed = moveSpeed;
 
         currentPos.z += totalSpeed * Time.deltaTime;
         transform.position = new Vector3(currentPos.x, currentPos.y, currentPos.z);
@@ -91,7 +93,7 @@ public class PlayerMovement : MonoBehaviour
             if (isGrounded == true)
             {
                 rigidBody.AddForce(Vector3.up * verticalJumpForce, ForceMode.Impulse);
-                rigidBody.AddForce(Vector3.forward * latteralJumpForce, ForceMode.Impulse);
+                //rigidBody.AddForce(Vector3.forward * latteralJumpForce, ForceMode.Impulse);
                 animator.SetTrigger("Jump");
             }
         }

@@ -24,7 +24,7 @@ public class CameraScript : MonoBehaviour
     public void UpdateCamera()
     {
         transform.position += direction * moveSpeed * Time.deltaTime; //Camera Consistant Movement
-        StartCoroutine(CameraChasePlayer());                   //Camera Chase Routine
+        //StartCoroutine(CameraChasePlayer());                   //Camera Chase Routine
     }
 
     public IEnumerator CameraChasePlayer()
