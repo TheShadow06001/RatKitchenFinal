@@ -51,4 +51,17 @@ public class HeartDisplay : MonoBehaviour
             }
         }
     }
+    
+    public void TakeDamage()
+    {
+        health--;
+
+        if (health > 0)
+        {
+            /*Scene currentScene = SceneManager.GetActiveScene();
+            SceneManager.LoadScene(currentScene.name); */
+            // player.transform.position = respawnPoint.position;
+        }
+        
+    }
 }

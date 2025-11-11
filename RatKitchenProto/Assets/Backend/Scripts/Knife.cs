@@ -69,7 +69,7 @@ public class Knife : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            other.gameObject.GetComponent<HP>().TakeDamage(damage);
+            HeartDisplay.instance.TakeDamage();
         }
     }
 }

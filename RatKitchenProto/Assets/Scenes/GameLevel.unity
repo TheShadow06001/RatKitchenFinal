@@ -6728,7 +6728,7 @@ Transform:
   m_Children:
   - {fileID: 1621692532}
   - {fileID: 1479536525}
-  - {fileID: 465445836}
+  - {fileID: 1842201577}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &918148043
@@ -8245,20 +8245,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 5186239983539354338, guid: 9146d4a260fc4c94fba539eee67eef19, type: 3}
   m_PrefabInstance: {fileID: 1788364127}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1058825230
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1050021807}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e492c8ea146a0254b8f5bbcfad574f4d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::HP
-  regenTime: 3
-  gameOverMenu: {fileID: 0}
 --- !u!114 &1058825232
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10892,6 +10878,12 @@ MonoBehaviour:
   QualityDropdown: {fileID: 1121658515}
   VSyncToggle: {fileID: 1285579772}
   OptionsMenu: {fileID: 504688970}
+  MasterMixer: {fileID: 0}
+  SFXMixer: {fileID: 0}
+  MusicMixer: {fileID: 0}
+  MasterVolumeSlider: {fileID: 0}
+  MusicVolumeSlider: {fileID: 0}
+  SFXVolumeSlider: {fileID: 0}
 --- !u!114 &1421046347
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14276,9 +14268,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 5186239983539354338, guid: 9146d4a260fc4c94fba539eee67eef19, type: 3}
-      insertIndex: 2
-      addedObject: {fileID: 1058825230}
-    - targetCorrespondingSourceObject: {fileID: 5186239983539354338, guid: 9146d4a260fc4c94fba539eee67eef19, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1058825232}
   m_SourcePrefab: {fileID: 100100000, guid: 9146d4a260fc4c94fba539eee67eef19, type: 3}
@@ -14761,6 +14750,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &1842201577 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8058738086857687071, guid: 3093df9b77c40694d8cc2d540ad2826c, type: 3}
+  m_PrefabInstance: {fileID: 600928490}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1846286957
 GameObject:
   m_ObjectHideFlags: 0
