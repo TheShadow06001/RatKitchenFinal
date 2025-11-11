@@ -14,7 +14,6 @@ public class CameraScript : MonoBehaviour
     private float ChaseThreshold;
     public float ChaseCooldownTime = 2f;
     private bool CanChase;
-    private bool IsChasing;
 
     private void Start()
     {
@@ -42,7 +41,6 @@ public class CameraScript : MonoBehaviour
             {
                 if (player.transform.position.z + ChaseThreshold > transform.position.z) //Is Player ahead of Camera?
                 {
-                    IsChasing = true;
                     Vector3 TargetPosition = transform.position;
                     TargetPosition.z = player.transform.position.z + ChaseThreshold;
                     
