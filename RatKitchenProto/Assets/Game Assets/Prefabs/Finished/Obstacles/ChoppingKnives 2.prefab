@@ -264,6 +264,10 @@ PrefabInstance:
       propertyPath: m_CastShadows
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5188174153784834651, guid: 0b9a569fd1cf7b447a653ad188bc80d3, type: 3}
+      propertyPath: damage
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7157983030055453379, guid: 0b9a569fd1cf7b447a653ad188bc80d3, type: 3}
       propertyPath: endPosTransform
       value: 
