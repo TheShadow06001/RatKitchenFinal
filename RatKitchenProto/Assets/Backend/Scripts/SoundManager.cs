@@ -30,6 +30,7 @@ public enum SoundEffects
     GasStoveFire,
     BlenderBlending,
     Heartbeat,
+    BackgroundNoise,
 
     // Music
     GameplayMusic,

@@ -1,6 +1,7 @@
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Audio;
 
 public class S_OptionsMenu : MonoBehaviour
 {
@@ -9,6 +10,14 @@ public class S_OptionsMenu : MonoBehaviour
     public TMP_Dropdown QualityDropdown;
     public Toggle VSyncToggle;
     public GameObject OptionsMenu;
+
+  
+    [SerializeField] AudioMixer MasterMixer;
+    [SerializeField] AudioMixer SFXMixer;
+    [SerializeField] AudioMixer MusicMixer;
+    [SerializeField] GameObject MasterVolumeSlider;
+    [SerializeField] GameObject MusicVolumeSlider;
+    [SerializeField] GameObject SFXVolumeSlider;
 
     private void Start()
     {
@@ -97,5 +106,20 @@ public class S_OptionsMenu : MonoBehaviour
         QualitySettings.vSyncCount = on ? 1 : 0;
         PlayerPrefs.SetInt("VSync", on ? 1 : 0);
         PlayerPrefs.Save();
+    }
+
+    public void SetMasterVolume(float MasterVolume)
+    {
+        MasterMixer.SetFloat("MasterVolume", MasterVolume);
+    }
+
+    public void SetMusicVolume(float MusicVolume) 
+    {
+        MusicMixer.SetFloat("MusicVolume", MusicVolume);
+    }
+
+    public void SetSFXVolume(float SFXVolume)
+    {
+        SFXMixer.SetFloat("SFXVolume", SFXVolume);
     }
 }
