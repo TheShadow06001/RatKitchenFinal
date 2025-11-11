@@ -13,7 +13,8 @@ public class KitchenGenerator : MonoBehaviour
     [SerializeField] private Transform generationPoint;
     [SerializeField] private float distanceBetween;
     [SerializeField] public int maxPlatformsPerRun = 20;
-    [SerializeField] private int basePackagesPerRun = 3; // 1 wall fits 5 counters = 1 package
+    //TODO: Implement or Remove ↓
+    //[SerializeField] private int basePackagesPerRun = 3; // 1 wall fits 5 counters = 1 package
 
     [SerializeField] private int currentLevel = 1;
 

@@ -1,11 +1,12 @@
 using System;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class DifficultyManager : MonoBehaviour
 {
     [Header("References")]
     [SerializeField] private KitchenGenerator kitchenGenerator;
-    [SerializeField] private CameraScript camera;
+    [FormerlySerializedAs("camera")] [SerializeField] private CameraScript newCamera;
 
     [SerializeField] private PlatformType sinkPlatform; // not needed?
     [SerializeField] private PlatformType ovenPlatform;// not needed?
@@ -51,8 +52,8 @@ public class DifficultyManager : MonoBehaviour
     public void LevelComplete()
     {
         currentLevel++;
-        camera.moveSpeed *= cameraSpeedMultiplier;
-        currentCameraSpeed = camera.moveSpeed; 
+        newCamera.moveSpeed *= cameraSpeedMultiplier;
+        currentCameraSpeed = newCamera.moveSpeed; 
         CurrentMaxPlatforms += platformsPerLevelIncrease;
 
 
