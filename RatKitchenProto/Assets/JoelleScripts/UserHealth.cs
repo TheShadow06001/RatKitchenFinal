@@ -3,32 +3,25 @@ using UnityEngine;
 public class UserHealth : MonoBehaviour
 {
     public int health;
-    public int maxHealth = 3;
-
-    private Vector3 respawnPosition;
+    public int maxHealth = 5;
 
     private void Start()
     {
         health = maxHealth;
-        respawnPosition = transform.position;
+        
     }
 
     public void TakeDamage(int amount)
     {
         health -= amount;
-        health = Mathf.Max(health, 0); 
-
-        if (health > 0)
+        if (health <= 0)
         {
-            RespawnHere();
+            Destroy(gameObject);
         }
-        else
-        {
-            Die();
-        }
+        
     }
 
-    private void RespawnHere()
+    /* private void RespawnHere()
     {
         transform.position = respawnPosition;
 
@@ -43,6 +36,6 @@ public class UserHealth : MonoBehaviour
     private void Die()
     {
         gameObject.SetActive(false);
-        Debug.Log("Player is out of lives!");
-    }
+        Debug.Log("Player is out of lives");
+    }*/
 }

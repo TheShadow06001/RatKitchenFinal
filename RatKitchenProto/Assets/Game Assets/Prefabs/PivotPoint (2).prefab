@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3098551134441729065}
   - component: {fileID: 7865302178672525268}
   - component: {fileID: 7157983030055453379}
-  - component: {fileID: 7413819794599619588}
+  - component: {fileID: 5188174153784834651}
   m_Layer: 0
   m_Name: PivotPoint (2)
   m_TagString: Untagged
@@ -68,12 +68,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9e2e4bfb1c024584695a0781951451ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Knife
+  damage: 1
   speed: 2
-  minRate: 0
-  maxRate: 2
-  mesh: {fileID: 0}
-  line: {fileID: 0}
---- !u!114 &7413819794599619588
+  endPosTransform: {fileID: 0}
+--- !u!114 &5188174153784834651
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -82,12 +80,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 7714686618093285665}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1ee3ab8bf2c97cb44a9fe49d3b00fd50, type: 3}
+  m_Script: {fileID: 11500000, guid: cee51a62101564a46a6c8d88b5a7f903, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::KillPlayer
-  player: {fileID: 0}
-  respawnPoint: {fileID: 0}
-  gameOverMenu: {fileID: 0}
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyDamage
+  userHealth: {fileID: 0}
+  damage: 2
 --- !u!1 &8258720830436200526
 GameObject:
   m_ObjectHideFlags: 0
