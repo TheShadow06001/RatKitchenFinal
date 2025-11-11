@@ -18,30 +18,31 @@ public class DestinationTrigger : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             other.transform.position = spawnPoint;
+            fader.RatHoleFade(fadeDuration);
             DifficultyManager.Instance.LevelComplete();
-            StartCoroutine(FadeTeleport());
+            //StartCoroutine(FadeTeleport());
         }
     }
 
-    private IEnumerator FadeTeleport()
-    {
-        if (fader == null || spawnPoint == null) yield break;
+    //private IEnumerator FadeTeleport()
+    //{
+    //    if (fader == null || spawnPoint == null) yield break;
 
-        // fade to black
-        yield return StartCoroutine(fader.FadeOutRoutine(fadeDuration));
+    //    // fade to black
+    //    yield return StartCoroutine(fader.FadeOutRoutine(fadeDuration));
 
-        // Move player back to SpawnPoint
+    //    // Move player back to SpawnPoint
 
 
-        // this one is optional which resets the velocity if/when using Rigidbody
-        //var rb = player.GetComponent<Rigidbody>();
-        //if (rb != null)
-        //{
-        //    rb.linearVelocity = Vector3.zero;
-        //    rb.angularVelocity = Vector3.zero;
-        //}
+    //    // this one is optional which resets the velocity if/when using Rigidbody
+    //    //var rb = player.GetComponent<Rigidbody>();
+    //    //if (rb != null)
+    //    //{
+    //    //    rb.linearVelocity = Vector3.zero;
+    //    //    rb.angularVelocity = Vector3.zero;
+    //    //}
 
-        // Fade back in
-        yield return StartCoroutine(fader.FadeInRoutine(fadeDuration));
-    }
+    //    // Fade back in
+    //    yield return StartCoroutine(fader.FadeInRoutine(fadeDuration));
+    //}
 }
