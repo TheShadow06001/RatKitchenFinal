@@ -115,6 +115,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: aa386a008b04c864599125f68b850de2, type: 3}
       insertIndex: -1
       addedObject: {fileID: 4020780042431201307}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: aa386a008b04c864599125f68b850de2, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 3021824564505594881}
   m_SourcePrefab: {fileID: 100100000, guid: aa386a008b04c864599125f68b850de2, type: 3}
 --- !u!1 &8158062840188239698 stripped
 GameObject:
@@ -142,3 +145,18 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.38649774, y: 0.18758056, z: 0.361372}
   m_Center: {x: -0.0031408146, y: 0.09212999, z: -0.0010466576}
+--- !u!114 &3021824564505594881
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8158062840188239698}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ee3ab8bf2c97cb44a9fe49d3b00fd50, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::KillPlayer
+  player: {fileID: 0}
+  respawnPoint: {fileID: 0}
+  gameOverMenu: {fileID: 0}

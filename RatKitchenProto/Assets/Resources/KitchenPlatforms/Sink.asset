@@ -17,7 +17,7 @@ MonoBehaviour:
   prefab: {fileID: 5087580193980275183, guid: c2369588bb8afb34d950b2a2762d757b, type: 3}
   MaxCountPerRun: 2
   baseMaxCount: 2
-  spawnWeight: 0.1
+  spawnWeight: 0.2
   cannotHaveNeighbour:
   - Stove
   - Sink
@@ -40,15 +40,24 @@ MonoBehaviour:
       inWeight: 0
       outWeight: 0
     - serializedVersion: 3
-      time: 1
-      value: 1
-      inSlope: 2
-      outSlope: 2
+      time: 0.7
+      value: 0.8
+      inSlope: 0.008405566
+      outSlope: 0.008405566
       tangentMode: 0
       weightedMode: 0
-      inWeight: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0.1
+      inSlope: -0.036779284
+      outSlope: -0.036779284
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.55392253
       outWeight: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  maxCountMultiplierPerLevel: 1.1
+  maxCountMultiplierPerLevel: 1.3

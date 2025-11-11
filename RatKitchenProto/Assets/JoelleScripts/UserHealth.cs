@@ -5,19 +5,44 @@ public class UserHealth : MonoBehaviour
     public int health;
     public int maxHealth = 3;
 
-    public SpriteRenderer playerSr;
-    public PlayerMovement playerMovement;
-    void Start()
+    private Vector3 respawnPosition;
+
+    private void Start()
     {
         health = maxHealth;
+        respawnPosition = transform.position;
     }
+
     public void TakeDamage(int amount)
     {
         health -= amount;
-        if (health <= 0)
+        health = Mathf.Max(health, 0); 
+
+        if (health > 0)
         {
-            playerSr.enabled = false;
-            playerMovement.enabled = false;
+            RespawnHere();
         }
+        else
+        {
+            Die();
+        }
+    }
+
+    private void RespawnHere()
+    {
+        transform.position = respawnPosition;
+
+        Rigidbody rb = GetComponent<Rigidbody>();
+        if (rb != null)
+        {
+            rb.linearVelocity = Vector3.zero;
+            rb.angularVelocity = Vector3.zero;
+        }
+    }
+
+    private void Die()
+    {
+        gameObject.SetActive(false);
+        Debug.Log("Player is out of lives!");
     }
 }
