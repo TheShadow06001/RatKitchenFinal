@@ -17,7 +17,7 @@ public class PlayerMovement : MonoBehaviour
     private float cameraSpeed;
 
     private RaycastHit hit;
-    private bool isGrounded;
+    public bool isGrounded;
 
     private float moveSpeed;
     private Rigidbody rigidBody;

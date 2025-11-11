@@ -18,7 +18,7 @@ public class KitchenGenerator : MonoBehaviour
     [SerializeField] private int currentLevel = 1;
 
     [SerializeField] private GameObject endPlatformPrefab;
-    [SerializeField] private GameObject endWallPrefab;
+    //[SerializeField] private GameObject endWallPrefab;
 
     [SerializeField] private int spawnedPlatforms;
 
@@ -51,20 +51,11 @@ public class KitchenGenerator : MonoBehaviour
 
     private void Start()
     {
-        //var settings = DifficultyManager.Instance.CurrentSettings;
-        //if (settings != null)
-        //{
-        //    currentLevel = settings.levelNumber;
-        //    maxPlatformsPerRun = settings.maxPlatforms;
-        //}   
+        foreach (PlatformType type in platformTypes) platformSpawnCounts[type] = 0;
 
+        foreach (WallType type in wallTypes) wallSpawnCounts[type] = 0;
 
-        foreach (var type in platformTypes) platformSpawnCounts[type] = 0;
-
-        foreach (var type in wallTypes) wallSpawnCounts[type] = 0;
-
-        // h�mta bredden p� platforms h�r? spara i en lista/array?
-        foreach (var type in platformTypes)
+        foreach (PlatformType type in platformTypes)
         {
             platformSpawnCounts[type] = 0;
             platformLengths[type] = GetPlatformLength(type.prefab);
@@ -89,34 +80,34 @@ public class KitchenGenerator : MonoBehaviour
         /* WALL SPAWN */
         if (transform.position.z < generationPoint.position.z)
         {
-            var chosenWall = WallTypeToSpawn();
+            WallType chosenWall = WallTypeToSpawn();
             if (chosenWall == null)
                 return;
 
-            var wallSpawnPosition = transform.position;
+            Vector3 wallSpawnPosition = transform.position;
 
             wallOffset = new Vector3(-0.87f, -0.09f, 0); // magic numbers (x = -0,94f)
-            var wallRotation = Quaternion.Euler(0f, 180f, 0f);
-            var newWall = KitchenPool.Instance.GetPooledWall(chosenWall, wallSpawnPosition + wallOffset, wallRotation);
+            Quaternion wallRotation = Quaternion.Euler(0f, 180f, 0f);
+            GameObject newWall = KitchenPool.Instance.GetPooledWall(chosenWall, wallSpawnPosition + wallOffset, wallRotation);
 
             newWall.SetActive(true);
             wallSpawnCounts[chosenWall]++;
 
             /* PLATFORM SPAWN */
-            var platformSpacing = platformLengths[platformTypes[0]] + distanceBetween;
-            var packageLength = chosenWall.platformsPerWall * platformSpacing;
+            float platformSpacing = platformLengths[platformTypes[0]] + distanceBetween;
+            float packageLength = chosenWall.platformsPerWall * platformSpacing;
 
-            for (var i = 0; i < chosenWall.platformsPerWall; i++)
+            for (int i = 0; i < chosenWall.platformsPerWall; i++)
             {
-                var chosenPlatform = PlatformTypeToSpawn();
+                PlatformType chosenPlatform = PlatformTypeToSpawn();
                 if (chosenPlatform == null)
                     return;
 
-                var platformPos = wallSpawnPosition +
+                Vector3 platformPos = wallSpawnPosition +
                                   new Vector3(chosenPlatform.xPositionSpawnOffset, 0, i * platformSpacing);
-                var platformRotation = Quaternion.Euler(0f, 90f, 0f);
+                Quaternion platformRotation = Quaternion.Euler(0f, 90f, 0f);
 
-                var newPlatform = KitchenPool.Instance.GetPooledObject(chosenPlatform, platformPos, platformRotation);
+                GameObject newPlatform = KitchenPool.Instance.GetPooledObject(chosenPlatform, platformPos, platformRotation);
                 newPlatform.SetActive(true);
 
                 platformSpawnCounts[chosenPlatform]++;
@@ -129,7 +120,6 @@ public class KitchenGenerator : MonoBehaviour
             secondLastWallType = lastWallType;
             lastWallType = chosenWall;
 
-            //transform.position = wallSpawnPosition + new Vector3(/*chosenWall.platformsPerWall * platformSpacing*/0, 0, chosenWall.platformsPerWall * platformSpacing);
             transform.position = wallSpawnPosition + new Vector3(0, 0, packageLength);
         }
     }
@@ -138,7 +128,7 @@ public class KitchenGenerator : MonoBehaviour
     {
         List<PlatformType> validType = new();
 
-        foreach (var type in platformTypes)
+        foreach (PlatformType type in platformTypes)
         {
             //if (!type.CanSpawnAtLevel(currentLevel)) 
             //    continue;
@@ -155,37 +145,31 @@ public class KitchenGenerator : MonoBehaviour
         if (validType.Count == 0)
             return platformTypes.Find(p => p.isBaseCase) ?? platformTypes[0];
 
-        //weighted random algorithm
-        //float normalizedLevel = DifficultyManager.Instance.GetNormalizedLevel();
-        var totalSpawnWeight = 0f;
+        float totalSpawnWeight = 0f;
         Dictionary<PlatformType, float> weightedChances = new();
 
-        foreach (var type in validType)
+        float normalizedTimeProgress = Mathf.Clamp01(Time.timeSinceLevelLoad / (15f * 60f)); // 15 min gameplay
+
+        foreach (PlatformType type in validType)
         {
-            var curveMultiplier = 1f;
-            //if (type.spawnChanceCurve != null && type.spawnChanceCurve.length > 0)
-            //{
-            //    curveMultiplier = Mathf.Clamp01(type.spawnChanceCurve.Evaluate(normalizedLevel));
-            //}
+            float curveMultiplier = 1f;
+            if (type.spawnChanceCurve != null && type.spawnChanceCurve.length > 0)
+            {
+                curveMultiplier = Mathf.Max(0.01f, type.spawnChanceCurve.Evaluate(normalizedTimeProgress));
+            }
 
-            var weightedChance = type.spawnWeight * curveMultiplier;
-            weightedChances[type] = weightedChance;
+            float weightedChance = type.spawnWeight * curveMultiplier * Random.Range(0.95f, 1.05f);
+            weightedChances[type] = weightedChance; 
             totalSpawnWeight += weightedChance;
-
-            //totalSpawnWeight += type.spawnWeight;
         }
 
-        var randomPick = Random.value * totalSpawnWeight;
+        if (totalSpawnWeight <= 0f)
+            return platformTypes.Find(p => p.isBaseCase) ?? platformTypes[0];
+
+        float randomPick = Random.value * totalSpawnWeight;
         float cumulative = 0;
 
-        /*foreach (var type in validType)
-        {
-            cumulative += type.spawnWeight;
-            if (randomPick <= cumulative)
-                return type;
-        }*/
-
-        foreach (var pair in weightedChances)
+        foreach (KeyValuePair<PlatformType, float> pair in weightedChances)
         {
             cumulative += pair.Value;
             if (randomPick <= cumulative)
@@ -199,10 +183,10 @@ public class KitchenGenerator : MonoBehaviour
     {
         List<WallType> validType = new();
 
-        foreach (var type in wallTypes)
+        foreach (WallType type in wallTypes)
         {
-            if (!type.CanSpawnAtLevel(currentLevel))
-                continue;
+            //if (!type.CanSpawnAtLevel(currentLevel))
+            //    continue;
 
             if (wallSpawnCounts[type] >= GetScaledMaxCount(type))
                 continue;
@@ -216,36 +200,29 @@ public class KitchenGenerator : MonoBehaviour
         if (validType.Count == 0)
             return wallTypes.Find(w => w.isBaseCase) ?? wallTypes[0]; // standard-pick
 
-        //weighted random algorithm
-        //float normalizedLevel = DifficultyManager.Instance.GetNormalizedLevel();
-        var totalSpawnWeight = 0f;
+
+        float totalSpawnWeight = 0f;
         Dictionary<WallType, float> weightedChances = new();
 
-        foreach (var type in validType)
-        {
-            var curveMultiplier = 1f;
-            //if (type.spawnChanceCurve != null && type.spawnChanceCurve.length > 0)
-            //{
-            //    curveMultiplier = Mathf.Clamp01(type.spawnChanceCurve.Evaluate(normalizedLevel));
-            //}
+        float normalizedTimeProgress = Mathf.Clamp01(Time.timeSinceLevelLoad / (15f * 60f));
 
-            var weightedChance = type.spawnWeight * curveMultiplier;
+        foreach (WallType type in validType)
+        {
+            float curveMultiplier = 1f;
+            if (type.spawnChanceCurve != null && type.spawnChanceCurve.length > 0)
+            {
+                curveMultiplier = Mathf.Max(0.01f, type.spawnChanceCurve.Evaluate(normalizedTimeProgress));
+            }
+
+            float weightedChance = type.spawnWeight * curveMultiplier * Random.Range(0.8f, 1.2f);
             weightedChances[type] = weightedChance;
             totalSpawnWeight += weightedChance;
-
-            //totalSpawnWeight += type.spawnWeight;
         }
 
-        var pickRandomWall = Random.value * totalSpawnWeight;
+        float pickRandomWall = Random.value * totalSpawnWeight;
         float cumulative = 0;
 
-        /* foreach (var type in validType)
-         {
-             cumulative += type.spawnWeight;
-             if (pickRandomWall <= cumulative)
-                 return type;
-         }*/
-        foreach (var pair in weightedChances)
+        foreach (KeyValuePair<WallType, float> pair in weightedChances)
         {
             cumulative += pair.Value;
             if (pickRandomWall <= cumulative)
@@ -277,22 +254,23 @@ public class KitchenGenerator : MonoBehaviour
 
     private int GetScaledMaxCount(PlatformType type)
     {
-        var baseCount = type.baseMaxCount;
-        var scale = Mathf.Pow(type.maxCountMultiplierPerLevel, currentLevel);
-        return Mathf.RoundToInt(baseCount * scale);
-
+        float baseCount = type.baseMaxCount;
+        float scale = Mathf.Pow(type.maxCountMultiplierPerLevel, currentLevel);
+        //return Mathf.RoundToInt(baseCount * scale);
+        int scaled = Mathf.RoundToInt(baseCount * scale);
+        return Mathf.Min(scaled, maxPlatformsPerRun);
     }
 
     private int GetScaledMaxCount(WallType type)
     {
-        var baseCount = type.baseMaxCount;
-        var scale = Mathf.Pow(type.maxCountMultiplierPerLevel, currentLevel);
+        float baseCount = type.baseMaxCount;
+        float scale = Mathf.Pow(type.maxCountMultiplierPerLevel, currentLevel);
         return Mathf.RoundToInt(baseCount * scale);
     }
 
     private float GetPlatformLength(GameObject prefab)
     {
-        var r = prefab.GetComponentInChildren<Renderer>();
+        Renderer r = prefab.GetComponentInChildren<Renderer>();
         if (r != null)
             return r.bounds.size.z;
         return prefab.transform.localScale.z;
@@ -300,25 +278,12 @@ public class KitchenGenerator : MonoBehaviour
 
     private void SpawnEndPlatform()
     {
-        //if (endWallPrefab)
-        //{
-        //    var ratWallRotation = Quaternion.Euler(0f, 270f, 0f);
-        //    var wallSpawnPos = transform.position + new Vector3(-0.8f, -0.09f, 0.2f); // magic numbers
-        //    spawnedEndWall = Instantiate(endWallPrefab, wallSpawnPos, ratWallRotation);
-        //}        
-        
         if (endPlatformPrefab)
         {
             Quaternion platformRotation = Quaternion.Euler(0f, 90f, 0f);
             Vector3 platformSpawnPos = transform.position + new Vector3(-0.577f, 0.917f, -0.24f); // magic numbers
             spawnedEndPlatform = Instantiate(endPlatformPrefab, platformSpawnPos, platformRotation);
         }
-
-    }
-
-    public void SetDifficulty(LevelSettings settings)
-    {
-        maxPlatformsPerRun = settings.maxPlatforms;
     }
 
     public void ResetKitchenGenerator(int newMaxPlatforms, int newLevel)
@@ -332,12 +297,12 @@ public class KitchenGenerator : MonoBehaviour
         maxPlatformsPerRun = newMaxPlatforms;
         currentLevel = newLevel;
 
-        foreach (var key in
+        foreach (PlatformType key in
                  new List<PlatformType>(platformSpawnCounts
                      .Keys)) // copy of list due to otherwise trying to loop over list while modifying
             platformSpawnCounts[key] = 0;
 
-        foreach (var key in new List<WallType>(wallSpawnCounts.Keys))
+        foreach (WallType key in new List<WallType>(wallSpawnCounts.Keys))
             wallSpawnCounts[key] = 0;
 
         lastPlatformType = null;

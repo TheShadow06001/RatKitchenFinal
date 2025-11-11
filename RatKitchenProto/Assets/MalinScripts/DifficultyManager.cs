@@ -3,20 +3,23 @@ using UnityEngine;
 
 public class DifficultyManager : MonoBehaviour
 {
-    [Header("Current Level")] [SerializeField]
-    private int currentLevel = 1;
+    [Header("References")]
+    [SerializeField] private KitchenGenerator kitchenGenerator;
+    [SerializeField] private CameraScript camera;
 
+    [SerializeField] private PlatformType sinkPlatform; // not needed?
+    [SerializeField] private PlatformType ovenPlatform;// not needed?
+
+    [Header("Current Level")] 
+    [SerializeField] private int currentLevel = 1;
     //[SerializeField] private LevelSettings currentSettings; // manual override of level settings
     [SerializeField] private int basePlatformCount = 20;
     [SerializeField] private int platformsPerLevelIncrease = 5;
-    [SerializeField] private KitchenGenerator kitchenGenerator;
-    [SerializeField] private CameraScript camera;
-    [SerializeField] private float cameraSpeedMultiplier = 1.04f;
+    [SerializeField] private float cameraSpeedMultiplier = 1.1f;
     [SerializeField] private float currentCameraSpeed;
+    
     private int sinkBaseMaxCount; // not needed?
     private int ovenBaseMaxCount;// not needed?
-    [SerializeField] private PlatformType sinkPlatform; // not needed?
-    [SerializeField] private PlatformType ovenPlatform;// not needed?
 
 
     [Header("Scaling - currently not being used")]
