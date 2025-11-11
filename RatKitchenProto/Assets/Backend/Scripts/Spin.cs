@@ -7,6 +7,7 @@ public class Spin : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
-        transform.Rotate(0, 0, speed * Time.deltaTime);
+        if (GameManager.Instance.CheckState<PlayingState>())
+            transform.Rotate(0, 0, speed * Time.deltaTime);
     }
 }

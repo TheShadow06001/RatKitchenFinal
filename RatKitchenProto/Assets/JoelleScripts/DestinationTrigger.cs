@@ -15,12 +15,13 @@ public class DestinationTrigger : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player"))
+        if (other.CompareTag("Player") && fader != null)
         {
-            other.transform.position = spawnPoint;
-            fader.RatHoleFade(fadeDuration);
-            DifficultyManager.Instance.LevelComplete();
+            //other.transform.position = spawnPoint;
             //StartCoroutine(FadeTeleport());
+            //DifficultyManager.Instance.LevelComplete();
+
+            fader.StartFadeAndRespawn(other.gameObject, spawnPoint, fadeDuration);
         }
     }
 

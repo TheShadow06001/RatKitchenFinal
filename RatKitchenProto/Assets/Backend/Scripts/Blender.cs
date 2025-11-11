@@ -103,6 +103,9 @@ public class Blender : MonoBehaviour
     {
         for (float i = 0; i > endRotation; i -= Time.deltaTime * fallSpeed)
         {
+            while (GameManager.Instance.CheckState<PauseState>())
+                yield return null;
+
             transform.rotation = Quaternion.Euler(new Vector3(0, 90, i));
 
             yield return null;

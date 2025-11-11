@@ -12,16 +12,26 @@ public class SceneFader : MonoBehaviour
         StartCoroutine(FadeInRoutine(1f));
     }
 
-    public void RatHoleFade(float fadeDuration)
+    public void StartFadeAndRespawn(GameObject player, Vector3 spawnPoint, float duration)
     {
-        StartCoroutine(FadeTeleport(fadeDuration));
+        StartCoroutine(FadeAndRespawn(player, spawnPoint, duration));
     }
 
-    public IEnumerator FadeTeleport(float fadeDuration)
+    private IEnumerator FadeAndRespawn(GameObject player, Vector3 spawnPoint, float duration)
     {
-        yield return StartCoroutine(FadeOutRoutine(fadeDuration));
-        yield return new WaitForSeconds(0.1f);
-        yield return StartCoroutine(FadeInRoutine(fadeDuration));
+        yield return FadeOutRoutine(duration);
+
+        player.transform.position = spawnPoint;
+        Rigidbody rb = player.GetComponent<Rigidbody>();
+        if (rb != null)
+        {
+            rb.linearVelocity = Vector3.zero;
+            rb.angularVelocity = Vector3.zero;
+        }
+
+        DifficultyManager.Instance.LevelComplete();
+        yield return FadeInRoutine(duration);
+
     }
 
     // Fade from transparent and then black

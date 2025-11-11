@@ -279,11 +279,18 @@ public class KitchenGenerator : MonoBehaviour
 
     private void SpawnEndPlatform()
     {
-        if (endPlatformPrefab)
+        Quaternion platformRotation = Quaternion.Euler(0f, 90f, 0f);
+        Vector3 platformSpawnPos = transform.position + new Vector3(-0.577f, 0.917f, -0.24f); // magic numbers
+
+        if (spawnedEndPlatform == null)
         {
-            Quaternion platformRotation = Quaternion.Euler(0f, 90f, 0f);
-            Vector3 platformSpawnPos = transform.position + new Vector3(-0.577f, 0.917f, -0.24f); // magic numbers
             spawnedEndPlatform = Instantiate(endPlatformPrefab, platformSpawnPos, platformRotation);
+        }
+        else
+        {
+            spawnedEndPlatform.SetActive(true);
+            spawnedEndPlatform.transform.position = platformSpawnPos;
+            spawnedEndPlatform.transform.rotation = platformRotation;
         }
     }
 
@@ -291,7 +298,10 @@ public class KitchenGenerator : MonoBehaviour
     {
         transform.position = startPosition;
         cameraMover.transform.position = cameraStartPosition;
-        Destroy(spawnedEndWall);
+        //Destroy(spawnedEndWall);
+
+        if (spawnedEndPlatform != null)
+            spawnedEndPlatform.SetActive(false);
 
         spawnedPlatforms = 0;
         isLevelComplete = false;
