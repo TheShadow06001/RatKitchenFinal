@@ -279,18 +279,11 @@ public class KitchenGenerator : MonoBehaviour
 
     private void SpawnEndPlatform()
     {
-        Quaternion platformRotation = Quaternion.Euler(0f, 90f, 0f);
-        Vector3 platformSpawnPos = transform.position + new Vector3(-0.577f, 0.917f, -0.24f); // magic numbers
-
-        if (spawnedEndPlatform == null)
+        if (endPlatformPrefab)
         {
+            Quaternion platformRotation = Quaternion.Euler(0f, 90f, 0f);
+            Vector3 platformSpawnPos = transform.position + new Vector3(-0.577f, 0.917f, -0.24f); // magic numbers
             spawnedEndPlatform = Instantiate(endPlatformPrefab, platformSpawnPos, platformRotation);
-        }
-        else
-        {
-            spawnedEndPlatform.SetActive(true);
-            spawnedEndPlatform.transform.position = platformSpawnPos;
-            spawnedEndPlatform.transform.rotation = platformRotation;
         }
     }
 

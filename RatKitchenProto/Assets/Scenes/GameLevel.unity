@@ -511,6 +511,10 @@ PrefabInstance:
       propertyPath: endPlatformPrefab
       value: 
       objectReference: {fileID: 1286035631473754050, guid: c6e353b297aa44940903026ac22a75af, type: 3}
+    - target: {fileID: 6751967564265463018, guid: 381eff3c7fcf69849a610f00c476b603, type: 3}
+      propertyPath: spawnedEndPlatform
+      value: 
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
