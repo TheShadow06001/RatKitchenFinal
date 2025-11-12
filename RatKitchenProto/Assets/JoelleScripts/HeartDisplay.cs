@@ -1,6 +1,5 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class HeartDisplay : MonoBehaviour
@@ -18,11 +17,11 @@ public class HeartDisplay : MonoBehaviour
         if (instance == null)
         {
             instance = this;
-            DontDestroyOnLoad(gameObject);
+
         }
         else
         {
-            Destroy(gameObject);
+            Destroy(instance);
             return;
         }
     }
@@ -51,7 +50,7 @@ public class HeartDisplay : MonoBehaviour
             }
         }
     }
-    
+
     public void TakeDamage()
     {
         health--;
@@ -59,10 +58,14 @@ public class HeartDisplay : MonoBehaviour
         if (health > 0)
         {
             Debug.Log("Player died, game over");
+
+            GameManager.Instance.SwitchState<MenuState>();
+            SceneManager.LoadScene("Main Menu");
+
             /*Scene currentScene = SceneManager.GetActiveScene();
             SceneManager.LoadScene(currentScene.name); */
             // player.transform.position = respawnPoint.position;
         }
-        
+
     }
 }

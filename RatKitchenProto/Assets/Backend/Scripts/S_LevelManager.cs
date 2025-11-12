@@ -8,12 +8,14 @@ public class S_LevelManager : MonoBehaviour
 {
     public static S_LevelManager Instance;
 
-    [Header("Canvas Refs")] [SerializeField]
+    [Header("Canvas Refs")]
+    [SerializeField]
     private GameObject MainMenuCanvas;
 
     [SerializeField] private GameObject LoadingScreenCanvas;
 
-    [Header("Loading Screen Refs")] [SerializeField]
+    [Header("Loading Screen Refs")]
+    [SerializeField]
     private Slider LoadingScreenBarR;
 
     [SerializeField] private Slider LoadingScreenBarL;

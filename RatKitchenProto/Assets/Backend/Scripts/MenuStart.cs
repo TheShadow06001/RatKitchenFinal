@@ -1,8 +1,7 @@
 using UnityEngine;
 
-public class EnemyDamage : MonoBehaviour
+public class MenuStart : MonoBehaviour
 {
-
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -12,17 +11,10 @@ public class EnemyDamage : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
-    }
-
-    private void OnCollisionEnter(Collision collision)
-    {
-        if (collision.gameObject.CompareTag("Player"))
+        if (!GameManager.Instance.CheckState<MenuState>())
         {
-            HeartDisplay.instance.TakeDamage();
+            GameManager.Instance.SwitchState<MenuState>();
         }
+
     }
 }
-
-
-
