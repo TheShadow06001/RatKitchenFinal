@@ -332,11 +332,11 @@ Transform:
   m_GameObject: {fileID: 16391020}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -942.0613, y: -560.8564, z: -8.784}
+  m_LocalPosition: {x: -5.716944, y: 1.6286011, z: -14.52133}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 557525289}
+  m_Father: {fileID: 874107338}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &21772923
 GameObject:
@@ -2558,9 +2558,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-      - m_Target: {fileID: 557525288}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: SoundManager, Assembly-CSharp
-        m_MethodName: PlayUIButtonClick
+        m_MethodName: 
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2625,9 +2625,9 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 557525288}
+        - m_Target: {fileID: 0}
           m_TargetAssemblyTypeName: SoundManager, Assembly-CSharp
-          m_MethodName: PlayUIButtonHover
+          m_MethodName: 
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -8415,13 +8415,25 @@ MonoBehaviour:
   m_FillRect: {fileID: 1966221712}
   m_HandleRect: {fileID: 1633474104}
   m_Direction: 0
-  m_MinValue: 0
-  m_MaxValue: 1
+  m_MinValue: -40
+  m_MaxValue: 15
   m_WholeNumbers: 0
-  m_Value: 1
+  m_Value: 0
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1565265990}
+        m_TargetAssemblyTypeName: S_OptionsMenu, Assembly-CSharp
+        m_MethodName: SetMusicVolume
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &458655585
 GameObject:
   m_ObjectHideFlags: 0
@@ -8545,11 +8557,11 @@ Transform:
   m_GameObject: {fileID: 458655585}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -942.015, y: -560.816, z: -8.802}
+  m_LocalPosition: {x: -5.6706796, y: 1.6690063, z: -14.53933}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 557525289}
+  m_Father: {fileID: 874107338}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &470528247
 PrefabInstance:
@@ -8559,6 +8571,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1073623188}
     m_Modifications:
+    - target: {fileID: 6755156199697301680, guid: eafbf78c705fa304da4aa86ee587aff1, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -59.1
+      objectReference: {fileID: 0}
     - target: {fileID: -6828076148213293725, guid: 3f3a3ae839b86ef4f93291ee704543cf, type: 3}
       propertyPath: m_Enabled
       value: 0
@@ -8618,10 +8634,6 @@ PrefabInstance:
     - target: {fileID: 8655616415850060955, guid: 3f3a3ae839b86ef4f93291ee704543cf, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6755156199697301680, guid: eafbf78c705fa304da4aa86ee587aff1, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -59.1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -8953,25 +8965,13 @@ MonoBehaviour:
           m_StringArgument: GameLevel
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 557525288}
-        m_TargetAssemblyTypeName: SoundManager, Assembly-CSharp
-        m_MethodName: PlayUIButtonClick
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
       - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: PlayingState, Assembly-CSharp
-        m_MethodName: EnterState
-        m_Mode: 1
+        m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
+        m_MethodName: 
+        m_Mode: 2
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Audio.AudioResource, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -9032,9 +9032,9 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 557525288}
+        - m_Target: {fileID: 0}
           m_TargetAssemblyTypeName: SoundManager, Assembly-CSharp
-          m_MethodName: PlayUIButtonHover
+          m_MethodName: 
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -9167,60 +9167,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!1 &557525287
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 557525289}
-  - component: {fileID: 557525288}
-  m_Layer: 0
-  m_Name: Sound Manager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &557525288
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 557525287}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 985e76e63997347428e052da74f2cc8b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::SoundManager
-  soundInstances:
-  - source: {fileID: 743693918}
-    effects: 14
-  - source: {fileID: 1897483456}
-    effects: 15
---- !u!4 &557525289
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 557525287}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 942.08167, y: 562.485, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 1897483457}
-  - {fileID: 743693917}
-  - {fileID: 458655587}
-  - {fileID: 16391022}
-  - {fileID: 1850672615}
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &560565930
 GameObject:
   m_ObjectHideFlags: 0
@@ -15429,12 +15375,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 743693916}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 344, y: 464, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 1280.3444, y: 1026.485, z: -5.73733}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 557525289}
+  m_Father: {fileID: 874107338}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!82 &743693918
 AudioSource:
@@ -20731,6 +20677,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 855895984}
   m_CullTransparentMesh: 1
+--- !u!4 &874107338 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1819932851460473654, guid: 942d8045a25c0ab489263a12bfd1dac3, type: 3}
+  m_PrefabInstance: {fileID: 1025362362}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &896490649
 GameObject:
   m_ObjectHideFlags: 0
@@ -20994,7 +20945,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 557525288}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: SoundManager, Assembly-CSharp
         m_MethodName: PlayUIButtonClick
         m_Mode: 1
@@ -21061,7 +21012,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 557525288}
+        - m_Target: {fileID: 0}
           m_TargetAssemblyTypeName: SoundManager, Assembly-CSharp
           m_MethodName: PlayUIButtonHover
           m_Mode: 1
@@ -21319,6 +21270,171 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ab20d002c2616324fa6fc5d4c9f7c2f9, type: 3}
+--- !u!1001 &1025362362
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1430085278198582682, guid: 942d8045a25c0ab489263a12bfd1dac3, type: 3}
+      propertyPath: soundInstances.Array.data[0].source
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 1430085278198582682, guid: 942d8045a25c0ab489263a12bfd1dac3, type: 3}
+      propertyPath: soundInstances.Array.data[1].source
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 1430085278198582682, guid: 942d8045a25c0ab489263a12bfd1dac3, type: 3}
+      propertyPath: soundInstances.Array.data[2].source
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 1430085278198582682, guid: 942d8045a25c0ab489263a12bfd1dac3, type: 3}
+      propertyPath: soundInstances.Array.data[3].source
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 1430085278198582682, guid: 942d8045a25c0ab489263a12bfd1dac3, type: 3}
+      propertyPath: soundInstances.Array.data[4].source
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 1430085278198582682, guid: 942d8045a25c0ab489263a12bfd1dac3, type: 3}
+      propertyPath: soundInstances.Array.data[5].source
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 1430085278198582682, guid: 942d8045a25c0ab489263a12bfd1dac3, type: 3}
+      propertyPath: soundInstances.Array.data[6].source
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 1430085278198582682, guid: 942d8045a25c0ab489263a12bfd1dac3, type: 3}
+      propertyPath: soundInstances.Array.data[7].source
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 1430085278198582682, guid: 942d8045a25c0ab489263a12bfd1dac3, type: 3}
+      propertyPath: soundInstances.Array.data[8].source
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 1430085278198582682, guid: 942d8045a25c0ab489263a12bfd1dac3, type: 3}
+      propertyPath: soundInstances.Array.data[9].source
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 1430085278198582682, guid: 942d8045a25c0ab489263a12bfd1dac3, type: 3}
+      propertyPath: soundInstances.Array.data[10].source
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 1430085278198582682, guid: 942d8045a25c0ab489263a12bfd1dac3, type: 3}
+      propertyPath: soundInstances.Array.data[11].source
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 1430085278198582682, guid: 942d8045a25c0ab489263a12bfd1dac3, type: 3}
+      propertyPath: soundInstances.Array.data[12].source
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 1430085278198582682, guid: 942d8045a25c0ab489263a12bfd1dac3, type: 3}
+      propertyPath: soundInstances.Array.data[13].source
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 1430085278198582682, guid: 942d8045a25c0ab489263a12bfd1dac3, type: 3}
+      propertyPath: soundInstances.Array.data[14].source
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 1430085278198582682, guid: 942d8045a25c0ab489263a12bfd1dac3, type: 3}
+      propertyPath: soundInstances.Array.data[15].source
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 1430085278198582682, guid: 942d8045a25c0ab489263a12bfd1dac3, type: 3}
+      propertyPath: soundInstances.Array.data[16].source
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 1430085278198582682, guid: 942d8045a25c0ab489263a12bfd1dac3, type: 3}
+      propertyPath: soundInstances.Array.data[17].source
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 1819932851460473654, guid: 942d8045a25c0ab489263a12bfd1dac3, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 5.73733
+      objectReference: {fileID: 0}
+    - target: {fileID: 1819932851460473654, guid: 942d8045a25c0ab489263a12bfd1dac3, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1819932851460473654, guid: 942d8045a25c0ab489263a12bfd1dac3, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 5.73733
+      objectReference: {fileID: 0}
+    - target: {fileID: 1819932851460473654, guid: 942d8045a25c0ab489263a12bfd1dac3, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1819932851460473654, guid: 942d8045a25c0ab489263a12bfd1dac3, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1819932851460473654, guid: 942d8045a25c0ab489263a12bfd1dac3, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1819932851460473654, guid: 942d8045a25c0ab489263a12bfd1dac3, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1819932851460473654, guid: 942d8045a25c0ab489263a12bfd1dac3, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1819932851460473654, guid: 942d8045a25c0ab489263a12bfd1dac3, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1819932851460473654, guid: 942d8045a25c0ab489263a12bfd1dac3, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3132701884854933336, guid: 942d8045a25c0ab489263a12bfd1dac3, type: 3}
+      propertyPath: m_Name
+      value: SoundManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 7912442883322887044, guid: 942d8045a25c0ab489263a12bfd1dac3, type: 3}
+      propertyPath: Loop
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects:
+    - {fileID: 4637047525877909802, guid: 942d8045a25c0ab489263a12bfd1dac3, type: 3}
+    - {fileID: 8742621540360015104, guid: 942d8045a25c0ab489263a12bfd1dac3, type: 3}
+    - {fileID: 8625076208860936779, guid: 942d8045a25c0ab489263a12bfd1dac3, type: 3}
+    - {fileID: 3496260100797002063, guid: 942d8045a25c0ab489263a12bfd1dac3, type: 3}
+    - {fileID: 658474399035862588, guid: 942d8045a25c0ab489263a12bfd1dac3, type: 3}
+    - {fileID: 494444760698249550, guid: 942d8045a25c0ab489263a12bfd1dac3, type: 3}
+    - {fileID: 7012056208259017927, guid: 942d8045a25c0ab489263a12bfd1dac3, type: 3}
+    - {fileID: 1953980770441796262, guid: 942d8045a25c0ab489263a12bfd1dac3, type: 3}
+    - {fileID: 3607059633190086946, guid: 942d8045a25c0ab489263a12bfd1dac3, type: 3}
+    - {fileID: 987116707149982810, guid: 942d8045a25c0ab489263a12bfd1dac3, type: 3}
+    - {fileID: 6627315734119951758, guid: 942d8045a25c0ab489263a12bfd1dac3, type: 3}
+    - {fileID: 4748625464336704179, guid: 942d8045a25c0ab489263a12bfd1dac3, type: 3}
+    - {fileID: 8891944651816145344, guid: 942d8045a25c0ab489263a12bfd1dac3, type: 3}
+    - {fileID: 2368704269673406056, guid: 942d8045a25c0ab489263a12bfd1dac3, type: 3}
+    - {fileID: 6131220272808912053, guid: 942d8045a25c0ab489263a12bfd1dac3, type: 3}
+    - {fileID: 3176240830476708879, guid: 942d8045a25c0ab489263a12bfd1dac3, type: 3}
+    - {fileID: 1891959959617970285, guid: 942d8045a25c0ab489263a12bfd1dac3, type: 3}
+    - {fileID: 5627963347411408443, guid: 942d8045a25c0ab489263a12bfd1dac3, type: 3}
+    - {fileID: 1941975454725544459, guid: 942d8045a25c0ab489263a12bfd1dac3, type: 3}
+    - {fileID: 3125606105430471853, guid: 942d8045a25c0ab489263a12bfd1dac3, type: 3}
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 1819932851460473654, guid: 942d8045a25c0ab489263a12bfd1dac3, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 16391022}
+    - targetCorrespondingSourceObject: {fileID: 1819932851460473654, guid: 942d8045a25c0ab489263a12bfd1dac3, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1897483457}
+    - targetCorrespondingSourceObject: {fileID: 1819932851460473654, guid: 942d8045a25c0ab489263a12bfd1dac3, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 458655587}
+    - targetCorrespondingSourceObject: {fileID: 1819932851460473654, guid: 942d8045a25c0ab489263a12bfd1dac3, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 743693917}
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 942d8045a25c0ab489263a12bfd1dac3, type: 3}
 --- !u!1 &1028468519
 GameObject:
   m_ObjectHideFlags: 0
@@ -28724,7 +28840,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 557525288}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: SoundManager, Assembly-CSharp
         m_MethodName: PlayUIButtonClick
         m_Mode: 1
@@ -28791,7 +28907,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 557525288}
+        - m_Target: {fileID: 0}
           m_TargetAssemblyTypeName: SoundManager, Assembly-CSharp
           m_MethodName: PlayUIButtonHover
           m_Mode: 1
@@ -29268,6 +29384,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1073623188}
     m_Modifications:
+    - target: {fileID: 6755156199697301680, guid: eafbf78c705fa304da4aa86ee587aff1, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -58.4
+      objectReference: {fileID: 0}
     - target: {fileID: -6828076148213293725, guid: 3f3a3ae839b86ef4f93291ee704543cf, type: 3}
       propertyPath: m_Enabled
       value: 0
@@ -29327,10 +29447,6 @@ PrefabInstance:
     - target: {fileID: 8655616415850060955, guid: 3f3a3ae839b86ef4f93291ee704543cf, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6755156199697301680, guid: eafbf78c705fa304da4aa86ee587aff1, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -58.4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -29588,6 +29704,10 @@ MonoBehaviour:
   QualityDropdown: {fileID: 242188911}
   VSyncToggle: {fileID: 2100079091}
   OptionsMenu: {fileID: 1949123478}
+  MasterMixer: {fileID: 24100000, guid: 1578ac8ae8dae574eb9136cad8af6dbd, type: 2}
+  MusicMixer: {fileID: 24100000, guid: a03bdd9debad66a4ebd3971c235009ea, type: 2}
+  MasterVolumeSlider: {fileID: 0}
+  MusicVolumeSlider: {fileID: 456460644}
 --- !u!1 &1571847572
 GameObject:
   m_ObjectHideFlags: 0
@@ -29759,9 +29879,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 557525288}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: SoundManager, Assembly-CSharp
-        m_MethodName: PlayUIButtonClick
+        m_MethodName: 
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -29826,9 +29946,9 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 557525288}
+        - m_Target: {fileID: 0}
           m_TargetAssemblyTypeName: SoundManager, Assembly-CSharp
-          m_MethodName: PlayUIButtonHover
+          m_MethodName: 
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -30562,7 +30682,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 557525288}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: SoundManager, Assembly-CSharp
         m_MethodName: PlayUIButtonClick
         m_Mode: 1
@@ -30629,7 +30749,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 557525288}
+        - m_Target: {fileID: 0}
           m_TargetAssemblyTypeName: SoundManager, Assembly-CSharp
           m_MethodName: PlayUIButtonHover
           m_Mode: 1
@@ -30890,7 +31010,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 557525288}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: SoundManager, Assembly-CSharp
         m_MethodName: PlayUIButtonHover
         m_Mode: 1
@@ -30902,9 +31022,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 557525288}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: SoundManager, Assembly-CSharp
-        m_MethodName: PlayUIButtonClick
+        m_MethodName: 
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -30968,7 +31088,19 @@ MonoBehaviour:
   - eventID: 0
     callback:
       m_PersistentCalls:
-        m_Calls: []
+        m_Calls:
+        - m_Target: {fileID: 0}
+          m_TargetAssemblyTypeName: 
+          m_MethodName: 
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: 
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &1803792798
 GameObject:
   m_ObjectHideFlags: 0
@@ -31315,135 +31447,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1820052723}
   m_CullTransparentMesh: 1
---- !u!1 &1850672613
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1850672615}
-  - component: {fileID: 1850672614}
-  m_Layer: 0
-  m_Name: sky-farm-219728
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!82 &1850672614
-AudioSource:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1850672613}
-  m_Enabled: 1
-  serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
-  m_Resource: {fileID: 8300000, guid: 59aa6d910a389c04fa1c2dbf704858f9, type: 3}
-  m_PlayOnAwake: 1
-  m_Volume: 0.4
-  m_Pitch: 1
-  Loop: 1
-  Mute: 0
-  Spatialize: 0
-  SpatializePostEffects: 0
-  Priority: 128
-  DopplerLevel: 1
-  MinDistance: 1
-  MaxDistance: 500
-  Pan2D: 0
-  rolloffMode: 0
-  BypassEffects: 0
-  BypassListenerEffects: 0
-  BypassReverbZones: 0
-  rolloffCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 1
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  panLevelCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  spreadCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  reverbZoneMixCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
---- !u!4 &1850672615
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1850672613}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -941.98517, y: -559.26, z: -8.74304}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 557525289}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1897483455
 GameObject:
   m_ObjectHideFlags: 0
@@ -31566,12 +31569,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1897483455}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 344, y: 464, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 1280.3444, y: 1026.485, z: -5.73733}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 557525289}
+  m_Father: {fileID: 874107338}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1902185490 stripped
 Transform:
@@ -32197,7 +32200,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 557525288}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: SoundManager, Assembly-CSharp
         m_MethodName: PlayUIButtonClick
         m_Mode: 1
@@ -32264,7 +32267,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 557525288}
+        - m_Target: {fileID: 0}
           m_TargetAssemblyTypeName: SoundManager, Assembly-CSharp
           m_MethodName: PlayUIButtonHover
           m_Mode: 1
@@ -33692,8 +33695,8 @@ SceneRoots:
   - {fileID: 831295677}
   - {fileID: 1073623188}
   - {fileID: 1539652658}
-  - {fileID: 557525289}
   - {fileID: 150682309}
   - {fileID: 811106779}
   - {fileID: 1635771059}
   - {fileID: 1011776173}
+  - {fileID: 1025362362}

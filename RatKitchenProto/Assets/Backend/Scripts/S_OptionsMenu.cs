@@ -13,11 +13,11 @@ public class S_OptionsMenu : MonoBehaviour
 
   
     [SerializeField] AudioMixer MasterMixer;
-    [SerializeField] AudioMixer SFXMixer;
+   // [SerializeField] AudioMixer SFXMixer;
     [SerializeField] AudioMixer MusicMixer;
     [SerializeField] GameObject MasterVolumeSlider;
     [SerializeField] GameObject MusicVolumeSlider;
-    [SerializeField] GameObject SFXVolumeSlider;
+    //[SerializeField] GameObject SFXVolumeSlider;
 
     private void Start()
     {
@@ -118,8 +118,8 @@ public class S_OptionsMenu : MonoBehaviour
         MusicMixer.SetFloat("MusicVolume", MusicVolume);
     }
 
-    public void SetSFXVolume(float SFXVolume)
-    {
-        SFXMixer.SetFloat("SFXVolume", SFXVolume);
-    }
+    //public void SetSFXVolume(float SFXVolume)
+    //{
+    //    SFXMixer.SetFloat("SFXVolume", SFXVolume);
+    //}
 }

@@ -58,6 +58,7 @@ public class HeartDisplay : MonoBehaviour
 
         if (health > 0)
         {
+            Debug.Log("Player died, game over");
             /*Scene currentScene = SceneManager.GetActiveScene();
             SceneManager.LoadScene(currentScene.name); */
             // player.transform.position = respawnPoint.position;
