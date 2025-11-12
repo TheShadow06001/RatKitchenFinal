@@ -36,6 +36,12 @@ public class PlayerMovement : MonoBehaviour
 
     }
 
+    public void ChangeSpeed()
+    {
+        cameraSpeed = mainCamera.GetComponent<CameraScript>().moveSpeed;
+        moveSpeed = cameraSpeed;
+    }
+
 
     public void PlayerUpdate()
     {
