@@ -8,8 +8,7 @@ public class HeartDisplay : MonoBehaviour
     public static HeartDisplay instance;
     public int health;
     public int maxHealth;
-
-    public Sprite emptyHeart;
+    
     public Sprite fullHeart;
     public Image[] hearts;
 
@@ -36,21 +35,20 @@ public class HeartDisplay : MonoBehaviour
             if (i < health)
             {
                 hearts[i].sprite = fullHeart;
+                hearts[i].enabled = true; 
             }
             else
             {
-                hearts[i].sprite = emptyHeart;
+                hearts[i].enabled = false; // hide heart instead of showing empty one
             }
-            if (i < maxHealth)
+
+            if (i >= maxHealth)
             {
-                hearts[i].enabled = true;
-            }
-            else
-            {
-                hearts[i].enabled = false;
+                hearts[i].enabled = false; 
             }
         }
     }
+
     
     public void TakeDamage()
     {
