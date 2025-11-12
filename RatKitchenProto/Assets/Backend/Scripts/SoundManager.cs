@@ -34,6 +34,7 @@ public enum SoundEffects
 
     // Music
     GameplayMusic,
+    MainMenuMusic,
 
 
     // UI Sounds
@@ -41,7 +42,8 @@ public enum SoundEffects
     ButtonHover,
     OpenPause,
     ClosePause,
-    SliderBeSliding
+    MasterVolumeSlider,
+    SFXVolumeSlider
 }
 
 public class SoundManager : MonoBehaviour

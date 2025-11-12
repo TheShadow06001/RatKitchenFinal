@@ -9399,14 +9399,14 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 8300000, guid: e1caa943dc3a26249a1785f4d7560835, type: 3}
-  m_PlayOnAwake: 0
+  m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
-  Priority: 128
+  Priority: 68
   DopplerLevel: 1
   MinDistance: 1
   MaxDistance: 500
@@ -10889,6 +10889,10 @@ MonoBehaviour:
   QualityDropdown: {fileID: 1121658515}
   VSyncToggle: {fileID: 1285579772}
   OptionsMenu: {fileID: 504688970}
+  MasterMixer: {fileID: 0}
+  MusicMixer: {fileID: 0}
+  MasterVolumeSlider: {fileID: 0}
+  MusicVolumeSlider: {fileID: 0}
 --- !u!114 &1421046347
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14852,7 +14856,7 @@ AudioSource:
   m_GameObject: {fileID: 1856476849}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 24300002, guid: a03bdd9debad66a4ebd3971c235009ea, type: 2}
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 8300000, guid: 0a177794ea52a164dbdc1d394433be3f, type: 3}
   m_PlayOnAwake: 1
