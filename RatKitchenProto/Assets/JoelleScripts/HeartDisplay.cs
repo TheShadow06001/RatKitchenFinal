@@ -36,22 +36,20 @@ public class HeartDisplay : MonoBehaviour
             if (i < health)
             {
                 hearts[i].sprite = fullHeart;
+                hearts[i].enabled = true; // make sure visible
             }
             else
             {
-                hearts[i].sprite = emptyHeart;
+                hearts[i].enabled = false; // hide heart instead of showing empty one
             }
-            if (i < maxHealth)
+
+            if (i >= maxHealth)
             {
-                hearts[i].enabled = true;
-            }
-            else
-            {
-                hearts[i].enabled = false;
+                hearts[i].enabled = false; // keep disabled if beyond max health
             }
         }
     }
-    
+
     public void TakeDamage()
     {
         health--;
