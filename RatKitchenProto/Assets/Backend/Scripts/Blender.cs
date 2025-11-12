@@ -35,7 +35,7 @@ public class Blender : MonoBehaviour
 
             if (CheckRange(true) <= dieRange && canTakeDamage)
             {
-                player.GetComponent<HP>().TakeDamage(damage);
+                HeartDisplay.instance.TakeDamage();
                 canTakeDamage = false;
                 StartCoroutine(TimerDie());
             }
@@ -77,12 +77,12 @@ public class Blender : MonoBehaviour
     {
         if (!toDie)
         {
-            var distance = Vector3.Distance(player.transform.position, transform.position);
+            float distance = Vector3.Distance(player.transform.position, transform.position);
             return distance;
         }
         else
         {
-            var distance = Vector3.Distance(player.transform.position, deathPoint.position);
+            float distance = Vector3.Distance(player.transform.position, deathPoint.position);
             return distance;
         }
     }
