@@ -6,19 +6,19 @@ public class DifficultyManager : MonoBehaviour
 {
     [Header("References")]
     [SerializeField] private KitchenGenerator kitchenGenerator;
-    [FormerlySerializedAs("camera")][SerializeField] private CameraScript newCamera;
+    [FormerlySerializedAs("camera")] [SerializeField] private CameraScript newCamera;
 
     [SerializeField] private PlatformType sinkPlatform; // not needed?
     [SerializeField] private PlatformType ovenPlatform;// not needed?
 
-    [Header("Current Level")]
+    [Header("Current Level")] 
     [SerializeField] private int currentLevel = 1;
     //[SerializeField] private LevelSettings currentSettings; // manual override of level settings
     [SerializeField] private int basePlatformCount = 20;
     [SerializeField] private int platformsPerLevelIncrease = 5;
     [SerializeField] private float cameraSpeedMultiplier = 1.1f;
     [SerializeField] private float currentCameraSpeed;
-
+    
     private int sinkBaseMaxCount; // not needed?
     private int ovenBaseMaxCount;// not needed?
 
@@ -53,7 +53,7 @@ public class DifficultyManager : MonoBehaviour
     {
         currentLevel++;
         newCamera.moveSpeed *= cameraSpeedMultiplier;
-        currentCameraSpeed = newCamera.moveSpeed;
+        currentCameraSpeed = newCamera.moveSpeed; 
         CurrentMaxPlatforms += platformsPerLevelIncrease;
 
 

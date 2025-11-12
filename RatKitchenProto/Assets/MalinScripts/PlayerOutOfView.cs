@@ -15,10 +15,10 @@ public class PlayerOutOfView : MonoBehaviour
 
             HeartDisplay playerHealth = other.GetComponent<HeartDisplay>();
             if (playerHealth != null)
-                playerHealth.TakeDamage();
-
+                playerHealth.TakeDamage();        
+            
             PlayerMovement playerMovement = other.GetComponent<PlayerMovement>();
-
+            
             if (playerMovement != null && playerMovement.anchorPoint != null)
             {
                 other.transform.position = playerMovement.anchorPoint.transform.position;
@@ -30,8 +30,8 @@ public class PlayerOutOfView : MonoBehaviour
 
             StartCoroutine(FlashPlayer(other.gameObject));
         }
-    }
-
+    }     
+    
     private IEnumerator FlashPlayer(GameObject player)
     {
         if (playerMeshRenderer == null)

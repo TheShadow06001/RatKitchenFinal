@@ -35,7 +35,7 @@ public class ObstaclesPlacement : MonoBehaviour
 
         List<Transform> availablePoints = new(spawnPoints);
 
-
+       
 
         if (needsOnlyOneObstacle)
         {
@@ -45,7 +45,7 @@ public class ObstaclesPlacement : MonoBehaviour
         }
 
         int obstaclesToSpawn = Mathf.Clamp(Random.Range(minObstacles, maxObstacles + 1), 0, availablePoints.Count);
-
+        
         if (needsObstacleAtStart && availablePoints.Count > 0)
         {
             int frontIndex = Random.Range(0, Mathf.Min(2, availablePoints.Count));
