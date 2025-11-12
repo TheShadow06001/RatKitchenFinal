@@ -16967,11 +16967,7 @@ MonoBehaviour:
   ChaseCooldownTime: 2
   playerAnchor: {fileID: 7947331472269787056}
   enableOutOfViewCheck: 1
-<<<<<<< Updated upstream
   newCamera: {fileID: 0}
-=======
-  camera: {fileID: 2575118554898394978}
->>>>>>> Stashed changes
 --- !u!4 &7947331472269787056
 Transform:
   m_ObjectHideFlags: 0

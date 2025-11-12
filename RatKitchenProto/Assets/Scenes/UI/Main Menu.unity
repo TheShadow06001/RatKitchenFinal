@@ -8707,7 +8707,7 @@ MonoBehaviour:
           m_StringArgument: GameLevel
           m_BoolArgument: 0
         m_CallState: 2
-<<<<<<< Updated upstream
+
       - m_Target: {fileID: 1926287632}
         m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
         m_MethodName: PlayOneShot
@@ -8720,8 +8720,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-=======
->>>>>>> Stashed changes
+
 --- !u!114 &519383485
 MonoBehaviour:
   m_ObjectHideFlags: 0
