@@ -1,21 +1,22 @@
-using UnityEngine;
-
 public class PlayingState : State
 {
-    [SerializeField] private S_TimerAndScore TimerAndScore;
-    [SerializeField] private KitchenGenerator KitchenGenerator;
+    private S_TimerAndScore TimerAndScore;
+    private KitchenGenerator kitchenGenerator;
     private CameraScript cameraScript;
     private PlayerMovement playerMovement;
 
     private void Awake()
     {
-        cameraScript = FindFirstObjectByType<CameraScript>();
-        playerMovement = FindFirstObjectByType<PlayerMovement>();
+
     }
 
     public override void EnterState()
     {
         base.EnterState();
+        TimerAndScore = FindFirstObjectByType<S_TimerAndScore>();
+        kitchenGenerator = FindFirstObjectByType<KitchenGenerator>();
+        cameraScript = FindFirstObjectByType<CameraScript>();
+        playerMovement = FindFirstObjectByType<PlayerMovement>();
     }
 
     public override void ExitState()
@@ -30,6 +31,6 @@ public class PlayingState : State
         cameraScript.UpdateCamera();
         playerMovement.PlayerUpdate();
         TimerAndScore.UpdateTimer();
-        KitchenGenerator.UpdateKitchenGenerator();
+        kitchenGenerator.UpdateKitchenGenerator();
     }
 }

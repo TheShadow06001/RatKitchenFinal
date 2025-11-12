@@ -1,7 +1,7 @@
 using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
 using UnityEngine.Audio;
+using UnityEngine.UI;
 
 public class S_OptionsMenu : MonoBehaviour
 {
@@ -11,9 +11,9 @@ public class S_OptionsMenu : MonoBehaviour
     public Toggle VSyncToggle;
     public GameObject OptionsMenu;
 
-  
+
     [SerializeField] AudioMixer MasterMixer;
-   // [SerializeField] AudioMixer SFXMixer;
+    // [SerializeField] AudioMixer SFXMixer;
     [SerializeField] AudioMixer MusicMixer;
     [SerializeField] GameObject MasterVolumeSlider;
     [SerializeField] GameObject MusicVolumeSlider;
@@ -113,7 +113,7 @@ public class S_OptionsMenu : MonoBehaviour
         MasterMixer.SetFloat("MasterVolume", MasterVolume);
     }
 
-    public void SetMusicVolume(float MusicVolume) 
+    public void SetMusicVolume(float MusicVolume)
     {
         MusicMixer.SetFloat("MusicVolume", MusicVolume);
     }
