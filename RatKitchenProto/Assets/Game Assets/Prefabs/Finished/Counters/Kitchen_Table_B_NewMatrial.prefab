@@ -96,6 +96,8 @@ MonoBehaviour:
   maxObstacles: 1
   needsObstacleAtStart: 0
   needsObstacleAtEnd: 0
+  needsOnlyOneObstacle: 0
+  spawnedObstacles: []
 --- !u!114 &-3776598884537816545
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -147,7 +149,7 @@ Transform:
   m_GameObject: {fileID: 1902229486785407898}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.634, y: 1.076, z: -0.436}
+  m_LocalPosition: {x: -0.634, y: 1.076, z: -0.405}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -275,7 +277,7 @@ Transform:
   m_GameObject: {fileID: 5883552897461430389}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.156, y: 1.076, z: -0.436}
+  m_LocalPosition: {x: -0.156, y: 1.076, z: -0.405}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
