@@ -2,14 +2,7 @@ using UnityEngine;
 
 public class EnemyDamage : MonoBehaviour
 {
-<<<<<<< Updated upstream
-   
-     
-=======
-    public GameObject PlayerHeartDisplay;
-    public int damage = 2;
 
->>>>>>> Stashed changes
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
