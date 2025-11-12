@@ -3,8 +3,7 @@ using UnityEngine.UI;
 
 public class EnemyDamage : MonoBehaviour
 {
-    public GameObject PlayerHeartDisplay;
-    public int damage = 2;
+   
      
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -22,8 +21,7 @@ public class EnemyDamage : MonoBehaviour
     {
         if(collision.gameObject.CompareTag("Player"))
         {
-            // todo: add health script
-            //PlayerHeartDisplay.TakeDamage(damage);
+            HeartDisplay.instance.TakeDamage();
         }
     }
 }

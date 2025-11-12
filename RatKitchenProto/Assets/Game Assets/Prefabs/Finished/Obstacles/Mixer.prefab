@@ -49,9 +49,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Blender
   damage: 1
-  range: 1
+  range: 0.8
   dieRange: 0.16
-  fallPercentage: 20
+  fallPercentage: 100
   fallSpeed: 180
   checkCooldown: 1
   deathPoint: {fileID: 6887149650596948794}
