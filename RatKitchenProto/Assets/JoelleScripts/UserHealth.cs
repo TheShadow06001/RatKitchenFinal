@@ -8,7 +8,7 @@ public class UserHealth : MonoBehaviour
     private void Start()
     {
         health = maxHealth;
-        
+
     }
 
     public void TakeDamage(int amount)
@@ -18,7 +18,7 @@ public class UserHealth : MonoBehaviour
         {
             Destroy(gameObject);
         }
-        
+
     }
 
     /* private void RespawnHere()

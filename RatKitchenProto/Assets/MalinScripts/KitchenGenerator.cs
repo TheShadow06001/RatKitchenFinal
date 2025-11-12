@@ -1,7 +1,5 @@
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.UIElements;
 
 public class KitchenGenerator : MonoBehaviour
 {
@@ -32,7 +30,7 @@ public class KitchenGenerator : MonoBehaviour
 
     private PlatformType lastPlatformType;
     private WallType lastWallType;
-    
+
     private readonly Dictionary<PlatformType, float> platformLengths = new();
 
     private readonly Dictionary<PlatformType, int> platformSpawnCounts = new();
@@ -160,7 +158,7 @@ public class KitchenGenerator : MonoBehaviour
             }
 
             float weightedChance = type.spawnWeight * curveMultiplier * Random.Range(0.95f, 1.05f);
-            weightedChances[type] = weightedChance; 
+            weightedChances[type] = weightedChance;
             totalSpawnWeight += weightedChance;
         }
 

@@ -10,7 +10,7 @@ public class CameraScript : MonoBehaviour
     [Header("Camera Movement Settings")]
     public float moveSpeed = 5f;
     public Vector3 direction = Vector3.forward;
-    [Header("Camera Chase Settings")] 
+    [Header("Camera Chase Settings")]
     [SerializeField] private float ChaseSpeed;
     private float ChaseThreshold;
     public float ChaseCooldownTime = 2f;
@@ -55,7 +55,7 @@ public class CameraScript : MonoBehaviour
     //private void HandlePlayerOutOfView()
     //{
     //    Debug.Log("Player is out of view, losing a life and respawning");
-        
+
     //    HeartDisplay.instance.TakeDamage();
 
     //    //Rigidbody rb = player.GetComponent<Rigidbody>();
@@ -82,11 +82,12 @@ public class CameraScript : MonoBehaviour
                 {
                     Vector3 TargetPosition = transform.position;
                     TargetPosition.z = player.transform.position.z + ChaseThreshold;
-                    
+
                     //Smooth Chase Movement
                     transform.position = Vector3.Lerp(transform.position, TargetPosition, ChaseSpeed * Time.deltaTime);
                 }
-            } yield return null; 
+            }
+            yield return null;
         }
     }
 }
