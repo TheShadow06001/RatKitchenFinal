@@ -10,4 +10,12 @@ public class PlayerAnimations : MonoBehaviour
     {
         playerAnimator.SetTrigger("Jump");
     }
+    public void TriggerLeft()
+    {
+        playerAnimator.SetTrigger("DodgeLeft");
+    }
+    public void TriggerRight()
+    {
+        playerAnimator.SetTrigger("DodgeRight");
+    }
 }

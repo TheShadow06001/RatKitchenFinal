@@ -12,6 +12,9 @@ TagManager:
   - Destination
   - Pots&Pans
   - SceneFader
+  - Obstacle
+  - UITab
+  - OptionPanel
   layers:
   - Default
   - TransparentFX
