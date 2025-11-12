@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Serialization;
 
@@ -19,7 +20,9 @@ public class DifficultyManager : MonoBehaviour
     [SerializeField] private int platformsPerLevelIncrease = 5;
     [SerializeField] private float cameraSpeedMultiplier = 1.1f;
     [SerializeField] private float currentCameraSpeed;
-    
+
+    private Dictionary<PlatformType, int> runtimeMaxCounts = new();
+
     private int sinkBaseMaxCount; // not needed?
     private int ovenBaseMaxCount;// not needed?
 
@@ -50,6 +53,26 @@ public class DifficultyManager : MonoBehaviour
 
     //public LevelSettings CurrentSettings => currentSettings;
 
+    private void Start()
+    {
+        if (kitchenGenerator != null)
+        {
+            foreach (PlatformType t in kitchenGenerator.GetPlatformTypes())
+            {
+                runtimeMaxCounts[t] = t.baseMaxCount;
+            }
+        }
+    }
+
+    public int GetRuntimeMaxCount(PlatformType type)
+    {
+        if (runtimeMaxCounts != null && runtimeMaxCounts.TryGetValue(type, out int v))
+            return v;
+
+        return type.baseMaxCount;
+
+    }
+
     public void LevelComplete()
     {
         currentLevel++;
@@ -68,8 +91,9 @@ public class DifficultyManager : MonoBehaviour
             foreach (PlatformType platformType in kitchenGenerator.GetPlatformTypes())
                 if (platformType.typeOfPlatform == "Stove" || platformType.typeOfPlatform == "Sink")
                 {
-                    sinkBaseMaxCount++;
-                    ovenBaseMaxCount++;
+                    runtimeMaxCounts[platformType] = runtimeMaxCounts.GetValueOrDefault(platformType, platformType.baseMaxCount) + 1;
+                    //sinkBaseMaxCount++;
+                    //ovenBaseMaxCount++;
                 }
 
             kitchenGenerator.ResetKitchenGenerator(CurrentMaxPlatforms, currentLevel);

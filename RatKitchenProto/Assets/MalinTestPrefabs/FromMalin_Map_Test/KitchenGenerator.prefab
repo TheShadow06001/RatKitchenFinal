@@ -52,12 +52,9 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 4a41fc1d6c9fd8f47989d04c86f5b76a, type: 2}
   - {fileID: 11400000, guid: f98d843a42b848947ad07dd111c3d2ca, type: 2}
   generationPoint: {fileID: 0}
-  distanceBetween: 0.17
+  distanceBetween: 0.628
   maxPlatformsPerRun: 15
-  basePackagesPerRun: 4
   currentLevel: 1
   endPlatformPrefab: {fileID: 1286035631473754050, guid: c6e353b297aa44940903026ac22a75af, type: 3}
-  endWallPrefab: {fileID: 1504053007929169680, guid: e5121596c8cfd8a4d96b0be9cf5fbb89, type: 3}
   spawnedPlatforms: 0
   cameraMover: {fileID: 0}
-  startPosition: {fileID: 0}
