@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class CameraScript : MonoBehaviour
 {
@@ -18,7 +19,7 @@ public class CameraScript : MonoBehaviour
     [Header("Player Out of Bounds Check")]
     [SerializeField] private Transform playerAnchor;
     [SerializeField] private bool enableOutOfViewCheck = true;
-    [SerializeField] private Camera camera;
+    [FormerlySerializedAs("camera")] [SerializeField] private Camera newCamera;
 
     private void Start()
     {
