@@ -3,7 +3,7 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] private GameObject mainCamera;
-    [SerializeField] private GameObject anchorPoint;
+    [SerializeField] public GameObject anchorPoint;
 
     [SerializeField] private float forwardAcceleration = 1f;
     [SerializeField] private float maxSpeedMultiplier = 2f;

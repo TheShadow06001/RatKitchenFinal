@@ -51,4 +51,18 @@ public class HeartDisplay : MonoBehaviour
             }
         }
     }
+    
+    public void TakeDamage()
+    {
+        health--;
+
+        if (health > 0)
+        {
+            Debug.Log("Player died, game over");
+            /*Scene currentScene = SceneManager.GetActiveScene();
+            SceneManager.LoadScene(currentScene.name); */
+            // player.transform.position = respawnPoint.position;
+        }
+        
+    }
 }

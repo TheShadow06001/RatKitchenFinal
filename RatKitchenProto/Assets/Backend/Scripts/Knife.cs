@@ -47,6 +47,9 @@ public class Knife : MonoBehaviour
 
             for (float i = 0; i < 1; i += Time.deltaTime * speed)
             {
+                while (GameManager.Instance.CheckState<PauseState>())
+                    yield return null;
+
                 transform.position = Vector3.Lerp(startPos, endPos, i);
 
                 yield return null;
@@ -56,6 +59,9 @@ public class Knife : MonoBehaviour
 
             for (float t = 0; t < 1; t += Time.deltaTime * speed)
             {
+                while (GameManager.Instance.CheckState<PauseState>())
+                    yield return null;
+
                 transform.position = Vector3.Lerp(endPos, startPos, t);
 
                 yield return null;
@@ -69,7 +75,7 @@ public class Knife : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            other.gameObject.GetComponent<HP>().TakeDamage(damage);
+            HeartDisplay.instance.TakeDamage();
         }
     }
 }

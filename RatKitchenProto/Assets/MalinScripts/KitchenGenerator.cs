@@ -291,7 +291,10 @@ public class KitchenGenerator : MonoBehaviour
     {
         transform.position = startPosition;
         cameraMover.transform.position = cameraStartPosition;
-        Destroy(spawnedEndWall);
+        //Destroy(spawnedEndWall);
+
+        if (spawnedEndPlatform != null)
+            spawnedEndPlatform.SetActive(false);
 
         spawnedPlatforms = 0;
         isLevelComplete = false;
