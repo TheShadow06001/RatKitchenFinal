@@ -14,7 +14,6 @@ public class GameManager : StateMachine
         else
         {
             Destroy(gameObject);
-            return;
         }
     }
 

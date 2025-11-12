@@ -2,10 +2,9 @@ using UnityEngine;
 
 public class Choppingboard : MonoBehaviour
 {
-    [Header("Variables")][SerializeField] private int maxScale = 8;
+    [Header("Variables")] [SerializeField] private int maxScale = 8;
 
-    [Header("References")]
-    [SerializeField]
+    [Header("References")] [SerializeField]
     private GameObject knifePrefab;
 
     [SerializeField] private Transform parentTransform;
