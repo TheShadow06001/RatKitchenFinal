@@ -8,8 +8,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float forwardAcceleration = 1f;
     [SerializeField] private float maxSpeedMultiplier = 2f;
     [SerializeField] private float verticalJumpForce = 5f;
-    //TODO: Remove or Implement ↓
-    //[SerializeField] private float latteralJumpForce = 5f;
+    
     [SerializeField] private PlayerChangeLane laneChanger;
 
     [SerializeField] private float rayLength = 1f;
@@ -43,7 +42,7 @@ public class PlayerMovement : MonoBehaviour
         HandleForwardSpeed();
         Jump();
         Vector3 currentPos = transform.position;
-        Debug.DrawRay(rayCastPosition, Vector3.down * rayLength, Color.red);
+        //Debug.DrawRay(rayCastPosition, Vector3.down * rayLength, Color.red);
         
         float totalSpeed = moveSpeed;
 
