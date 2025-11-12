@@ -26,7 +26,7 @@ RenderSettings:
   m_AmbientIntensity: 1
   m_AmbientMode: 0
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
-  m_SkyboxMaterial: {fileID: 10304, guid: 0000000000000000f000000000000000, type: 0}
+  m_SkyboxMaterial: {fileID: 2100000, guid: 07f07f0bf6e35294ca7c51d1fde06d45, type: 2}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
@@ -503,6 +503,10 @@ PrefabInstance:
       propertyPath: cameraMover
       value: 
       objectReference: {fileID: 3203846047685289871}
+    - target: {fileID: 6751967564265463018, guid: 381eff3c7fcf69849a610f00c476b603, type: 3}
+      propertyPath: distanceBetween
+      value: 0.62
+      objectReference: {fileID: 0}
     - target: {fileID: 6751967564265463018, guid: 381eff3c7fcf69849a610f00c476b603, type: 3}
       propertyPath: generationPoint
       value: 
@@ -14215,8 +14219,16 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8777481350510775768, guid: 9146d4a260fc4c94fba539eee67eef19, type: 3}
+      propertyPath: fullHeart
+      value: 
+      objectReference: {fileID: 21300000, guid: 7f9a4766cd019a4459a1376919f0185c, type: 3}
+    - target: {fileID: 8777481350510775768, guid: 9146d4a260fc4c94fba539eee67eef19, type: 3}
       propertyPath: m_Enabled
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8777481350510775768, guid: 9146d4a260fc4c94fba539eee67eef19, type: 3}
+      propertyPath: emptyHeart
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 8777481350510775768, guid: 9146d4a260fc4c94fba539eee67eef19, type: 3}
       propertyPath: 'hearts.Array.data[0]'
@@ -16864,6 +16876,7 @@ GameObject:
   - component: {fileID: 5033183636382087860}
   - component: {fileID: 2575118554898394978}
   - component: {fileID: 1246920600023262875}
+  - component: {fileID: 6660775013815169154}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -16871,6 +16884,15 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!45 &6660775013815169154
+Skybox:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6660775013815169153}
+  m_Enabled: 1
+  m_CustomSkybox: {fileID: 2100000, guid: 07f07f0bf6e35294ca7c51d1fde06d45, type: 2}
 --- !u!114 &7770526658937517947
 MonoBehaviour:
   m_ObjectHideFlags: 0
