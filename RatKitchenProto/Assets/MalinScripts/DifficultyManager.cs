@@ -7,6 +7,7 @@ public class DifficultyManager : MonoBehaviour
     [Header("References")]
     [SerializeField] private KitchenGenerator kitchenGenerator;
     [FormerlySerializedAs("camera")] [SerializeField] private CameraScript newCamera;
+    [SerializeField] private PlayerMovement player; 
 
     [SerializeField] private PlatformType sinkPlatform; // not needed?
     [SerializeField] private PlatformType ovenPlatform;// not needed?
@@ -55,6 +56,7 @@ public class DifficultyManager : MonoBehaviour
         newCamera.moveSpeed *= cameraSpeedMultiplier;
         currentCameraSpeed = newCamera.moveSpeed; 
         CurrentMaxPlatforms += platformsPerLevelIncrease;
+        player.ChangeSpeed();
 
 
         Debug.Log("Level" + currentLevel + "started, max platforms are now" + CurrentMaxPlatforms);
