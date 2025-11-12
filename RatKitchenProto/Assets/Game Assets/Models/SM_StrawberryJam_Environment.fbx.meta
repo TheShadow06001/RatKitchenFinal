@@ -1,9 +1,19 @@
 fileFormatVersion: 2
-guid: 4df71725b4720cb41b31b8ad2d713415
+guid: c3dd79e5669acf247b46caeb3f0dc52f
 ModelImporter:
   serializedVersion: 24200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Glass
+    second: {fileID: 2100000, guid: 57f8463b948dd594385b930f025669c8, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: PropBundle
+    second: {fileID: 2100000, guid: 07091415823496348babb5dcfa0445e4, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
@@ -68,7 +78,7 @@ ModelImporter:
     secondaryUVMinLightmapResolution: 40
     secondaryUVMinObjectScale: 1
     secondaryUVPackMargin: 4
-    useFileScale: 0
+    useFileScale: 1
     strictVertexDataChecks: 0
   tangentSpace:
     normalSmoothAngle: 60
