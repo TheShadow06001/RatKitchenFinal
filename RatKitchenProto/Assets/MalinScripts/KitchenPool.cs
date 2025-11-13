@@ -113,23 +113,16 @@ public class KitchenPool : MonoBehaviour
             return null;
 
         var objectPool = platformDictionary[type];
-        GameObject obj = null;
+        GameObject obj;
 
-        foreach (var pooledObj in objectPool)
+        if (objectPool.Count > 0)
         {
-            if (!pooledObj.activeSelf)
-            {
-                obj = pooledObj;
-                break;
-            }
+            obj = objectPool.Dequeue();
         }
-
-        if (obj == null)
+        else
         {
-            Debug.Log("No platform in pool, instantiating...");
             obj = Instantiate(type.GetRandomPrefab());
             obj.transform.SetParent(transform);
-            objectPool.Enqueue(obj);
         }
 
         obj.transform.position = position;
@@ -148,7 +141,6 @@ public class KitchenPool : MonoBehaviour
         }
 
         obj.SetActive(false);
-        if (!platformDictionary[type].Contains(obj))
         platformDictionary[type].Enqueue(obj);
     }
 
@@ -159,34 +151,17 @@ public class KitchenPool : MonoBehaviour
             return null;
 
         var wallPool = wallDictionary[type];
-        GameObject obj = null;
+        GameObject obj;
 
-        foreach (var pooledObj in wallPool)
+        if (wallPool.Count > 0)
         {
-            if (!pooledObj.activeSelf)
-            {
-                obj = pooledObj;
-                break;
-            }
+            obj = wallPool.Dequeue();
         }
-
-        if (obj == null)
+        else
         {
-            Debug.Log("No platform in pool, instantiating...");
             obj = Instantiate(type.GetRandomPrefab());
             obj.transform.SetParent(transform);
-            wallPool.Enqueue(obj);
         }
-
-        //if (wallPool.Count > 0)
-        //{
-        //    obj = wallPool.Dequeue();
-        //}
-        //else
-        //{
-        //    obj = Instantiate(type.GetRandomPrefab());
-        //    obj.transform.SetParent(transform);
-        //}
 
         obj.transform.position = position;
         obj.transform.rotation = rotation;

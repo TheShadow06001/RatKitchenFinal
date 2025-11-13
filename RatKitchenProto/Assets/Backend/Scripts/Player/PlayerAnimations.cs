@@ -1,4 +1,3 @@
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class PlayerAnimations : MonoBehaviour
@@ -10,13 +9,5 @@ public class PlayerAnimations : MonoBehaviour
     public void TriggerJump()
     {
         playerAnimator.SetTrigger("Jump");
-    }
-    public void TriggerLeft()
-    {
-        playerAnimator.SetTrigger("DodgeLeft");
-    }
-    public void TriggerRight()
-    {
-        playerAnimator.SetTrigger("DodgeRight");
     }
 }

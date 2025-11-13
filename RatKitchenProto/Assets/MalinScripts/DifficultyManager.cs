@@ -1,5 +1,4 @@
 using System;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Serialization;
 
@@ -8,7 +7,6 @@ public class DifficultyManager : MonoBehaviour
     [Header("References")]
     [SerializeField] private KitchenGenerator kitchenGenerator;
     [FormerlySerializedAs("camera")] [SerializeField] private CameraScript newCamera;
-    [SerializeField] private PlayerMovement player; 
 
     [SerializeField] private PlatformType sinkPlatform; // not needed?
     [SerializeField] private PlatformType ovenPlatform;// not needed?
@@ -20,10 +18,7 @@ public class DifficultyManager : MonoBehaviour
     [SerializeField] private int platformsPerLevelIncrease = 5;
     [SerializeField] private float cameraSpeedMultiplier = 1.1f;
     [SerializeField] private float currentCameraSpeed;
-    [SerializeField] private float maxSpeed = 2.5f;
-
-    private Dictionary<PlatformType, int> runtimeMaxCounts = new();
-
+    
     private int sinkBaseMaxCount; // not needed?
     private int ovenBaseMaxCount;// not needed?
 
@@ -54,43 +49,12 @@ public class DifficultyManager : MonoBehaviour
 
     //public LevelSettings CurrentSettings => currentSettings;
 
-    private void Start()
-    {
-        if (kitchenGenerator != null)
-        {
-            foreach (PlatformType t in kitchenGenerator.GetPlatformTypes())
-            {
-                runtimeMaxCounts[t] = t.baseMaxCount;
-            }
-        }
-    }
-
-    public int GetRuntimeMaxCount(PlatformType type)
-    {
-        if (runtimeMaxCounts != null && runtimeMaxCounts.TryGetValue(type, out int v))
-            return v;
-
-        return type.baseMaxCount;
-
-    }
-
     public void LevelComplete()
     {
         currentLevel++;
-        
+        newCamera.moveSpeed *= cameraSpeedMultiplier;
+        currentCameraSpeed = newCamera.moveSpeed; 
         CurrentMaxPlatforms += platformsPerLevelIncrease;
-
-        if (newCamera.moveSpeed < maxSpeed)
-        {
-            newCamera.moveSpeed *= cameraSpeedMultiplier;
-            
-            if (newCamera.moveSpeed > maxSpeed)
-            {
-                newCamera.moveSpeed = maxSpeed;
-            }
-            player.ChangeSpeed();
-        }
-        
 
 
         Debug.Log("Level" + currentLevel + "started, max platforms are now" + CurrentMaxPlatforms);
@@ -102,9 +66,8 @@ public class DifficultyManager : MonoBehaviour
             foreach (PlatformType platformType in kitchenGenerator.GetPlatformTypes())
                 if (platformType.typeOfPlatform == "Stove" || platformType.typeOfPlatform == "Sink")
                 {
-                    runtimeMaxCounts[platformType] = runtimeMaxCounts.GetValueOrDefault(platformType, platformType.baseMaxCount) + 1;
-                    //sinkBaseMaxCount++;
-                    //ovenBaseMaxCount++;
+                    sinkBaseMaxCount++;
+                    ovenBaseMaxCount++;
                 }
 
             kitchenGenerator.ResetKitchenGenerator(CurrentMaxPlatforms, currentLevel);

@@ -534,7 +534,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlatformDestroyer
   platformDestructionPoint: {fileID: 0}
-  wallDestructionPoint: {fileID: 0}
 --- !u!114 &-3887033453383998005
 MonoBehaviour:
   m_ObjectHideFlags: 0
