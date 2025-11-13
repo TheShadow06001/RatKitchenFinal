@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class Blender : MonoBehaviour
 {
-    [Header("Variables")] [SerializeField] private int damage = 1;
+    [Header("Variables")]
 
     [SerializeField] private float range;
     [SerializeField] private float dieRange;

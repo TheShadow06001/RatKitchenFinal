@@ -8,7 +8,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float forwardAcceleration = 1f;
     [SerializeField] private float maxSpeedMultiplier = 2f;
     [SerializeField] private float verticalJumpForce = 5f;
-    [SerializeField] private float maxSpeed = 4f;
+    
 
     [SerializeField] private PlayerChangeLane laneChanger;
 

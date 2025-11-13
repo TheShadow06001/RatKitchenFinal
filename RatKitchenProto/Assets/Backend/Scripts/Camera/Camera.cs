@@ -18,7 +18,7 @@ public class CameraScript : MonoBehaviour
 
     [Header("Player Out of Bounds Check")]
     [SerializeField] private Transform playerAnchor;
-    [SerializeField] private bool enableOutOfViewCheck = true;
+    
     [FormerlySerializedAs("camera")] [SerializeField] private Camera newCamera;
 
     private void Start()
