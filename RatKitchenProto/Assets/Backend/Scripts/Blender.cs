@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class Blender : MonoBehaviour
 {
-    [Header("Variables")]
+    [Header("Variables")] [SerializeField] private int damage = 1;
 
     [SerializeField] private float range;
     [SerializeField] private float dieRange;
@@ -35,7 +35,7 @@ public class Blender : MonoBehaviour
 
             if (CheckRange(true) <= dieRange && canTakeDamage)
             {
-                HeartDisplay.instance.TakeDamage();
+                player.GetComponent<HP>().TakeDamage(damage);
                 canTakeDamage = false;
                 StartCoroutine(TimerDie());
             }
@@ -77,12 +77,12 @@ public class Blender : MonoBehaviour
     {
         if (!toDie)
         {
-            float distance = Vector3.Distance(player.transform.position, transform.position);
+            var distance = Vector3.Distance(player.transform.position, transform.position);
             return distance;
         }
         else
         {
-            float distance = Vector3.Distance(player.transform.position, deathPoint.position);
+            var distance = Vector3.Distance(player.transform.position, deathPoint.position);
             return distance;
         }
     }

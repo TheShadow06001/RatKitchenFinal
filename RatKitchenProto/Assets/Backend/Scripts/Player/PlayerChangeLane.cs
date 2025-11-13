@@ -14,13 +14,10 @@ public class PlayerChangeLane : MonoBehaviour
     //public float rightLaneX = 0.5f;
     private float targetHorizontalX;
 
-    private Animator animator;
-
     private void Start()
     {
         targetHorizontalX = middleLaneX;
         isChangingLanes = false;
-        animator = GetComponentInChildren<Animator>();
     }
 
     private void Update()
@@ -42,17 +39,11 @@ public class PlayerChangeLane : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.D))
             if (lane < 1)
-            {
                 lane++;
-                animator.SetTrigger("DodgeRight");
-            }
 
         if (Input.GetKeyDown(KeyCode.A))
             if (lane > 0)
-            {
                 lane--;
-                animator.SetTrigger("DodgeLeft");
-            }
 
         if (lane == 0)
             targetHorizontalX = leftLaneX;
