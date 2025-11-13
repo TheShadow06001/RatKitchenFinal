@@ -4,7 +4,7 @@ public class PauseState : State
 {
     [SerializeField] private GameObject pauseMenuUI;
     [SerializeField] private GameObject optionMenuUI;
-    [SerializeField] private Animator playerAnimator;
+    private Animator playerAnimator;
 
     public override void EnterState()
     {
@@ -12,8 +12,9 @@ public class PauseState : State
 
         pauseMenuUI.SetActive(true);
 
-        if (playerAnimator != null)
-            playerAnimator.speed = 0f;
+        playerAnimator = GameObject.FindGameObjectWithTag("Player").GetComponentInChildren<Animator>();
+
+        playerAnimator.speed = 0f;
 
     }
 
