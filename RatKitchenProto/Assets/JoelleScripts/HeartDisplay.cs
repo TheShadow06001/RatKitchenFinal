@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -12,6 +10,7 @@ public class HeartDisplay : MonoBehaviour
     public Sprite emptyHeart;
     public Sprite fullHeart;
     public Image[] hearts;
+    public GameObject gameOverUI;
 
     void Awake()
     {
@@ -40,12 +39,12 @@ public class HeartDisplay : MonoBehaviour
             }
             else
             {
-                hearts[i].enabled = false; // hide heart instead of showing empty one
+                hearts[i].enabled = false; // hide heart or removes it
             }
 
             if (i >= maxHealth)
             {
-                hearts[i].enabled = false; // keep disabled if beyond max health
+                hearts[i].enabled = false; // keep disabled if player has max health
             }
         }
     }
@@ -54,9 +53,20 @@ public class HeartDisplay : MonoBehaviour
     {
         health--;
 
-        if (health > 0)
+        if (health <= 0)
         {
-            Debug.Log("Player died, game over");
+            health = 0;
+            
+            //---G/O---
+            if (gameOverUI != null)
+                gameOverUI.SetActive(true);
+            
+            //Destroy player
+            GameObject player = GameObject.FindGameObjectWithTag("Player");
+            if(player !=null)
+                Destroy(player);
+                
+            //Debug.Log("Player died, game over");
             /*Scene currentScene = SceneManager.GetActiveScene();
             SceneManager.LoadScene(currentScene.name); */
             // player.transform.position = respawnPoint.position;

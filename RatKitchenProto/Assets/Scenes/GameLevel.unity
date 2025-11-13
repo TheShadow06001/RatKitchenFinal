@@ -16060,6 +16060,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 8777481350510775768, guid: 9146d4a260fc4c94fba539eee67eef19, type: 3}
+      propertyPath: gameOverUI
+      value: 
+      objectReference: {fileID: 1904139025}
+    - target: {fileID: 8777481350510775768, guid: 9146d4a260fc4c94fba539eee67eef19, type: 3}
       propertyPath: 'hearts.Array.data[0]'
       value: 
       objectReference: {fileID: 645906760}
