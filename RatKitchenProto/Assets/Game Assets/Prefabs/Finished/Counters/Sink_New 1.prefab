@@ -14,7 +14,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &1237083967893153990
 Transform:
@@ -45,7 +45,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &2133318647012775276
 Transform:
@@ -76,7 +76,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &2800876804671416602
 Transform:
@@ -107,7 +107,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &8159308326187365143
 Transform:
@@ -142,7 +142,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &813021079000440023
 Transform:
@@ -215,6 +215,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: -6973039140292087129, guid: ae428726b50199a45bb0c0b5159e8b34, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: -6967787587791597853, guid: ae428726b50199a45bb0c0b5159e8b34, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -235,13 +239,25 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: ae428726b50199a45bb0c0b5159e8b34, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 1714458535024757942, guid: ae428726b50199a45bb0c0b5159e8b34, type: 3}
       propertyPath: m_Layer
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 1714458535024757942, guid: ae428726b50199a45bb0c0b5159e8b34, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 2813025541751855568, guid: ae428726b50199a45bb0c0b5159e8b34, type: 3}
       propertyPath: m_Layer
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2813025541751855568, guid: ae428726b50199a45bb0c0b5159e8b34, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 4846979710148789199, guid: ae428726b50199a45bb0c0b5159e8b34, type: 3}
       propertyPath: m_LocalPosition.x
@@ -331,6 +347,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlatformDestroyer
   platformDestructionPoint: {fileID: 0}
+  wallDestructionPoint: {fileID: 0}
 --- !u!114 &-1236578753437962634
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -354,6 +371,8 @@ MonoBehaviour:
   maxObstacles: 1
   needsObstacleAtStart: 1
   needsObstacleAtEnd: 1
+  needsOnlyOneObstacle: 0
+  spawnedObstacles: []
 --- !u!114 &7193235494385084785
 MonoBehaviour:
   m_ObjectHideFlags: 0
