@@ -17,13 +17,9 @@ public class HeartDisplay : MonoBehaviour
         if (instance == null)
         {
             instance = this;
-            DontDestroyOnLoad(gameObject);
+            
         }
-        else
-        {
-            Destroy(gameObject);
-            return;
-        }
+        
     }
 
 
@@ -57,6 +53,8 @@ public class HeartDisplay : MonoBehaviour
         {
             health = 0;
             
+            GameManager.Instance.SwitchState<DeathState>();
+
             //---G/O---
             if (gameOverUI != null)
                 gameOverUI.SetActive(true);
