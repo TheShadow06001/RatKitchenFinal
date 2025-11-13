@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PlatformType
   typeOfPlatform: Sink
   tag: Sink
-  prefab: {fileID: 5087580193980275183, guid: c2369588bb8afb34d950b2a2762d757b, type: 3}
+  prefab: {fileID: 7348014499428905931, guid: eb5afbe600ebd1c4987eca759d4ff14b, type: 3}
   MaxCountPerRun: 2
   baseMaxCount: 2
   spawnWeight: 0.2
@@ -40,8 +40,8 @@ MonoBehaviour:
       inWeight: 0
       outWeight: 0
     - serializedVersion: 3
-      time: 0.7
-      value: 0.8
+      time: 0.5355563
+      value: 0.8039226
       inSlope: 0.008405566
       outSlope: 0.008405566
       tangentMode: 0
