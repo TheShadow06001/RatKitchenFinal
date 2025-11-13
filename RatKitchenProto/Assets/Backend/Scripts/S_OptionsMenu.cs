@@ -19,8 +19,6 @@ public class S_OptionsMenu : MonoBehaviour
     [SerializeField] GameObject MusicVolumeSlider;
     [SerializeField] GameObject SFXVolumeSlider;
 
-    [SerializeField] SaveManager SaveManager;
-
     private void Start()
     {
         SyncOptions();
@@ -28,11 +26,6 @@ public class S_OptionsMenu : MonoBehaviour
         ResolutionDropdown.onValueChanged.AddListener(SetResolution);
         QualityDropdown.onValueChanged.AddListener(SetQuality);
         VSyncToggle.onValueChanged.AddListener(SetVSync);
-
-        SaveManager.LoadData();
-        MasterVolumeSlider.GetComponent<Slider>().value = SaveManager.GetMasterSoundValue;
-        MusicVolumeSlider.GetComponent<Slider>().value = SaveManager.GetMusicSoundValue;
-        SFXVolumeSlider.GetComponent<Slider>().value = SaveManager.GetSFXSoundValue;
     }
 
     public void CloseOptionsMenu() //Return to Main Menu
@@ -118,18 +111,15 @@ public class S_OptionsMenu : MonoBehaviour
     public void SetMasterVolume(float MasterVolume)
     {
         MasterMixer.SetFloat("MasterVolume", MasterVolume);
-        SaveManager.SetMasterSoundValue(MasterVolume);
     }
 
     public void SetMusicVolume(float MusicVolume) 
     {
         MusicMixer.SetFloat("MusicVolume", MusicVolume);
-        SaveManager.SetMusicSoundValue(MusicVolume);
     }
 
     public void SetSFXVolume(float SFXVolume)
     {
         SFXMixer.SetFloat("SFXVolume", SFXVolume);
-        SaveManager.SetSFXSoundValue(SFXVolume);
     }
 }
