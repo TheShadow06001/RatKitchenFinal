@@ -20,6 +20,7 @@ public class DifficultyManager : MonoBehaviour
     [SerializeField] private int platformsPerLevelIncrease = 5;
     [SerializeField] private float cameraSpeedMultiplier = 1.1f;
     [SerializeField] private float currentCameraSpeed;
+    [SerializeField] private float maxSpeed = 2.5f;
 
     private Dictionary<PlatformType, int> runtimeMaxCounts = new();
 
@@ -76,10 +77,20 @@ public class DifficultyManager : MonoBehaviour
     public void LevelComplete()
     {
         currentLevel++;
-        newCamera.moveSpeed *= cameraSpeedMultiplier;
-        currentCameraSpeed = newCamera.moveSpeed; 
+        
         CurrentMaxPlatforms += platformsPerLevelIncrease;
-        player.ChangeSpeed();
+
+        if (newCamera.moveSpeed < maxSpeed)
+        {
+            newCamera.moveSpeed *= cameraSpeedMultiplier;
+            
+            if (newCamera.moveSpeed > maxSpeed)
+            {
+                newCamera.moveSpeed = maxSpeed;
+            }
+            player.ChangeSpeed();
+        }
+        
 
 
         Debug.Log("Level" + currentLevel + "started, max platforms are now" + CurrentMaxPlatforms);

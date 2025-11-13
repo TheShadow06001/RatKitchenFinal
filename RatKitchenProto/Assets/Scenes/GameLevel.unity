@@ -17726,8 +17726,9 @@ MonoBehaviour:
   currentLevel: 1
   basePlatformCount: 20
   platformsPerLevelIncrease: 5
-  cameraSpeedMultiplier: 1.1
+  cameraSpeedMultiplier: 1.05
   currentCameraSpeed: 0
+  maxSpeed: 2
   useDynamicScaling: 1
   maxLevel: 999
 --- !u!4 &1980305051

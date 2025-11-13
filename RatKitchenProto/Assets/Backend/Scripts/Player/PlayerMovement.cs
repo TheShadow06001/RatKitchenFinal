@@ -8,7 +8,8 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float forwardAcceleration = 1f;
     [SerializeField] private float maxSpeedMultiplier = 2f;
     [SerializeField] private float verticalJumpForce = 5f;
-    
+    [SerializeField] private float maxSpeed = 4f;
+
     [SerializeField] private PlayerChangeLane laneChanger;
 
     [SerializeField] private float rayLength = 1f;
@@ -29,7 +30,7 @@ public class PlayerMovement : MonoBehaviour
         cameraSpeed = mainCamera.GetComponent<CameraScript>().moveSpeed;
         moveSpeed = cameraSpeed;
         rayCastPosition = transform.position + new Vector3(0, 0.1f, 0);
-        
+
         laneChanger = laneChanger.GetComponent<PlayerChangeLane>();
         rigidBody = GetComponent<Rigidbody>();
         animator = GetComponentInChildren<Animator>();
@@ -38,8 +39,13 @@ public class PlayerMovement : MonoBehaviour
 
     public void ChangeSpeed()
     {
+
         cameraSpeed = mainCamera.GetComponent<CameraScript>().moveSpeed;
         moveSpeed = cameraSpeed;
+
+
+
+
     }
 
 
@@ -49,7 +55,7 @@ public class PlayerMovement : MonoBehaviour
         Jump();
         Vector3 currentPos = transform.position;
         //Debug.DrawRay(rayCastPosition, Vector3.down * rayLength, Color.red);
-        
+
         float totalSpeed = moveSpeed;
 
         currentPos.z += totalSpeed * Time.deltaTime;

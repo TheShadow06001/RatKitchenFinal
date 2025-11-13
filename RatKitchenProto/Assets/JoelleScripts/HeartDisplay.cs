@@ -62,9 +62,9 @@ public class HeartDisplay : MonoBehaviour
                 gameOverUI.SetActive(true);
             
             //Destroy player
-            GameObject player = GameObject.FindGameObjectWithTag("Player");
-            if(player !=null)
-                Destroy(player);
+            //GameObject player = GameObject.FindGameObjectWithTag("Player");
+            //if(player !=null)
+            //    Destroy(player);
                 
             //Debug.Log("Player died, game over");
             /*Scene currentScene = SceneManager.GetActiveScene();
